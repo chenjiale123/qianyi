@@ -1,0 +1,209 @@
+<view class="whole">
+  <view class="kuang" wx:if="{{show1}}">
+    <image src="../../image/guanbi@2x.png" bindtap="close1"></image>
+    <view class="kuangIn">
+      <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">不可用优惠券
+        </view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">可用优惠券
+        </view>
+      </view>
+      <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+        <swiper-item>
+          <view class="youhui">
+            <view class="youhuiIn" wx:if="{{able.length!==0}}" >
+              <view class="li1" wx:for="{{able}}" wx:if="{{item.reasonNo==2}}">
+                <view class="left">{{item.couponMoney}}</view>
+                <view class="center1">
+                  <text class="first">满 {{item.couponFullMoney}} 元可用</text>
+                  <text class="last">官方赠送</text>
+                  <text class="last">{{item.beginDate}}-{{item.endDate}}</text>
+                </view>
+                <view class="right">
+                  <image src="../../image/xuxian@2x.png"></image>
+                  <text>所结算的商品中没有参与该活动的商品</text>
+                </view>
+              </view>
+              <view class="li2" wx:for="{{able}}" wx:if="{{item.reasonNo==3}}">
+                <view class="left1">{{item.couponMoney}}</view>
+                <view class="center1">
+                  <text class="first">满 {{item.couponFullMoney}}  元可用</text>
+                  <text class="last">官方赠送</text>
+                  <text class="last"> {{item.beginDate}}-{{item.endDate}}</text>
+                </view>
+                <view class="right">
+                  <image src="../../image/xuxian@2x.png"></image>
+                  <text>所结算的商品中没有参与该活动的商品</text>
+                </view>
+
+              </view>
+            </view>
+               <view class="youhuiIn" wx:if="{{able.length==0}}">
+            <image src="http://dev.static.qianyipan.com/image/jpg/wukajuan@2x.png"></image>
+            </view>
+          </view>
+
+        </swiper-item>
+        <swiper-item>
+          <view class="youhui">
+            <view class="youhuiIn" wx:if="{{unable.length!==0}}">
+
+              <view class="li1" wx:for="{{unable}}">
+                <view class="left">{{item.couponMoney}}</view>
+                <view class="center1">
+                  <text class="first">满 {{item.couponFullMoney}}  元可用</text>
+                  <text class="last">官方赠送</text>
+                  <text class="last"> {{item.beginDate}}-{{item.endDate}}</text>
+                </view>
+                <view class="right">
+                  <checkbox-group class="checkbox-box" data-checkid="{{index}}" bindchange='goodsdagou'>
+                    <label class="checkbox checkboxHeight">
+                      <checkbox checked="{{item.selected}}" />
+                    </label>
+                  </checkbox-group>
+
+                </view>
+              </view>
+
+
+            </view>
+            <view class="youhuiIn" wx:if="{{unable.length==0}}">
+            <image src="http://dev.static.qianyipan.com/image/jpg/wukajuan@2x.png"></image>
+            </view>
+           <!-- <button bindtap="srue">确定</button> -->
+          </view>
+             
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+
+  <view class="address">
+    <view class="addressIn">
+      <view bindtap="address" wx:if="{{ad==null}}">
+        <text>新增收货地址</text>
+        <image src="../../image/xinzeng@2x.png"></image>
+      </view>
+      <view bindtap="address1" wx:else class="dz">
+        <image src="../../image/xiangqing01@2x.png"></image>
+        <text class="name">{{ad.consigneeName}}</text>
+        <text class="phone">{{ad.consigneePhone}}</text>
+        <view class="dizhi">
+          <text>默认</text>{{ad.areaIdPath}}{{ad.address}}</view>
+      </view>
+      <image src="../../image/tiaowen@2x.png" class="tw"></image>
+    </view>
+  </view>
+  <view class="quan" bindtap="buy">
+    <view class="left">
+      优惠券
+    </view>
+    <view class="right">
+      <image src="../../image/xiangqing01@2x.png"></image>
+      优惠{{countMoney}}元
+
+    </view>
+  </view>
+  <view class="techan">
+    <view class="techanIn">
+      <view class="top">
+        <image src="../../image/dianpu@2x.png"></image>
+        <text>特产</text>
+      </view>
+      <view class="center">
+        <view class="left">
+          <image src="http://dev.static.qianyipan.com/{{detail.shopGoods.imageThumb}}"></image>
+        </view>
+        <view class="right">
+          <text class="txt1">
+          {{detail.shopGoods.goodsName}}</text>
+          <text class="txt2">{{detail.specName}}</text>
+
+          <text class="txt3">￥{{detail.specPrice}}</text>
+        </view>
+      </view>
+      <view class="num">
+        <view class="left">购买数量</view>
+        <view class="right">
+          <view class='c-main' bindtap='getMain' data-index="{{index}}">
+            <image src='../../image/colorReduction@2x.png'></image>
+          </view>
+          <view class='c-num'>{{number}}</view>
+          <view class='c-plus' bindtap='getPlus' data-index="{{index}}">
+            <image src='../../image/coloradd@2x.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class="liuyan">
+        <text>留言</text>
+        <input placeholder="建议留言前先与商家沟通确认" bindinput="yan"></input>
+      </view>
+    </view>
+  </view>
+  <view class="intro">
+    <view class="introIn">
+      <view class="top1">
+        <view class="left">商品金额</view>
+        <view class="right">￥{{all}}</view>
+      </view>
+      <view class="top2">
+        <view class="left">已优惠</view>
+        <view class="right">-￥{{countMoney}}</view>
+      </view>
+      <view class="top3">
+        <view class="left">运费</view>
+        <view class="right">+￥{{yunfei}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="zongjia">
+
+    <view class="all">合计
+      <text>￥{{all_}}</text>
+    </view>
+    <button bindtap="dingdan">提交订单</button>
+
+  </view>
+
+
+  <view class='whole1' wx:if="{{xianshi}}">
+    <view class='contain'>
+      <view class='list'>
+
+        <radio-group bindchange="radioChange" >
+          <label class="tp" wx:for="{{list}}" wx:key="index">
+            <radio checked="{{item.checked}}" bindtap='radio' data-id="{{index}}" value="{{index}}" />
+
+
+            <view class='right1'>
+              <text class='name'>{{item.consigneeName}}</text>
+              <text class='phone'>{{item.consigneePhone}}</text>
+              <view class='dizhi'>
+                <text class='bq1' wx:if="{{item.isDefault}}">默认</text>
+                <text class='bq2' wx:if="{{item.type==2}}">公司</text>
+                <text class='bq2' wx:if="{{item.type==0}}">家</text>
+                <text class='bq2' wx:if="{{item.type==1}}">学校</text>
+                <text class='dz'>{{item.areaIdPath}}{{item.address}}</text>
+              </view>
+            </view>
+            <view class='right2' bindtap='edit' data-id="{{index}}">
+              <text>编辑</text>
+            </view>
+          </label>
+        </radio-group>
+
+
+
+      </view>
+
+      <view class="add" bindtap='add'>
+        <image src='../../image/add@2x.png'></image>
+      </view>
+    </view>
+    <button bindtap="sure">确定</button>
+  </view>
+
+
+</view>

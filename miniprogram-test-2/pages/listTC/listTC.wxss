@@ -1,0 +1,252 @@
+/* pages/listTC/listTC.wxss */
+Page{
+    width: 100%;
+  height: 100%;
+}
+.whole{
+  /* background:rgba(242,242,242,1); */
+  width: 100%;
+  height: 100%;
+  position: relative
+}
+.bj{
+  background: #fff;
+  margin-top: 20rpx;
+  width: 100%;
+  
+}
+.zhezao{
+  width: 100%;
+  height: 100%;
+position: fixed;
+left: 0;
+top: 0;
+background: rgba(0, 0, 0, 0.2)
+}
+.qujian{
+    width: 100%;
+  height: 100%;
+position: fixed;
+left: 0;
+top: 0;
+background: rgba(0, 0, 0, 0.2)
+}
+.list1{
+  width:100%;
+height:146rpx;
+background:rgba(247,247,247,1);
+border-radius:0px 0px 20rpx 20rpx;
+}
+.listIn1{
+  width: 90%;
+  margin: 0 auto;
+  padding-top: 40rpx;
+  box-sizing: border-box
+}
+input{
+  display: inline-block;
+  width:240rpx;
+height:66rpx;
+background:rgba(255,255,255,1);
+border-radius:33rpx;
+}
+input[placeholder]{
+  text-align: center;
+  line-height: 66rpx;
+  font-size:28rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(204,204,204,1);
+}
+button{
+  display: inline-block;
+  width:120rpx;
+height:66rpx;
+background:rgba(255,255,255,1);
+border-radius:33rpx;
+margin-left: 48rpx;
+font-size:28rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(61,178,163,1);
+text-align: center;
+line-height: 66rpx;
+float: right;
+}
+
+.list{
+  width: 100%;
+  height: 30%;
+  background: #fff;
+    padding-top: 50rpx;
+    box-sizing: border-box;
+  
+}
+.listIn{
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+
+}
+.listIn>view{
+  width: 100%;
+  height: 25%;
+  font-size: 32rpx;
+  color: #999;
+  line-height: 25%;
+}
+.tab{
+  width: 100%;
+  height: 92rpx;
+}
+.tab1{
+  width: 20%;
+  height: 100%;
+  float: left;
+  font-size:30rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+line-height: 92rpx;
+
+color:rgba(51,51,51,1)
+}
+.tab2{
+  width: 20%;
+  height: 100%;
+  float: left;
+  font-size:30rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+line-height: 92rpx;
+
+color:rgba(51,51,51,1)
+}
+.tab3{
+  width: 20%;
+  height: 100%;
+  float: left;
+  font-size:30rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+line-height: 92rpx;
+
+color:rgba(51,51,51,1)
+}
+.tab4{
+  width: 20%;
+  height: 100%;
+  float: left;
+  font-size:30rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+line-height: 92rpx;
+
+color:rgba(51,51,51,1)
+}
+.tab5{
+ width: 20%;
+  height: 100%;
+  float: left;
+  font-size:30rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+line-height: 92rpx;
+
+}
+.tab5>image{
+width: 22rpx;
+height: 22rpx;
+
+
+}
+.contain{
+width: 93%;
+margin: 0 auto;
+
+}
+.techan{
+  width: 336rpx;
+  height: auto;
+  float: left;
+box-shadow:0rpx 12rpx 24rpx 0rpx rgba(0, 0, 0, 0.1);
+border-radius:10rpx;
+margin-right: 12rpx;
+margin-top: 18rpx;
+}
+
+.zhutu{
+  width: 336rpx;
+  height:336rpx;
+border-radius:10rpx;
+
+}
+.title{
+  width: 284rpx;
+  height: 64rpx;
+  margin: 0 auto;
+   margin-top: 24rpx;
+}
+.title>.txt>image{
+  display: inline-block;
+  width: 54rpx;
+  height:26rpx;
+
+
+}
+.title>.txt{
+  font-size: 26rpx;
+  color: #1a1a1a;
+
+     display: -webkit-box;
+          -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+
+}
+.huodong {
+  width: 284rpx;
+  margin: 30rpx auto 0 auto;
+
+}
+.final{
+   width: 284rpx;
+  margin: 80rpx auto 0 auto;
+}
+.huodong .price1{
+
+  font-size: 36rpx;
+  color: #f53131;
+  float: left;
+}
+.huodong .price2{
+  float: left;
+  font-size: 28rpx;
+  color: #f53131;
+  margin-top: 10rpx;
+}
+.huodong> image{
+    width: 54rpx;
+  height:26rpx;
+  margin-left: 16rpx;
+  float: left;
+  margin-top: 10rpx;
+}
+.wrong{
+  font-size: 24rpx;
+  color: #b3b3b3;
+float: left;
+display: block;
+}
+.fukuan{
+  float: right;
+  font-size: 22rpx;
+  color: #1a1a1a;
+
+}
+.fukuan>text{
+  color: #f53131;
+}
+.active{
+  color:#3DB2A3
+}

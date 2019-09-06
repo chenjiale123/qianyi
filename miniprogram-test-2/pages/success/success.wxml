@@ -1,0 +1,27 @@
+<view class='whole'>
+<view class="content">
+
+  <view class='succ'>
+    <image src='../../image/successfulicon@2x.png'></image>
+    <text>评价成功</text>
+  </view>
+  <text>可以去商品详情页看看效果了</text>
+  <button bindtap="detailTC">查看我的评价</button>
+
+  <view class='bj'>
+    <image src='../../image/corrugated@2x.png'></image>
+  </view>
+
+</view>
+<view class='contain'>
+    <view class='love'>
+        <text>猜你喜欢</text>
+        <image src='../../image/tab@2x.png'></image>
+        <view class='li' wx:for="{{data3}}" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
+          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <text>{{item.goodsName}}</text>
+        </view>
+    
+      </view>
+</view>
+</view>

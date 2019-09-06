@@ -1,0 +1,50 @@
+<view class='whole'>
+  <!-- <view class='contain'> -->
+  <view class='bj' wx:for="{{goods5}}" wx:if="{{goods5!==null}}">
+    <view class="contain ">
+      <view class='techan'>
+        <image src='../../image/Thestoreicon@2x.png' class='tp'></image>
+        <text>特产</text>
+        <image src='../../image/fanhui@2x.png' class='ck'></image>
+        <view class='right'>
+          <text>待评价 </text>
+
+        </view>
+        <view class='list '>
+          <view class="intop " bindtap="jdDetail " data-id="{{item.id}} ">
+            <view class="In " wx:for="{{item.orderGoodsList}}">
+              <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+              <view class='right1'>
+                <text class='title'>{{item.goodsName}}</text>
+                <text class='com'>{{item.goodsSpecnames}}</text>
+              </view>
+              <view class='right2'>
+                <text class='num1'>{{item.goodsRealPrice}}</text>
+                <text class='num2'>x{{item.goodsNum}}</text>
+              </view>
+
+            </view>
+
+            <text class='all'>合计：{{item.realTotalMoney}} 共{{item.orderGoodsList.length}}件商品</text>
+
+            <text class='all'></text>
+
+          </view>
+          <view class='btn'>
+
+
+            <button bindtap="shanchu " data-in="{{item.id}} ">删除</button>
+
+            <button class='etc' bindtap='detail' data-id="{{item.goodsId}} " data-in="{{item.id}} ">评价</button>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bj' wx:if="{{leng5==0}}">
+    <image src="http://dev.static.qianyipan.com/image/jpg/wudingdan@2x.png "></image>
+  </view>
+
+  <!-- </view> -->
+</view>

@@ -1,0 +1,112 @@
+<view class="whole" wx:if='{{!dl}}'>
+
+  <view class="edit">
+    <text bindtap="zhuanhua" wx:if="{{show}}">编辑</text>
+    <text bindtap="zhuanhua1" wx:if="{{!show}}">完成</text>
+
+  </view>
+  <view class="goods">
+    <view class="goodsIn" wx:if="{{she!==false}}">
+      <view class='carsList'>
+        <view wx:for="{{cardTeams}}" wx:key="key">
+          <view class="row c-btm-list {{item.isTouchMove ? 'touch-move-active' : ''}}">
+            <!--多选框-->
+            <view style='width:60rpx;height:60rpx;' wx:if="{{item.stock == 0}}"></view>
+            <checkbox-group class="checkbox-box" data-checkid="{{index}}" bindchange='goodsdagou' wx:if="{{item.stock != 0}}">
+              <label class="checkbox checkboxHeight">
+                <checkbox checked="{{item.selected}}" />
+              </label>
+            </checkbox-group>
+            <!-- 商品列表 -->
+            <view class=' row btm-box' id="{{item.shopGoodsWithBLOBs.id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="drawEnd" data-index='{{index}}'>
+              <view class='c-cont-left'>
+                <view class='c-cont-icon'>
+                  <image src='http://dev.static.qianyipan.com/{{item.shopGoodsWithBLOBs.imageThumb}}' mode='aspectFit'></image>
+                </view>
+              </view>
+              <view class='c-cont-right column'>
+                <view class='c-right-top'>
+                  {{item.shopGoodsWithBLOBs.goodsName}}
+                </view>
+                <view class='c-number'>
+                  <text>{{item.shopGoodsSpecid.specName}}</text>
+
+                </view>
+                <view class='c-right-btm between'>
+                  <view class='c-price'>
+                    ￥{{item.shopGoodsSpecid.specPrice}}
+
+                  </view>
+                  <view class='c-shoptrolley'>
+                    <view class='c-carts-num row'>
+                      <view class='c-main' bindtap='getMain' data-index="{{index}}">
+                        <image src='../../image/colorReduction@2x.png'></image>
+                      </view>
+                      <view class='c-num'>{{item.cartNum}}</view>
+                      <view class='c-plus' bindtap='getPlus' data-index="{{index}}">
+                        <image src='../../image/coloradd@2x.png'></image>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <view class='modal' wx:if="{{item.stock == 0}}">
+                <view class='c-cont-left'>
+                  <view class='c-cont-icon'>
+                    <!-- <image src='../../images/noData.png' mode='aspectFit'></image> -->
+                  </view>
+                </view>
+              </view>
+              <!--删除  -->
+              <view class="remove" bindtap="delItem" data-index='{{index}}'>
+                <text>删除</text>
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class="goodsIn" wx:if="{{she==false}}">
+    <image src="../../image/shoppingcar@2x.png"></image>
+      <text class="etc">购物车是空的哦，快去添加商品</text>
+    </view>
+  </view>
+  <view class="zongjia" wx:if="{{jiage}}">
+    <checkbox-group class="checkbox-box1" data-checkid="{{index}}" bindchange='checkedAll'>
+      <label class="checkbox checkboxHeight">
+        <checkbox checked="{{checked_all}}" />
+      </label>
+    </checkbox-group>
+    <view class="all">合计
+      <text>￥{{countMoney}}</text>
+    </view>
+    <button bindtap="dingdan" class="btn">去结算</button>
+
+  </view>
+  <view class="zongjia" wx:if="{{!jiage}}">
+    <checkbox-group class="checkbox-box1" data-checkid="{{index}}" bindchange='checkedAll'>
+      <label class="checkbox checkboxHeight">
+        <checkbox checked="{{checked_all}}" />
+      </label>
+    </checkbox-group>
+
+    <button bindtap="dingdan1" class="dingdan1">删除</button>
+
+  </view>
+  <view class='love'>
+    <text>猜你喜欢</text>
+    <image src='../../image/tab@2x.png'></image>
+    <view class='li' wx:for="{{goodsList}}" wx:key="goodsList" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
+      <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+      <text>{{item.goodsName}}</text>
+      <text class="price">￥{{item.discountPrice}}</text>
+    </view>
+
+  </view>
+</view>
+
+<view class="whole" wx:if='{{dl}}'>
+  <text>您还未登录，无法查看购物车</text>
+</view>

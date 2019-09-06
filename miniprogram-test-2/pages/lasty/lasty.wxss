@@ -1,0 +1,98 @@
+Page{
+    width: 100%;
+    height: 100%;
+  background:rgba(242,242,242,1);
+
+}
+.whole{
+  background:rgba(242,242,242,1);
+  width: 100%;
+}
+.bj{
+  background: #fff;
+  margin-top: 20rpx;
+  width: 100%;
+  
+}
+.contain{
+width: 94%;
+margin: 0 auto;
+
+}
+.time{
+  margin-top: 38rpx;
+  color: #666;
+  font-size: 24rpx;
+
+}
+.list1{
+width: 100%;
+height:160rpx;
+margin-top: 20rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+  position: relative;
+}
+.list2{
+  width: 100%;
+height:160rpx;
+
+ 
+  position: relative;
+}
+.list3{
+  width: 100%;
+height:auto;
+
+ 
+  position: relative;
+}
+ .image2{
+  position: absolute;
+  width: 108rpx;
+  height: 108rpx;
+top: 26rpx;
+left: 0;
+
+}
+.img{
+    position: absolute;
+  width: 26rpx;
+  height: 26rpx;
+top: 100rpx;
+left: 128rpx;
+}
+ .com{
+color: #1a1a1a;
+position: absolute;
+font-size: 32rpx;
+top: 30rpx;
+left: 128rpx;
+
+}
+.price{
+  position: absolute;
+  left: 128rpx;
+  top:106rpx;
+  color: #f53131;
+  font-size: 24rpx;
+}
+.fen{
+    position: absolute;
+  left: 156rpx;
+  top:106rpx;
+  color: #f53131;
+  font-size: 24rpx;
+}
+button{
+  width: 176rpx;
+  height: 40rpx;
+  right: 0;
+  position: absolute;
+  top: 112rpx;
+  background: #91e673;
+  border-radius: 20rpx;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 38rpx;
+  text-align: center;
+}

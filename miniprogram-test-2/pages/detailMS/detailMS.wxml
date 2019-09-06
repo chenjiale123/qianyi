@@ -1,0 +1,262 @@
+<view class="contain">
+  <view class="cu" wx:if="{{show2}}">
+    <view class="kuang">
+      <image src="../../image/guanbi@2x.png" bindtap="close2"></image>
+      <view class="kuangIn">
+        <view wx:if="{{store.length==0}}" class="in">
+          <image src="http://dev.static.qianyipan.com/image/jpg/wuneirong@2x.png"></image>
+          <text>暂无促销活动</text>
+        </view>
+        <view class="in" wx:else>
+          <view class="li2" wx:for="{{store}}">
+            <view class="left">
+              <text>满减</text>
+            </view>
+            <view class="right">
+              <text class="d">{{item.couponName}}{{item.remarks}}</text>
+              <text class="e">活动时间：{{item.createTime}}-{{item.endDate}}</text>
+
+            </view>
+          </view>
+
+        </view>
+      </view>
+
+    </view>
+
+
+  </view>
+  <view class="cu" wx:if="{{show1}}">
+    <view class="kuang">
+      <image src="../../image/guanbi@2x.png" bindtap="close1"></image>
+      <view class="kuangIn">
+        <view class="goods">
+          <view class="left">
+            <image src="http://dev.static.qianyipan.com/{{goods.imageThumb}}"></image>
+          </view>
+          <view class="right">
+            <text class="w1">￥{{pri}}</text>
+            <text class="w2">库存{{ku}}件</text>
+            <text class="w3">商品编号：{{goods.productCode}}</text>
+          </view>
+        </view>
+        <view class="guige">
+          <text>包装口味</text>
+          <button wx:for="{{leng1}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="clicktap" class='{{item.checked?"checked_button":"normal_button"}}' disabled="{{item.specInventory==0}}">{{item.specName}}</button>
+        </view>
+        <view class="num1">
+          <view class="left">购买数量</view>
+          <view class="right">
+            <view class='c-main' bindtap='getMain' data-index="{{index}}">
+              <image src='../../image/colorReduction@2x.png'></image>
+            </view>
+            <view class='c-num'>{{salesNum}}</view>
+            <view class='c-plus' bindtap='getPlus' data-index="{{index}}">
+              <image src='../../image/coloradd@2x.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="bom">
+        <button bindtap="dingdan">确定</button>
+      </view>
+    </view>
+  </view>
+  <view class="cu" wx:if="{{show3}}">
+    <view class="kuang">
+      <image src="../../image/guanbi@2x.png" bindtap="close3"></image>
+      <view class="kuangIn">
+        <view class="goods">
+          <view class="left">
+            <image src="http://dev.static.qianyipan.com/{{goods.imageThumb}}"></image>
+          </view>
+          <view class="right">
+            <text class="w1">￥{{pri}}</text>
+            <text class="w2">库存{{ku}}件</text>
+            <text class="w3">商品编号：{{goods.productCode}}</text>
+          </view>
+        </view>
+        <view class="guige">
+          <text>包装口味</text>
+          <button wx:for="{{leng1}}" data-id="{{item.id}}" data-index="{{index}}" bindtap="clicktap" class='{{item.checked?"checked_button":"normal_button"}}' disabled="{{item.specInventory==0}}">{{item.specName}}</button>
+        </view>
+        <view class="num1">
+          <view class="left">购买数量</view>
+          <view class="right">
+            <view class='c-main' bindtap='getMain' data-index="{{index}}">
+              <image src='../../image/colorReduction@2x.png'></image>
+            </view>
+            <view class='c-num'>{{salesNum}}</view>
+            <view class='c-plus' bindtap='getPlus' data-index="{{index}}">
+              <image src='../../image/coloradd@2x.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="bom">
+        <button bindtap="dingdan1">确定</button>
+      </view>
+    </view>
+  </view>
+  <view class='lunbo'>
+    <swiper autoplay="true">
+      <swiper-item wx:for="{{img}}" wx:key="index">
+        <image src='http://dev.static.qianyipan.com/{{item}}'></image>
+        <view class='num'>
+          {{index+1}}/5
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class='intro'>
+    <image src="../../image/beijing1@2x.png"></image>
+
+    <view class='introIn'>
+      <view class='top'>
+        <!-- <view class='a'>
+          ￥{{goods.discountPrice}}
+        </view>
+        <text class='b'>￥{{goods.price}}</text>
+        <text class='c'>包邮</text> -->
+
+        <view class="left">
+          <text class="etc1">￥{{goods.discountPrice}}</text>
+          <text class="etc2">包邮</text>
+
+          <image src="../../image/xsms1@2x .png"></image>
+          <text class="etc3">￥{{goods.price}}</text>
+        </view>
+        <view class="right">
+          <text>距结束还剩</text>
+
+          <!-- <view class='showtime' wx:for="{{countDownList}}" wx:key="countDownList">
+            <text class='time'>{{item.hou}}</text>:
+            <text class='time'>{{item.min}}</text>:
+            <text class='time'>{{item.sec}}</text>
+          </view> -->
+   <view class="flex_l_r_c">
+
+            <text>{{countdown}}</text>
+          </view>
+
+        </view>
+
+      </view>
+      <view class='title'>
+        <view class='left'>
+          <image src='../../image/xpbq@2x.png'></image>
+          <text>{{goods.goodsName}}</text>
+        </view>
+        <view class='right'>
+         <view class="Too" animation="{{ani}}">
+         <image src="../../image/xinyuan@2x.png" ></image>
+         </view>
+          <image src='../../image/xinyuan@2x.png' wx:if="{{sh}}" bindtap="click"></image>
+          <image src='../../image/xinyuan01@2x.png' wx:if="{{!sh}}" bindtap="click1"></image>
+
+          <text>心愿单</text>
+        </view>
+      </view>
+      <view class='didian'>
+        <text class="a"> 该特产来自</text>
+        <text class='b'>{{goods.address}}</text>
+        <text class='c'>已售{{goods.sales}}</text>
+      </view>
+
+      <view class='xiao' bindtap="cuxiao">
+        <view class='left'>
+          <text>促销</text>
+          <text class='ka'>满减</text>
+          <!-- <text class='la' wx:if="{{item.discountStoresList}}==null">暂无促销活动</text> -->
+          <text class='la' wx:for="{{dd.promotionList}}">{{item.remarks}}</text>
+        </view>
+        <view class='right'>
+          <image src='../../image/xaingqing@2x.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='xuan'>
+    <view class='left'>
+      <text>已选</text>
+      <view class="leftin1" bindtap="buy">
+        <text class='la'>{{dd.goodsSpecidList[0].specName}}</text>
+      </view>
+    </view>
+    <view class='right'>
+      <image src='../../image/xaingqing@2x.png'></image>
+    </view>
+  </view>
+  <view class='contant'>
+    <view class='contentIn'>
+      <view class='first' bindtap="tz">
+        <view class='left'>
+          <text>评价</text>
+        </view>
+        <view class='right'>
+          <text wx:if="{{leng.length==0}}">暂无评价</text>
+
+          <text wx:else>{{leng}}条评价</text>
+          <image src='../../image/xaingqing@2x.png'></image>
+        </view>
+      </view>
+      <view class='pinlun' wx:for="{{comment}}" wx:key="comment">
+        <view class='pinlunIn'>
+          <view class='xin'>
+            <view class='left'>
+              <image src='http://dev.static.qianyipan.com/{{item.userInfo.infoIcon}}'></image>
+              <text>{{item.userInfo.infoNickname}}</text>
+            </view>
+            <view class='right'>
+              <image src='../../image/shouzang01@2x.png' wx:for="{{item.commodityScore}}" wx:key="index"></image>
+            </view>
+          </view>
+          <text>{{item.commentsContents}}</text>
+          <view class='tp'>
+            <!-- <image src='http://dev.static.qianyipan.com/{{item}}'></image> -->
+
+          </view>
+        </view>
+      </view>
+
+      <button class="btn4" bindtap="tz">查看全部评价</button>
+    </view>
+  </view>
+  <view class='see'>
+    <view class='seeIn'>
+      <text>大家都在看</text>
+      <view class='list'>
+        <view class='li' wx:for="{{goods1}}" wx:key="index" bindtap="look" data-id="{{item.id}}">
+          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <text class='tl'>{{item.goodsName}}</text>
+          <text class='pr'>￥{{item.discountPrice}}</text>
+        </view>
+
+      </view>
+      <button class="btn">
+        <image src='../../image/shangla01@2x.png'></image>
+        上拉查看图文详情
+      </button>
+    </view>
+  </view>
+  <view class="bottom" wx:if="{{show}}">
+    <import src="../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class='price'>
+    <view class='kefu'>
+      <image src='../../image/kefu@2x.png'></image>
+      <contact-button type="default-dark" size="20" session-from="weapp"></contact-button>
+
+      <text>客服</text>
+    </view>
+    <view class='gouwu' bindtap="gouwu1">
+      <image src='../../image/gouwu@2x.png'></image>
+      <text>购物车</text>
+    </view>
+    <button class="btn3" bindtap="buy">立即购买</button>
+    <button class="btn2" bindtap="gouwuche">加入购物车</button>
+
+  </view>
+  <view class="model" wx:if="{{model}}">加入购物车成功</view>
+</view>

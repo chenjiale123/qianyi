@@ -1,0 +1,77 @@
+/* pages/wuliu/wuliu.wxss */
+Page{
+  width: 100%;
+  height: 100%
+}
+.whole{
+  background:rgba(242,242,242,1);
+  width: 100%;
+  height: 100%
+}
+.bj{
+  background: #fff;
+  margin-top: 20rpx;
+  width: 100%;
+  
+}
+.contain{
+      width: 94%;
+  margin: 0 auto;
+}
+.wuliu{
+  width: 100%;
+  height:298rpx;
+}
+.wuliu .time{
+display: block;
+width: 298rpx;
+  font-size: 22rpx;
+  color: #666;
+  margin: 0 auto;
+  margin-top: 48rpx;
+
+}
+.list{
+  width: 100%;
+  height: 268rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+.list .tishi{
+position: absolute;
+  color: #1a1a1a;
+  font-size: 32rpx;
+top: 20rpx
+}
+.jinru{
+right:40rpx;
+top: 30rpx;
+  font-size: 24rpx;
+  color: #666;
+  position: absolute;
+
+}
+.list .img1{
+  position: absolute;
+  right: 10rpx;
+  width: 12rpx;
+  height: 20rpx;
+  top: 40rpx;
+}
+.list .image2{
+top: 80rpx;
+  width: 148rpx;
+  height: 148rpx;
+  left: 0;
+  position: absolute;
+
+
+}
+.list .com{
+  top:120rpx;
+  position: absolute;
+  right: 0;
+  font-size: 28rpx;
+  color: #1a1a1a;
+  width: 70%
+}

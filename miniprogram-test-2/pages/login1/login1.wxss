@@ -1,0 +1,64 @@
+.whole{
+  /* background:rgba(242,242,242,1); */
+  width: 100%;
+}
+.contain{
+  width: 80%;
+  margin: 0 auto;
+
+}
+.contain image{
+  width: 180rpx;
+  height: 120rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 120rpx;
+}
+.contain .center{
+  width: 100%;
+  height: 198rpx;
+  margin-top: 156rpx;
+
+}
+.contain .center input{
+  position: relative;
+  width: 100%;
+  height:50%;
+  border-bottom: 2rpx solid#b3b3b3;
+  /* background:url('../../image/bukekan@2x.png') no-repeat 90% 20%; */
+  opacity: 0.4;
+}
+.contain .center input .yzm{
+  position: absolute;
+  right: 0;
+  top: 0;
+    font-size: 32rpx;
+    z-index: 9999999999;
+}
+.contain .center input[placeholder]{
+  color: #b3b3b3;
+  line-height: 98rpx;
+  font-size: 32rpx;
+   opacity: 0.4;
+}
+.btn{
+  width:100%;
+  height:112rpx;
+  background:linear-gradient(-8deg,rgba(61,179,163,1) 0%,rgba(145,230,115,1) 100%);
+  box-shadow:0rpx 8rpx 40rpx 0rpx rgba(144,240,169,0.6);
+border-radius:56rpx;
+margin-top: 88rpx;
+line-height: 112rpx;
+font-size: 36rpx;
+color: #fff;
+}
+.tishi{
+  margin-top: 40rpx;
+    display: flex;
+  justify-content: space-between;
+}
+text{
+  font-size: 24rpx;
+color: #999;
+
+}

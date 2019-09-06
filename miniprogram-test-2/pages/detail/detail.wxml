@@ -1,0 +1,187 @@
+<view class="whole">
+  <view class="cu" wx:if="{{show2}}">
+    <view class="kuang">
+      <text>选择游玩日期</text>
+      <image src="../../image/guanbi@2x.png" bindtap="close2"></image>
+      <view class="kuangIn">
+        <view class="price1">
+          <view class="left">
+            {{jin.scenicName}}
+          </view>
+          <view class="right">
+             <!-- <text wx:if="{{date1=='8-22'}}">${{etcPrice}} /张</text>  -->
+            <text wx:if="{{tictor1}}"  >￥{{tictor1}} /张</text>
+          </view>
+
+        </view>
+        <view class="btn">
+          <button>
+            {{date}}
+             <!-- <text wx:if="{{date1=='8-22'}}">${{etcPrice}}</text>  -->
+            <text wx:if="{{tictor1}}" >￥{{tictor1}}</text>
+            <image src="../../image/xuanzhk@2x.png"></image>
+          </button>
+        </view>
+        <button bindtap="more">更多日期
+          <image src="../../image/xiala@2x.png"></image>
+        </button>
+
+        <view class="date" wx:if="{{show}}">
+          <!--  -->
+          <view style="position:fixed;bottom:550rpx;background:#F5F5F5;font-size: 30rpx; padding-top: 10rpx;padding-bottom: 15rpx;">
+            <view class="layout-flex row" >
+              <text class="date-week" style="width:{{systemInfo.windowWidth/7-15}}px;height:20px" wx:for="{{weekStr}}" wx:key="{                       {index}}">
+                 <text wx:if="{{item !=='日' && item !=='六'}}">{{item}}</text>
+              <text wx:if="{{item ==='日' || item ==='六'}}" class="week">{{item}}</text>
+              </text>
+            </view>
+          </view>
+          <view style="margin-top:50px"></view>
+          <view wx:for="{{dateList}}" wx:key="{{index}}" wx:for-item="dateItem" style="padding-top:26rpx 0">
+            <view class="date-year-month" style="text-align: center;font-size:35rpx;">{{dateItem.year}}年{{dateItem.month}}月</view>
+            <view class="layout-flex row" style="flex-wrap: wrap;margin-top:40rpx;">
+              <view class="date-day {{item.day<=0?'bgwhite':item.class}}" style="width:{{systemInfo.windowWidth/7-8}}px;height:                      {{systemInfo.windowWidth/10}}px;" data-year="{{dateItem.year}}" data-month="{{dateItem.month}}" data-day="{{item.day}}                    "
+                bindtap="onPressDate" wx:for="{{dateItem.days}}" data-date="{{tictor1}}" wx:key="{{index}}">
+                <view class='item-days'>
+                  <text style='font-size:28rpx;'>{{item.day>0?(item.daytext?item.daytext:item.day):''}}</text>
+                  <text style='font-size:30rpx;' wx:if="{{item.inday}}">
+       
+                   <!-- <text wx:if="{{mon==9&&day1==10}}">{{etcPrice}}</text> -->
+                  <text >￥{{tictor1}}</text>
+                  </text>
+
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+
+      </view>
+      <button bindtap="add">立即预订</button>
+    </view>
+
+
+  </view>
+  <view class='lunbo'>
+    <swiper>
+      <swiper-item wx:for="{{leng}}">
+        <image src='http://dev.static.qianyipan.com/{{item}}'></image>
+        <view class='num'>
+          {{index+1}}/{{leng.length}}
+        </view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+  <view class='intro'>
+    <image src='../../image/yuanquan@2x.png'></image>
+    <view class='viewIn'>
+      <view class='left'>
+        <text>{{jin.scenicName}}</text>
+        <view class='lt'>
+          开放时间
+          <text> {{jin.beginTime}}-{{jin.endTime}} </text>
+          <text class='xiu'>开放中</text>
+        </view>
+
+      </view>
+      <view class='right'>
+        <text class='fen'>{{jin.score}}.0分</text>
+        <view class='pj'>
+          <!-- <text >612评价</text> -->
+        </view>
+
+      </view>
+      <!-- <text class='jie'>望庐山瀑布中的飞流直下三千尺，疑是银河落九天原...</text> -->
+
+      <view class='mian'>
+        <view class='left'>
+          <image src='../../image/mian@2x.png'></image>
+          <text>限时抢购免费门票</text>
+        </view>
+        <view class='right'>
+          <text>详情</text>
+          <image src='../../image/gengduo1.png'></image>
+        </view>
+      </view>
+
+      <view class='map'>
+        <view class='left'>
+          <image src='../../image/dizhi@2x.png'></image>
+          <text>{{jin.locationName}}</text>
+        </view>
+        <view class='right' bindtap="map">
+          <text>地图</text>
+          <image src='../../image/gengduo1.png'></image>
+        </view>
+      </view>
+    </view>
+
+
+
+
+  </view>
+
+  <view class="list">
+     <image src='../../image/yuanquan@2x.png'></image>
+     <view class="listIn">
+       <text class="title">门票</text>
+       <view class="form" wx:for="{{scenic}}">
+       <view class="left">
+       <view class="top">{{item.ticketName}} <text wx:if="{{item.ticketLabel==0}}">随买随卖</text>
+       <text wx:else>随时退</text>
+       </view>
+              <view class="down">
+              ￥{{item.ticketPrice}} <text>已售{{item.ticketSale}}</text>
+              </view>
+       </view>
+       <view class="right">
+       <button bindtap="yuding" data-index="{{index}}">预订</button></view>
+       </view>
+     </view>
+  </view>
+  <view class='tab'>
+    <view class='tabIn'>
+      <view class="swiper-tab">
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">游玩攻略
+
+        </view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">购票须知
+
+        </view>
+
+      </view>
+
+
+      <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+        <swiper-item>
+    
+          <view class="bottom">
+            <import src="../../wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+          </view>
+        </swiper-item>
+
+
+        <swiper-item>
+          <view class="bottom">
+            <import src="../../wxParse/wxParse.wxml" />
+            <template is="wxParse" data="{{wxParseData:article1.nodes}}" />
+          </view>
+        </swiper-item>
+
+      </swiper>
+    </view>
+
+  </view>
+  <!-- <view class='price'>
+    <view class='left'>
+      景点门票 ：
+
+                  <text wx:if="{{tictor1}}">${{tictor1}}</text>
+    </view>
+    <button bindtap="yuding">立即预订</button>
+  </view> -->
+</view>

@@ -1,0 +1,122 @@
+<view class="contain">
+
+
+  
+  <image class='sousuo' src='../../image/sousuo01@2x.png'></image>
+  <input placeholder='搜索你心仪的商品' bindfocus="sousuo"></input>
+  <swiper class="lunbo" autoplay="true">
+    <swiper-item wx:for="{{data1}}" wx:key="data1">
+      <image src='http://dev.static.qianyipan.com/{{item.picture}}'></image>
+    </swiper-item>
+    <view class="idea">
+    <view class="ripple" style="{{rippleStyle}}"></view>
+<view class="container" bindtap="containerTap"></view>
+    </view>
+  </swiper>
+  <view class='new'>
+    <image src='../../image/kuaibao@2x.png'></image>
+    <text class='class1'>最新</text>
+    <text class='class2'>{{aritle}}</text>
+    <text class='right' bindtap='search'>更多</text>
+  </view>
+
+  <view class='list1'>
+    <image src='../../image/xsms@2x.png' class='img1'></image>
+
+ 
+       <view class="flex_l_r_c">
+距离结束
+            <text>{{countdown}}</text>
+          </view>
+    <image src='../../image/gengduo@2x.png' class='img2'></image>
+    <text class='more' bindtap='miaosha'> 更多</text>
+    <view class="litop">
+      <view class='moreli'>
+        <view class='li' wx:for="{{data}}" wx:key="data" bindtap="detailMS" data-id="{{item.id}}" data-in="{{item.shopGoods}}">
+          <view class='tp'>
+            <image src='http://dev.static.qianyipan.com/{{item.shopGoods.imageThumb}}' class='img3'></image>
+            <image src='../../image/TOP1@2x.png' class='img4'  wx:if="{{index==0}}"></image>
+                      <image src='../../image/TOP2@2x.png' class='img4'  wx:if="{{index==1}}"></image>
+                                <image src='../../image/TOP3@2x.png' class='img4'  wx:if="{{index==2}}"></image>
+          </view>
+          <text class='intro'>{{item.shopGoods.goodsName}}</text>
+          <text class='pri'>￥{{item.shopGoods.discountPrice}}</text>
+          <image src='../../image/qiang@2x.png' class='qiang'></image>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class='list2'>
+
+    <view class="swiper-tab">
+      <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">热门推荐
+
+
+      </view>
+      <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">猜你喜欢
+
+      </view>
+
+    </view>
+    <image src='../../image/gengduo@2x.png' class='img3'></image>
+    <text class='more1' bindtap="listTC"> 更多</text>
+    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{(data3.length/2+data2.length/2)*340+200}}rpx'>
+      <swiper-item>
+        <view>
+          <view class='techan' bindtap='detail' wx:for="{{data2}}" data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
+            <image class='zhutu' src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+            <view class='title'>
+
+              <view class="txt">
+                <image src="../../image/xpbq@2x.png"></image> {{item.goodsName}}</view>
+            </view>
+            <view class='huodong'>
+              <text class='price1'>￥{{item.discountPrice}}</text>
+
+              <image src='../../image/mjbq@2x.png'></image>
+            </view>
+            <view class='final'>
+              <text class='wrong'>￥{{item.price}}</text>
+              <view class='fukuan'>
+                <text>{{item.sales}}</text>人付款
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </swiper-item>
+
+
+      <swiper-item>
+        <view>
+          <view class='techan' bindtap='detail' wx:for="{{data3}}" wx:key="data3" data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
+            <image class='zhutu' src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+            <view class='title'>
+
+              <view class="txt">
+                <image src="../../image/xpbq@2x.png"></image> {{item.goodsName}}</view>
+            </view>
+            <view class='huodong'>
+              <text class='price1'>￥{{item.discountPrice}}</text>
+
+              <image src='../../image/mjbq@2x.png'></image>
+            </view>
+            <view class='final'>
+              <text class='wrong'>￥{{item.price}}</text>
+              <view class='fukuan'>
+                <text>{{item.sales}}</text>人付款
+              </view>
+            </view>
+          </view>
+
+        </view>
+      </swiper-item>
+
+    </swiper>
+
+  </view>
+</view>

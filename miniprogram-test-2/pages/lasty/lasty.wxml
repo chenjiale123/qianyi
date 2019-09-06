@@ -1,0 +1,23 @@
+<!--pages/lasty/lasty.wxml-->
+<!-- <view class='contain'> -->
+<view class='whole'>
+  <view class='list'>
+
+    <view class='bj'>
+      <view class="contain">
+        <view class='list1' wx:for="{{array1}}">
+          <image src='http://dev.static.qianyipan.com/{{item.img}}' class='image2'></image>
+          <text class='com'>{{item.name}}</text>
+          <text class='price'>￥{{item.price}}</text>
+          <button bindtap='show' bindtap="detail" data-id="{{item.id}}">查看详情</button>
+
+        </view>
+         <view class="list3" wx:if="{{array1.length==0}}">
+          <image src="http://dev.static.qianyipan.com/image/jpg/empty@2x.png"></image>
+         </view>
+   
+      </view>
+    </view>
+    <!-- </view> -->
+  </view>
+</view>

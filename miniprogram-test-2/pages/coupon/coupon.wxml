@@ -1,0 +1,35 @@
+<view class='whole'>
+<view class='contain'>
+  <view class='list' wx:for="{{discourt}}" wx:key="discourt">
+    <view class='quan'>{{item.couponMoney}} </view>
+    <text class='type1'>满 {{item.couponFullMoney}} 元可用</text>
+    <text class='type2'>商品领取</text>
+    <text class='type3'>将于{{item.endDate}} 过期</text>
+    <button class='btn1'> 使用</button>
+  </view>
+   <view class='list' wx:for="{{disuser}}" wx:key="disuser">
+    <view class='quan'>{{item.couponMoney}} </view>
+    <text class='type1'>满 {{item.couponFullMoney}} 元可用</text>
+    <text class='type2'>商品领取</text>
+    <text class='type3'>将于{{item.endDate}} 过期</text>
+    <button class='btn1'> 使用</button>
+  </view>
+  <view class='list' wx:for="{{disshop}}" wx:key="disshop">
+    <view class='quan1'>{{item.couponMoney}}</view>
+    <text class='type1'>满 {{item.couponFullMoney}} 元可用</text>
+    <text class='type2'>商品领取</text>
+    <text class='type3'>将于{{item.endDate}}过期</text>
+    <button class='btn2'>过期</button>
+  </view>
+   <view class='list' wx:for="{{disablestroy}}" wx:key="disablestroy">
+    <view class='quan1'>{{item.couponMoney}}</view>
+    <text class='type1'>满 {{item.couponFullMoney}} 元可用</text>
+    <text class='type2'>商品领取</text>
+    <text class='type3'>将于{{item.endDate}}过期</text>
+    <button class='btn2'>过期</button>
+  </view>
+  <view class="list1" wx:if="{{discourt==''&&disuser==''&&disshop==''&&disablestroy==''}}">
+       <image src="http://dev.static.qianyipan.com/image/jpg/wukajuan@2x.png"></image></view>
+  <!-- <text class='last'>没有更多了</text> -->
+</view>
+</view>

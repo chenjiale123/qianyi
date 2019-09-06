@@ -1,0 +1,111 @@
+<view class="contain">
+
+  <image src="../../image/xfzd.png" class="la" bindtap="top"></image>
+  <view class='top'>
+
+
+    <picker bindchange="changeCountry" value="{{index1}}" data-in="{{array[index1]}}" data-id="{{index1}}" range="{{array}}">
+      <view class="picker">
+        {{array[index1]}}
+      </view>
+
+    </picker>
+
+
+    <image class='xiala' src='../../image/xiala@2x.png'></image>
+
+    <image src='../../image/sousuo01@2x.png' class='sousuo'></image>
+    <input placeholder='景点/门票' bindfocus="sousuo1"></input>
+
+  </view>
+  <view class="dd">
+    <view class="biaoqian">
+      热门标签:
+      <text wx:for="{{list}}" bindtap="cleck" data-in="{{item.scenicName}}">{{item.scenicName}}</text>
+      <!-- <text>三叠泉</text>
+    <text>西海温泉</text> -->
+    </view>
+  </view>
+  <view class='icon'>
+    <view bindtap="fg">
+      <image src='../../image/ziran@2x.png'></image>
+      <text>自然风光</text>
+    </view>
+    <view bindtap="wq">
+      <image src='../../image/wenquan@2x.png'></image>
+      <text>温泉</text>
+    </view>
+    <view bindtap="ms">
+      <image src='../../image/guji@2x.png'></image>
+      <text>名胜古迹</text>
+    </view>
+    <view bindtap="ylc">
+      <image src='../../image/youlechang@2x.png'></image>
+      <text>公园游乐场</text>
+    </view>
+    <view bindtap="zjy">
+      <image src='../../image/zijia@2x.png'></image>
+      <text>自驾出游</text>
+    </view>
+  </view>
+
+  <view class='show'>
+    <image src='../../image/yuanquan@2x.png'></image>
+    <text>为你优选</text>
+    <view class='right' bindtap="change">
+      <image src='../../image/huanyipi@2x.png'></image>
+      <text>换一批</text>
+    </view>
+    <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if='{{jindian!=null&&find}}'>
+      <image src='http://dev.static.qianyipan.com/{{item.pictureCover}}'></image>
+      <view class='right'>
+        <view class="xiu">
+          <text class='title'>{{item.scenicName}}</text>
+          <view class='fw'>自然风光</view>
+        </view>
+
+        <view class='fen'>
+          <image src='../../image/pingfen01@2x.png' wx:for="{{item.score}}" wx:key="item.score"></image>
+          <text class='pinfen'>{{item.score}}分</text>
+        </view>
+
+        <view class='intro'>
+          <text>{{item.distance/1000}}km</text>
+          <text>{{item.city}}</text>
+        </view>
+        <view class='price' bindtap='price'>
+          <text class='small'>￥</text>
+          <text class='big'>{{item.ticketPrice}}</text>
+        </view>
+        <text class='ka'>随买随用</text>
+      </view>
+    </view>
+    <view class='list' wx:for="{{goodsList1}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{!find}}">
+      <image src='http://dev.static.qianyipan.com/{{item.pictureCover}}'></image>
+      <view class='right'>
+        <view class="xiu">
+          <text class='title'>{{item.scenicName}}</text>
+          <view class='fw'>自然风光</view>
+        </view>
+        <view class='fen'>
+          <image src='../../image/pingfen01@2x.png' wx:for="{{item.score}}" wx:key="item.score"></image>
+          <text class='pinfen'>{{item.score}}分</text>
+        </view>
+
+        <view class='intro'>
+          <text>{{item.distance/1000}}km</text>
+          <text>{{item.city}}</text>
+        </view>
+        <view class='price' bindtap='price'>
+          <text class='small'>￥</text>
+          <text class='big'>{{item.ticketPrice}}</text>
+        </view>
+        <text class='ka'>随买随用</text>
+      </view>
+    </view>
+     <view class="list1" wx:if="{{jindian==null}}">
+       <image src="../../image/screening@2x.png"></image>
+      </view>  
+  </view>
+
+</view>

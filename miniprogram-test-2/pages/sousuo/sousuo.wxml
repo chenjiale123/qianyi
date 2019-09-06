@@ -1,0 +1,43 @@
+<view class="contain">
+<image src="../../image/xfzd.png" class="la" bindtap="top"></image>
+
+  <form bindsubmit='searchSubmitFn'>
+    <image class='sousuo' src='../../image/sousuo01@2x.png'></image>
+    <input placeholder='搜索你心仪的商品' bindconfirm="show" value="{{searchValue}}" formType='submit'></input>
+  </form>
+  <view class="hide" wx:if="{{com}}">
+    <view class="his" wx:if="{{searchRecord.length!==0}}">
+      <text>历史记录</text>
+      <image src="../../image/shanchu@2x.png" bindtap="del"></image>
+    </view>
+    <view class="jilu">
+      <button wx:for="{{searchRecord}}">
+        {{item.value}}
+      </button>
+    </view>
+    <text class="etc">热门搜索</text>
+    <view class="hot">
+      <button wx:for="{{hot}}" bindtap="remen" data-in="{{item.content}}">
+        {{item.content}}
+        <image src="../../image/huoyan@2x.png"></image>
+      </button>
+    </view>
+  </view>
+  <view class="hide1" wx:if="{{!com}}">
+    <view class="list" wx:for="{{goodsList}}" wx:if="{{goodsList!==null}}" bindtap="detail" data-id="{{item.id}}">
+      <image src="http://dev.static.qianyipan.com/{{item.imageThumb}}"></image>
+      <view class="txt">
+        <image src="../../image/xpbq@2x.png"></image>
+        {{item.goodsName}}
+      </view>
+      <view class="price">
+        ￥{{item.discountPrice}}
+        <text>满减</text>
+      </view>
+    </view>
+    <view class="list1" wx:if="{{goodsList.length==0}}">
+   <image src="http://dev.static.qianyipan.com/image/jpg/wuneirong@2x.png"></image>
+    
+    </view>
+  </view>
+</view>

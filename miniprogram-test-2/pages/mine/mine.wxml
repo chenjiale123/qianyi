@@ -1,0 +1,80 @@
+<view class='whole'>
+  <view class="content">
+    <view class='top'>
+      <view class='touxiang'>
+        <image src='{{touxiang}}' wx:if="{{user}}"></image>
+        <image src='../../image/greylogo@2x.png' wx:else></image>
+
+      </view>
+
+      <text class='title' wx:if="{{user}}">{{name}}</text>
+      <text class='title' bindtap="show" wx:else>点此登录</text>
+      <image  wx:if="{{user}}" src="../../image/switch@2x.png" class="switch"></image>
+      <text class='qie' wx:if="{{user}}" bindtap="zhuxiao">切换账号</text>
+ 
+      
+      <image class='small1' wx:if="{{user && huiyuan==0}}" src="../../image/Silvermember@2x.png"></image>
+        <image class='small1' wx:if="{{user && huiyuan==1}}" src="../../image/Goldmembership@2x.png"></image>
+          <image class='small1' wx:if="{{user && huiyuan==2}}" src="../../image/Platinummember@2x.png"></image>
+            <image class='small1' wx:if="{{user && huiyuan==3}}" src="../../image/Diamondmembership@2x.png"></image>
+      <text class='small' wx:if="{{!user}}">登录更精彩</text>
+    </view>
+    <view class='contain'>
+      <view class='form'>
+        <view bindtap="coupon">
+          <image src='../../image/kqicon@2x.png'></image>
+          <text>优惠券</text>
+        </view>
+        <view bindtap="yuan">
+          <image src='../../image/xydicon@2x.png'></image>
+          <text>心愿</text>
+        </view>
+        <view bindtap="lasty">
+          <image src='../../image/access@2x.png'></image>
+          <text>最近访问</text>
+        </view>
+        <view bindtap="wuliu">
+          <image src='../../image/service@2x.png'></image>
+          <text>物流消息</text>
+        </view>
+
+      </view>
+      <view class='dingdan'>
+        <text>我的订单</text>
+        <view class='right' bindtap="all">
+          <text>查看全部</text>
+          <image src='../../image/fanhui@2x.png'></image>
+        </view>
+        <view class='list'>
+          <view bindtap='techan'>
+            <image src='../../image/productorder@2x.png'></image>
+            <text>特产订单</text>
+          </view>
+          <view bindtap='jingdian'>
+            <image src='../../image/attractionsorder@2x.png'></image>
+            <text>景点订单</text>
+          </view>
+          <view bindtap='pingjia'>
+            <image src='../../image/message@2x.png'></image>
+            <text>待评价</text>
+          </view>
+          <view bindtap='address'>
+            <image src='../../image/address@2x.png'></image>
+            <text>收货地址</text>
+          </view>
+
+        </view>
+      </view>
+      <view class='love'>
+        <text>猜你喜欢</text>
+        <image src='../../image/tab@2x.png'></image>
+        <view class='li' wx:for="{{data3}}" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
+          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <text>{{item.goodsName}}</text>
+        </view>
+    
+      </view>
+    </view>
+
+  </view>
+</view>

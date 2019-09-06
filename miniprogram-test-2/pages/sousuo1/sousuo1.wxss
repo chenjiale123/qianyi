@@ -1,0 +1,205 @@
+/* pages/sousuo1/sousuo1.wxss */
+.contain{
+  width: 94%;
+  margin: 0 auto;
+  position: relative
+}
+input{
+  width: 100%;
+  height: 66rpx;
+  background: #f2f2f2;
+  border-radius: 34rpx;
+  margin: 0 auto;
+}
+input[placeholder]{
+  font-size: 28rpx;
+  color: #b3b3b3;
+  padding-left: 70rpx;
+  box-sizing: border-box;
+}
+.contain>.show{
+  width: 100%;
+  height:302rpx;
+
+  border-radius: 10rpx;
+ display: block;
+ margin: 40rpx auto;
+
+}
+.contain .sousuo{
+  width: 28rpx;
+  height: 28rpx;
+  position: absolute;
+  top:18rpx;
+  left: 28rpx;
+}
+.hot{
+  width: 100%;
+  height: auto;
+}
+.his{
+  width: 100%;
+  height: 40rpx;
+margin-top: 30rpx;
+}
+.his>text{
+  float: left;
+font-size:32rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(26,26,26,1);
+}
+.his>image{
+  width: 36rpx;
+  height: 36rpx;
+  float: right;
+  position: relative;
+  z-index: 99999999999999999999999999;
+}
+.hot>button,.jilu>button{
+  background:rgba(242,242,242,1);
+border-radius:10rpx;
+padding: 19rpx;
+font-size:28rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+text-align: center;
+  float: left;
+margin-left: 24rpx;
+
+}
+.etc{
+  margin-top: 180rpx;
+}
+.contain>.hide text{
+  display: block;
+font-size:32rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(26,26,26,1);
+}
+.jilu{
+  margin-top: 40rpx;
+  width: 100%;
+  height: auto;
+}
+button{
+  background:rgba(242,242,242,1);
+border-radius:10rpx;
+padding: 19rpx;
+font-size:28rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(51,51,51,1);
+text-align: center;
+  float: left;
+margin-left: 24rpx;
+margin-top: 20rpx;
+
+}
+button>image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 10rpx;
+}
+.hide1{
+    padding-top: 64rpx;
+  box-sizing: border-box;
+}
+.list{
+  width: 100%;
+  height: 196rpx;
+
+  margin-bottom: 60rpx;
+  box-shadow:0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+  
+}
+.list1{
+  width: 100%;
+height: 100%;
+  box-shadow:0px 6px 12px 0px rgba(0, 0, 0, 0.1);
+
+
+}
+.list>image{
+  width: 248rpx;
+  height: 196rpx;
+border-radius:10px;
+
+}
+.list>.right{
+  width: 430rpx;
+  height:100%;
+  float: right;
+
+}
+.list>.right>.title{
+  font-size:32rpx;
+
+color:rgba(26,26,26,1);
+
+}
+.list>.right>.fw{
+width:100rpx;
+height:30rpx;
+background:rgba(235,252,227,1);
+border-radius:6rpx;
+font-size:22rpx;
+
+color:rgba(93,191,57,1);
+text-align: center;
+display: inline-block;
+margin-left: 17rpx;
+
+}
+.list>.right>.fen>image{
+  width: 26rpx;
+  height: 26rpx;
+  
+}
+.list>.right>.fen>.pinfen{
+
+font-size:24rpx;
+
+color:rgba(255,127,102,1);
+
+}
+.list>.right>.intro>text{
+
+font-size:24rpx;
+
+font-weight:500;
+color:rgba(153,153,153,1);
+margin-right: 30rpx;
+
+}
+.list>.right>.price{
+display: inline-block;
+}
+.list>.right>.price>.small{
+  font-size: 24rpx;
+  color:rgba(245,49,49,1);
+
+}
+.list>.right>.price>.big{
+  font-size: 40rpx;
+  color:rgba(245,49,49,1);
+
+}
+.ka{
+  width:96rpx;
+height:26rpx;
+border:1px solid rgba(61,178,163,1);
+border-radius:6rpx;
+font-size:20rpx;
+
+color:rgba(61,178,163,1);
+text-align: center;
+line-height: 26rpx;
+margin-left: 12rpx;
+position: relative;
+top:-5rpx;
+
+
+}

@@ -1,0 +1,11 @@
+<view class="contain">
+  <text class='title'> {{item.title}}</text>
+  <text class='auther'>作者：{{item.author}}</text>
+  <text class='time'>发布时间：{{item.addTime}}</text>
+
+<view class="com">
+  <import src="../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+
+</view>

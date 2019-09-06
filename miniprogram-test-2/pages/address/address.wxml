@@ -1,0 +1,47 @@
+<!--pages/address/address.wxml-->
+<view class='whole'>
+  <view class='contain'>
+    <view class='list'>
+
+      <!-- <view class='tp'>
+        <image src='../../image/gouwu01@2x.png'></image>
+
+      </view> -->
+      <radio-group bindchange="radioChange">
+        <label class="tp" wx:for="{{list}}" wx:if="{{status!==false}}">
+          <radio checked="{{item.checked}}" bindtap='radio' data-id="{{index}}" value="{{index}}" wx:if="{{!show}}" />
+          <image src="../../image/companyicon@2x.png" wx:if="{{item.type==2}}"></image>
+          <image src="../../image/homeicon@2x.png" wx:if="{{item.type==0}}"></image>
+          <image src="../../image/schoolicon@2x.png" wx:if="{{item.type==1}}"></image>
+          <text wx:if="{{item.type==4}}">{{item.consigneeName}}</text>              
+
+          <view class='right1'>
+            <text class='name'>{{item.consigneeName}}</text>
+            <text class='phone'>{{item.consigneePhone}}</text>
+            <view class='dizhi'>
+              <text class='bq1' wx:if="{{item.isDefault}}">默认</text>
+              <text class='bq2' wx:if="{{item.type==2}}">公司</text>
+              <text class='bq2' wx:if="{{item.type==0}}">家</text>
+              <text class='bq2' wx:if="{{item.type==1}}">学校</text>
+              <text class='dz'>{{item.areaIdPath}}{{item.address}}</text>
+            </view>
+          </view>
+          <view class='right2' bindtap='edit' data-id="{{index}}">
+            <text>编辑</text>
+          </view>
+        </label>
+       <view class="tp5" wx:if="{{status==false}}">
+        <image src="http://dev.static.qianyipan.com/image/jpg/meidizhi@2x.png"></image>
+        </view>
+      </radio-group>
+ 
+
+
+    </view>
+
+    <view class="add" bindtap='add'>
+      <image src='../../image/add@2x.png'></image>
+    </view>
+  </view>
+  <button bindtap="sure">确定</button>
+</view>

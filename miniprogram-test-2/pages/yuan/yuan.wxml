@@ -1,0 +1,42 @@
+<view class="whole">
+ <view class="edit">
+    <text bindtap="zhuanhua" wx:if="{{show}}">编辑</text>
+    <text bindtap="zhuanhua1" wx:if="{{!show}}">完成</text>
+
+  </view>
+<view class="contain" wx:if="{{she!==false}}">
+
+
+  <view class="list">
+  <view class="listIn" wx:for="{{goods}}" wx:if="{{goods.length!==0}}">
+    <image src="http://dev.static.qianyipan.com/{{item.imageThumb}}"></image>
+    <text>{{item.goodsName}}</text>
+    <view class="bom">
+    <text>￥{{item.discountPrice}}</text>
+ 
+         <checkbox-group class="checkbox-box" data-checkid="{{index}}" bindchange='goodsdagou' wx:if="{{item.stock != 0}}" wx:if="{{!show}}">
+              <label class="checkbox checkboxHeight">
+                <checkbox checked="{{item.selected}}" />
+              </label>
+            </checkbox-group>
+    </view>
+  </view>
+   <view class="listIn1" wx:if="{{goods.length==0}}">
+   <image src="http://dev.static.qianyipan.com/image/jpg/empty@2x.png"></image>
+   </view>
+  </view>
+</view>
+<view class="contain" wx:if="{{she==false}}">
+<image src="http://dev.static.qianyipan.com/image/jpg/wuneirong@2x.png"></image></view>
+
+ <view class="zongjia" wx:if="{{!show}}">
+    <checkbox-group class="checkbox-box1" data-checkid="{{index}}" bindchange='checkedAll'>
+      <label class="checkbox checkboxHeight">
+        <checkbox checked="{{checked_all}}" />
+      </label>
+    </checkbox-group>
+
+    <button bindtap="delItem" class="dingdan1">删除</button>
+
+  </view>
+</view>

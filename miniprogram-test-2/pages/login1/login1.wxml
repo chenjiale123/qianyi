@@ -1,0 +1,20 @@
+<view class='whole'>
+<view class='contain'>
+ <image src='../../image/qylogo@2x (1).png'></image>
+
+ <view class='center'>
+  <form bindsubmit="submit">
+ <input class='shuru1' placeholder='手机号'  type='number' name="tel"  bindinput ="userphone">
+  <text class="yzm" wx:if="{{code}}">{{time}}s</text>
+   <text class="yzm"  bindtap='sendCode' wx:else>获取动态验证码</text>
+  </input>
+  <input class='shuru2' placeholder='请输入验证码' type='number' name="code"  bindinput ="yanzhengma">  </input>
+  <button class='btn'  form-type='submit'> 登录</button>
+  <view class='tishi'>
+  <text>用户名登录</text>
+
+  </view>
+</form>
+ </view>
+</view>
+</view>

@@ -1,0 +1,29 @@
+<view class="whole">
+
+<view class="contail">
+    <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{jindian!==null}}">
+      <image src='http://dev.static.qianyipan.com/{{shit[index]}}'></image>
+      <view class='right'>
+        <text class='title'>{{item.scenicName}}</text>
+        <view class='fw'>自然风光</view>
+        <view class='fen'>
+          <image src='../../image/pingfen01@2x.png' wx:for="{{item.score}}" wx:key="item.score"></image>
+          <text class='pinfen'>{{item.score}}分</text>
+        </view>
+
+        <view class='intro'>
+          <text>{{item.distance/1000}}km</text>
+          <text>{{item.city}}</text>
+        </view>
+        <view class='price' bindtap='price'>
+          <text class='small'>￥</text>
+          <text class='big'>{{item.ticketPrice}}</text>
+        </view>
+        <text class='ka'>随买随用</text>
+      </view>
+    </view>
+      <view class="list1" wx:if="{{jindian==null}}">
+       <image src="../../image/screening@2x.png"></image>
+      </view>  
+</view>
+</view>

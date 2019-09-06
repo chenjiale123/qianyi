@@ -1,0 +1,92 @@
+<view class="whole">
+  <view class="In" wx:if="{{show}}">
+    <view class="center">
+      <button bindtap="btn1" data-in="1" data-value1="拍错/多拍/不想要" class="bn">拍错/多拍/不想要</button>
+      <button bindtap="btn2" data-in="2" data-value1="与商家协商一致退款" class="bn1">与商家协商一致退款</button>
+      <button class="bom" bindtap="close">关闭</button>
+    </view>
+  </view>
+  <view class="In1" wx:if="{{show1}}">
+    <view class="center">
+      <button bindtap="photo" class="bn2">拍一张</button>
+      <button bindtap="chooseImage" class="bn3">相册选取</button>
+      <button class="bom" bindtap="close1">关闭</button>
+    </view>
+  </view>
+  <view class="top" wx:for="{{goods1}}">
+    <view class="topIn">
+      <view class="left">
+        <image src="http://dev.static.qianyipan.com/{{item.goodsImg}}"></image>
+      </view>
+      <view class="right">
+        <text class="txt">{{item.goodsName}}</text>
+        <text class="txt1">{{item.goodsSpecnames}}</text>
+
+      </view>
+
+    </view>
+  </view>
+  <view class="jine">
+    <view class="jineIn">
+      退款金额：
+      <text>￥{{price1}}</text>
+      <text class="tishi">不含发货邮费￥{{yun1}}</text>
+    </view>
+  </view>
+
+  <view class="cause">
+    <view class="causeIn">
+      <view class="zt">
+        <view class="left">
+          商品状态：
+        </view>
+        <view class="right">
+          {{status1}}
+        </view>
+
+      </view>
+      <view class="yy">
+        <view class="left">
+
+
+          <text>退货原因：</text>
+
+          <input placeholder="请选择退货原因" bindfocus="yuanyin" value="{{she}}" bindinput="shuru"></input>
+
+        </view>
+        <view class="right">
+          <image src="../../image/2.png" bindtap="yuanyin"></image>
+        </view>
+      </view>
+      <view class='upload'>
+        <!-- 上传图片 -->
+        <view class="gallery">
+          <view class="item" wx:for="{{images}}" wx:key="index">
+            <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" mode="aspectFit" />
+            <!-- 删除按钮 -->
+            <view class="delete" bindtap="delete" data-index="{{index}}">
+              <image src='../../image/guan.png' mode="widthFix"></image>
+            </view>
+          </view>
+          <view class="item2" bindtap="load">
+            <view class='addIcon'>
+              <image src='../../image/3.png'></image>
+            </view>
+          </view>
+        </view>
+        <view class='codeSubmit'>
+          <view class='btn'>确认上传</view>
+        </view>
+
+      </view>
+      <view class="sm">
+        <text>
+        退款说明（选填）：
+      </text>
+        <input placeholder="请输入" bindinput="shuru3"></input>
+      </view>
+    </view>
+  </view>
+  <button class="btn1" bindtap="tijiao">提交</button>
+
+</view>

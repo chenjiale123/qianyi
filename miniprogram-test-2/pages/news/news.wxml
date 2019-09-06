@@ -1,0 +1,11 @@
+<view class="contain">
+  <view class='list' bindtap='detail'wx:for="{{aritle}}" wx:key="aritle" data-in="{{item}}">
+    <view class='left'>
+      <text class='title'>{{item.title}}</text>
+      <image src='../../image/liulan@2x.png'></image>
+      <text class='people'>{{item.click}}人已浏览</text>
+    </view>
+    <image src='{{item.preview}}'></image>
+  </view>
+ 
+</view>

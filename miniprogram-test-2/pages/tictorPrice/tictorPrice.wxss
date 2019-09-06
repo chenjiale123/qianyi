@@ -1,0 +1,267 @@
+Page{
+    width: 100%;
+
+  height: 100%;
+}
+.whole{
+  background:rgba(242,242,242,1);
+  width: 100%;
+  padding-top: 20rpx;
+  box-sizing: border-box;
+  /* position: relative; */
+  height: 100%;
+
+}
+.contain{
+  width: 90%;
+  height: 65%;
+  background: #fff;
+  margin: 0 auto;
+  padding-top: 40rpx;
+  box-sizing: border-box;
+
+}
+.title{
+  font-size:32rpx;
+font-weight:bold;
+color:rgba(26,26,26,1);
+margin-left: 30rpx;
+}
+.jiage{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  font-size: 24rpx;
+  color:#333;
+
+}
+.jiage>text{
+  font-size:40rpx;
+font-weight:bold;
+color:rgba(245,49,49,1);
+}
+.time{
+  margin-top: 19rpx;
+  margin-left: 30rpx;
+  font-size:26rpx;
+font-weight:500;
+color:rgba(153,153,153,1);
+}
+.time>text{
+width:72rpx;
+height:26rpx;
+background:rgba(235,252,227,1);
+border-radius:6px;
+font-size:20rpx;
+font-weight:500;
+color:rgba(93,191,57,1);
+margin-left: 16rpx;
+}
+.num{
+  width: 100%;
+  height: 50rpx;
+  margin-top: 66rpx;
+
+}
+.num>text{
+  margin-left: 30rpx;
+font-size:32rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+float: left;
+}
+.num>.right{
+  width: 150rpx;
+  height: 100%;
+  float: right;
+  margin-right: 30rpx;
+}
+.right>.a{
+  display: inline-block;
+  width:50rpx;
+height:50rpx;
+background:rgba(255,255,255,1);
+box-shadow:0px 4rpx 10rpx 0px rgba(0, 0, 0, 0.08);
+border-radius:20rpx;
+text-align: center;
+line-height: 50rpx;
+font-size: 32rpx;
+color: #3DB3A3;
+}
+.right>.b{
+  text-align: center;
+line-height: 50rpx;
+font-size: 32rpx;
+color: #1a1a1a;
+  display: inline-block;
+  width:50rpx;
+height:50rpx;
+}
+.right>.c{
+    display: inline-block;
+  width:50rpx;
+height:50rpx;
+background:rgba(255,255,255,1);
+box-shadow:0px 4rpx 10rpx 0px rgba(0, 0, 0, 0.08);
+border-radius:20rpx;
+text-align: center;
+line-height: 50rpx;
+font-size: 32rpx;
+color: #3DB3A3;
+}
+.tour{
+  width: 100%;
+  height: 250rpx;
+  margin-top: 110rpx;
+}
+.tour>text{
+  font-size:32rpx;
+font-weight:bold;
+color:rgba(26,26,26,1);
+margin-left: 30rpx;
+}
+.tour>.shuru{
+  position: relative;
+  width:94%;
+height:180rpx;
+background:rgba(247,247,247,1);
+border-radius:10rpx;
+
+margin: 0 auto;
+margin-top: 35rpx;
+}
+.name{
+  padding-left: 20rpx;
+
+  box-sizing: border-box;
+  width: 512rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 0;
+  top:0;
+  font-size:26rpx;
+font-weight:500;
+color:rgba(102,102,102,1);
+}
+.phone{
+
+
+
+    padding-left: 20rpx;
+  box-sizing: border-box;
+    width: 512rpx;
+  height: 90rpx;
+  position: absolute;
+  left: 0;
+  top:90rpx;
+  font-size:26rpx;
+font-weight:500;
+color:rgba(102,102,102,1);
+
+}
+.shuru  button{
+  width:130rpx;
+height:180rpx;
+background:rgba(255,255,255,1);
+border:1px solid rgba(230,230,230,1);
+border-radius:10rpx;
+left: 240rpx;
+top:0;
+font-size:26rpx;
+font-weight:500;
+line-height: 180rpx;
+text-align: center;
+
+color: #3DB2A3;
+
+}
+.name>text,.phone>text{
+  font-size:26rpx;
+font-weight:500;
+color:rgba(245,49,49,1);
+
+}
+.name>input{
+  position: relative;
+  top: 20rpx;
+width: 284rpx;
+margin-left: 28rpx;
+
+height: 27rpx;
+display: inline-block
+}
+.phone>input{
+    position: relative;
+  top: 20rpx;
+width: 284rpx;
+margin-left: 10rpx;
+
+display: inline-block;
+
+height: 27rpx;
+
+}
+.name>input[placeholder],.phone>input[placeholder]{
+  font-size:26rpx;
+font-weight:500;
+color:rgba(179,179,179,1);
+}
+.phone>image{
+position: absolute;
+width:28rpx;
+height:32rpx;
+right: 43rpx;
+top: 10rpx;
+}
+.fukuan{
+
+width: 100%;
+height: 98rpx;
+background: #fff;
+position: absolute;
+bottom: 0;
+}
+.fukuan>.all{
+  display: inline-block;
+  width: 200rpx;
+line-height: 98rpx;
+font-size:24rpx;
+font-weight:500;
+color:rgba(51,51,51,1);
+margin-left: 39rpx;
+}
+.fukuan>.all>text{
+  font-size:40rpx;
+font-weight:bold;
+color:rgba(245,49,49,1);
+}
+.detail{
+  display: inline-block;
+line-height: 98rpx;
+
+margin-left: 126rpx;
+font-size:24rpx;
+font-weight:500;
+color:rgba(102,102,102,1);
+}
+.detail>image{
+  width: 20rpx;
+  height: 20rpx;
+  margin-left: 14rpx;
+}
+.fukuan>button{
+
+
+  margin-top: 10rpx;
+  float: right;
+  width:240rpx;
+height:78rpx;
+background:linear-gradient(-8deg,rgba(61,179,163,1) 0%,rgba(145,230,115,1) 100%);
+border-radius:39rpx;
+margin-right: 30rpx;
+font-size:32rpx;
+font-weight:500;
+color:#fff;
+text-align: center;
+line-height: 78rpx;
+
+}

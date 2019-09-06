@@ -1,0 +1,934 @@
+.active{
+  background: #3DB2A3;
+}
+.contain{
+  width: 100%;
+  height: auto;
+position: relative;
+  background:rgba(242,242,242,1);
+}
+.kuang{
+  width: 100%;
+  height: 65%;
+  position: fixed;
+  bottom: -20rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  z-index: 99999999
+}
+.flex_l_r_c>text{
+  font-size: 26rpx
+}
+.kuang>.kuangIn{
+width: 90%;
+margin: 0 auto;
+position: relative;
+padding-top: 30rpx;
+box-sizing: border-box;
+height: 100%
+}
+.kuang>image{
+  width: 28rpx;
+  height: 28rpx;
+position: absolute;
+right: 0;
+top: 30rpx;
+  border-radius: 20rpx;
+  margin-right: 50rpx;
+  z-index: 9999999999;
+}
+.kuangIn>.goods{
+  width: 100%;
+  height: 148rpx;
+
+}
+
+.kuangIn>.goods>.left{
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  border-radius: 10rpx;
+  clear: both
+}
+.kuangIn>.goods>.right{
+  width: 424rpx;
+  height: 148rpx;
+  float: right;
+  padding-top: 50rpx;
+  box-sizing: border-box;
+ 
+}
+.kuangIn>.goods>.right>.w1{
+
+  display: block;
+  font-size: 34rpx;
+  color: rgba(245,49,49,1);
+}
+.kuangIn>.goods>.right>.w2{
+  display: block;
+  font-size: 28rpx;
+  color: rgb(204, 204, 204);
+  margin-top: 20rpx;
+}
+.kuangIn>.goods>.right>.w3{
+    display: block;
+  font-size: 28rpx;
+  color: rgb(0, 0, 0);
+
+
+}
+.kuangIn>.goods>.left>image{
+  width: 100%;
+  height: 100%;
+     border-radius: 10rpx;
+}
+.kuangIn>.guige{
+  margin-top: 80rpx;
+  height: 200rpx;
+}
+.kuangIn>.guige>text{
+  display: block;
+  font-size: 28rpx;
+}
+.kuangIn>.guige>button{
+  width: auto;
+  height: 30rpx;
+  background: rgb(224, 224, 224);
+  border-radius: 10rpx;
+  display: inline-block;
+  padding: 20rpx;
+  color: rgb(145, 143, 143);
+  margin-right: 30rpx;
+  text-align: center;
+  line-height: 10rpx;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+
+}
+.kuangIn>.num1{
+  margin-top: 30rpx;
+
+}
+.kuangIn>.num1>.left{
+  float: left;
+  font-size: 28rpx;
+}
+.kuangIn>.num1>.right{
+   float: right;
+}
+.c-main{
+  display: inline-block;
+  width: 38rpx;
+  height: 38rpx;
+  border-radius: 50%;
+box-shadow:0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.c-main>image{
+  width: 100%;
+  height: 100%
+}
+.c-num{
+  display: inline-block;
+  width: 68rpx;
+  height: 38rpx;
+  text-align: center;
+  line-height: 38rpx;
+  font-size:32rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+
+}
+.c-plus{
+    display: inline-block;
+  width: 38rpx;
+  height: 38rpx;
+    border-radius: 50%;
+box-shadow:0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+}
+.c-plus>image{
+  width: 100%;
+  height: 100%
+}
+.bom{
+  width: 100%;
+  position: absolute;
+  bottom: 20rpx;
+  height: 98rpx;
+
+
+
+}
+.bom>button{
+  width: 100%;
+  height: 100%;
+    background:linear-gradient(-8deg,rgba(61,179,163,1) 0%,rgba(145,230,115,1) 100%);
+    font-size: 48rpx;
+    color: #fff;
+    text-align: center;
+    line-height: 98rpx;
+    border-radius: 0
+
+}
+.whole>.lunbo{
+  width: 100%;
+  height: 424rpx;
+
+}
+swiper{
+  width: 100%;
+  height: 750rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.lunbo image{
+width: 100%;
+height: 750rpx;
+}
+.swiper-item{
+  position: relative;
+}
+.lunbo .num{
+position: absolute;
+width:96rpx;
+height:40rpx;
+background:rgba(0,0,0,1);
+opacity:0.5;
+border-radius:20rpx 21rpx 0px 20rpx;
+top: 690rpx;
+
+right: 30rpx;
+}
+.lunbo .num{
+  font-size:24rpx;
+font-weight:500;
+color:rgba(255,255,255,1);
+text-align: center;
+line-height: 40rpx;
+}
+.intro{
+  width: 100%;
+  height: 328rpx;
+position: relative;
+top: -28rpx;
+background: #fff;
+
+}
+.intro>.introIn{
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+
+}
+.introIn>.top{
+  font-size:48rpx;
+font-weight:bold;
+color:rgba(245,49,49,1);
+}
+.intro>image{
+width: 100%;
+height: 102rpx;
+position: absolute;
+top: 0;
+left: 0;
+}
+.introIn>.top>.left{
+  float: left;
+  width: 40%;
+  height: 102rpx;
+  position: relative;
+}
+.introIn>.top>.right{
+    float: right;
+  width: 30%;
+  height: 102rpx;
+  position: relative;
+  font-size: 28rpx;
+text-align: center;
+/* z-index: 9999999999999999999; */
+}
+.introIn>.top>.left>.etc1{
+font-size:48rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(255,255,255,1);
+}
+.introIn>.top>.left>.etc2{
+  display: inline-block;
+  width:54rpx;
+height:26rpx;
+border:1px solid rgba(255,255,255,1);
+border-radius:6rpx;
+font-size:20rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(255,255,255,1);
+text-align: center;
+line-height: 26rpx;
+margin-left: 10rpx;
+}
+.introIn>.top>.left>image{
+  width: 110rpx;
+  height: 26rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 0;
+}
+.introIn>.top>.left>.etc3{
+  font-size:24rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+text-decoration:line-through;
+color:rgba(255,255,255,1);
+position: absolute;
+ top: 60rpx;
+  left: 130rpx;
+  
+}
+.introIn>.title{
+  margin-top: 20rpx;
+  height: 100rpx;
+}
+.introIn>.top>.right>text{
+  margin-top: 16rpx;
+  font-size:24rpx;
+font-family:PingFang-SC-Medium;
+font-weight:500;
+color:rgba(245,49,49,1);
+display: block;
+z-index: 999
+}
+.introIn>.top>.right>.showtime{
+  width: 200rpx;
+  height: 32rpx;
+z-index: 999
+
+
+}
+.introIn>.top>.right>.showtime>.time{
+    width: 40rpx;
+  height: 400rpx;
+  background: #F53131;
+  font-size: 22rpx;
+  color: #fff;
+  line-height: 32rpx;
+  text-align: center;
+  border-radius: 6rpx;
+}
+.introIn>.title>.left{
+  float: left;
+  width: 80%;
+  clear:both;
+}
+.introIn>.title>.left>image{
+  width:54rpx;
+height:26rpx;
+}
+.introIn>.title>.left>text{
+  font-size:30rpx;
+font-weight:bold;
+color:rgba(26,26,26,1);
+}
+.introIn>.title>.right{
+  position: relative;
+  float: right;
+  margin-top: 20rpx;
+
+  
+}
+.introIn>.title>.right>image{
+  width:36rpx;
+height:42rpx;
+display: block;
+position: relative;
+left: 20rpx;
+}
+.introIn>.title>.right>text{
+  font-size:24rpx;
+font-weight:500;
+color:rgba(153,153,153,1);
+}
+.introIn>.didian{
+  margin-top: 20rpx;
+  display: block
+}
+.introIn>.didian>.a{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(102,102,102,1);
+width: 160rpx;
+height: 32rpx;
+display: inline-block;
+
+}
+.introIn>.didian>.b{
+ 
+font-weight:500;
+color:#3DB2A3;
+ font-size:28rpx;
+}
+.introIn>.didian>.c{
+  font-size:24rpx;
+font-weight:500;
+color:rgba(153,153,153,1);
+margin-left: 17rpx;
+}
+.quan{
+  margin-top: 70rpx;
+}
+.quan>.left{
+float: left;
+}
+.quan>.left>text{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(179,179,179,1);
+}
+.quan>.left>.juan{
+  display: inline-block;
+  width:158rpx;
+height:40rpx;
+margin-left: 54rpx;
+position: relative;
+top: 10rpx;
+}
+.quan>.left .juan>image{
+  position: absolute;
+  left: 0;
+  top: 0;
+    width: 100%;
+  height: 100%;
+}
+.quan>.left .juan>text{
+  position: absolute;
+    left: 20rpx;
+  top: 0;
+  font-size:26rpx;
+font-weight:500;
+color:rgba(255,255,255,1);
+line-height: 38rpx;
+text-align: center;
+}
+.quan>.left .juan1{
+  display: inline-block;
+  width:158rpx;
+height:40rpx;
+margin-left: 10rpx;
+position: relative;
+top: 10rpx;
+}
+.quan>.left .juan1>image{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.quan>.left .juan1>text{
+   position: absolute;
+    top: 0;
+  left: 20rpx;
+
+  font-size:26rpx;
+font-weight:500;
+color:rgba(255,255,255,1);
+line-height: 38rpx;
+text-align: center;
+}
+.quan .shou{display: inline-block;
+  margin-left: 40rpx;
+}
+.quan>.right{
+  float: right;
+}
+.quan>.right>image{
+  width: 20rpx;
+  height: 20rpx;
+}
+.xiao{
+  margin-top: 20rpx;
+}
+.xiao>.left{
+  float: left;
+}
+.xiao>.left>text{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(179,179,179,1);
+}
+.xiao>.left>.ka{
+  display: inline-block;
+  width:54rpx;
+height:26rpx;
+border:1px solid rgba(245,49,49,1);
+border-radius:6rpx;
+font-size:20rpx;
+font-weight:500;
+color:rgba(245,49,49,1);
+text-align: center;
+margin-left: 54rpx;
+}
+.xiao>.left>.la{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+
+}
+.xiao>.right{
+  float: right
+}
+.xiao>.right>image{
+    width: 20rpx;
+  height: 20rpx;
+}
+.xuan{
+  margin-top: 0;
+  width: 100%;
+  height: 100rpx;
+  background: #fff;
+}
+.xuan>.left{
+  margin-left: 32rpx;
+  line-height: 100rpx;
+  float: left;
+  height: 100rpx;
+
+}
+.xuan>.left>text{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(179,179,179,1);
+position: relative;
+top: -38rpx;
+}
+.xuan>.left .leftin1{
+  width: 500rpx;
+  height: 100rpx;
+  display: inline-block;
+  overflow: hidden;
+  margin-left: 47rpx; 
+  white-space: nowrap; text-overflow: ellipsis;
+}
+.xuan>.left .la{
+    font-size:28rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+
+display: inline-block;
+
+}
+.xuan>.right{
+  float: right;
+  margin-right: 30rpx;
+  margin-top: 30rpx;
+}
+.xuan>.right>image{
+    width: 20rpx;
+  height: 20rpx;
+}
+.content{
+  width: 100%;
+  padding-top: 60rpx;
+  height: 980rpx;
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 30rpx;
+}
+.contant{
+    background: #fff;
+  margin-top: 30rpx;
+}
+.contentIn{
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  padding-bottom: 100rpx;
+}
+.contentIn>.first{
+  width: 100%;
+  height: 40rpx;
+  position: relative
+}
+.contentIn>.first>.left{
+position: absolute;
+display: block;
+left: 0
+}
+.contentIn>.first>.left>text{
+  display: block;
+  float: left;
+  font-size:36rpx;
+font-weight:bold;
+color:rgba(26,26,26,1);
+}
+.contentIn>.first>.right{
+  float: right;
+}
+.contentIn>.first>.right>image{
+  width: 20rpx;
+  height: 20rpx;
+
+}
+.contentIn>.first>.right>text{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(179,179,179,1);
+margin-right: 15rpx;
+}
+.pinlun{
+  padding-top: 50rpx;
+  box-sizing: border-box;
+width: 100%;
+height: auto;
+background: #fff;
+
+}
+.pinlunIn{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+.pinlunIn>.xin{
+  height: 66rpx;
+}
+.pinlunIn>.xin>.left{
+  float: left;
+}
+.pinlunIn>.xin>.left>image{
+  display: inline-block;
+  width:66rpx;
+height:66rpx;
+border-radius:50%;
+}
+.pinlunIn>.xin>.left>text{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+margin-left: 22rpx;
+position: relative;
+top: -20rpx
+}
+.pinlunIn>.xin>.right{
+  float: right;
+}
+.pinlunIn>.xin>.right>image{
+  width:24rpx;
+height:24rpx;
+}
+.pinlunIn>text{
+  margin-top: 32rpx;
+  display: block;
+  font-size:28rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+}
+.pinlunIn>.tp{
+  margin-top: 22rpx;
+  width: 100%;
+  height: auto;
+
+}
+.pinlunIn>.tp>image{
+  width:159rpx;
+height:159rpx;
+border-radius:10rpx;
+margin-right: 18rpx;
+}
+.btn4{
+  position: absolute;
+  left: 50%;
+
+  bottom: 0;
+   margin-left: -120rpx;
+width:240rpx;
+height:68rpx;
+border:1px solid rgba(230,230,230,1);
+border-radius:34rpx;
+font-size:28rpx;
+font-family:PingFang-SC-Bold;
+font-weight:bold;
+color:rgba(26,26,26,1);
+text-align: center;
+line-height: 68rpx;
+}
+.see{
+  margin-top: 50rpx;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+.seeIn{
+  width: 92%;
+  margin: 0 auto;
+}
+.seeIn>text{
+  display: block;
+  font-size:36rpx;
+font-weight:bold;
+color:rgba(26,26,26,1);
+margin-bottom: 53rpx;
+}
+.seeIn>.list{
+  width: 100%;
+
+}
+.seeIn>.list>.li{
+  width: 218rpx;
+  float: left;
+  margin-right: 8rpx;
+margin-bottom: 30rpx;
+}
+.seeIn>.list>.etc{
+  margin-right: 0
+}
+.seeIn>.list>.li>image{
+  width: 218rpx;
+height: 218rpx;
+margin-bottom: 15rpx;
+border-radius: 10rpx;
+}
+.seeIn>.list>.li>.tl{
+display: block;
+font-size:26rpx;
+font-weight:500;
+width: 100%;
+height: 73rpx;
+  display: -webkit-box;
+          -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+color:rgba(51,51,51,1);
+ 
+}
+.seeIn>.list>.li>.pr{
+  display: block;
+  font-size:28rpx;
+font-weight:500;
+color:rgba(245,49,49,1);
+}
+.btn{
+  width: 100%;
+  height: 198rpx;
+  margin-top: 50rpx;
+  text-align: center;
+    font-size:28rpx;
+font-weight:500;
+color:rgba(51,51,51,1);
+}
+.btn>image{
+  width:22rpx;
+height:22rpx;
+
+
+}
+.price{
+  width: 100%;
+  height: 98rpx;
+  position: fixed;
+  bottom: 0;
+  background: #fff
+}
+.price>.kefu{
+  width: 40rpx;
+  height: 60rpx;
+  margin-left: 40rpx;
+  float: left;
+  position: relative
+}
+.price>.kefu>image{
+  width:36rpx;
+height:32rpx;
+display: block;
+margin-top: 20rpx
+}
+.price>.kefu>contact-button{
+  width: 40rpx;
+  height: 60rpx;
+display: block;
+margin-top: 20rpx;
+color: #999;
+position: absolute;
+top: 0;
+left: 0;
+opacity: 0
+}
+.price>.kefu>text{
+  font-size:20rpx;
+font-weight:500;
+color:rgba(102,102,102,1);
+position: relative;
+top: -14rpx;
+}
+.price>.gouwu{
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 60rpx;
+  float: left;
+  z-index: 999
+
+}
+.price>.gouwu>image{
+  width:36rpx;
+height:32rpx;
+display: block;
+margin-top: 20rpx
+}
+.price>.gouwu>text{
+  font-size:20rpx;
+font-weight:500;
+color:rgba(102,102,102,1);
+position: relative;
+top: -14rpx;
+}
+.btn2{
+float: right;
+  width:260rpx;
+height:98rpx;
+background:rgba(102,102,102,1);
+font-size:36rpx;
+font-weight:500;
+color:rgba(255,255,255,1);
+line-height: 98rpx;
+text-align: center;
+border-radius: 0
+
+}
+.btn3{
+float: right;
+
+  width:260rpx;
+height:98rpx;
+background:linear-gradient(-8deg,rgba(61,179,163,1) 0%,rgba(145,230,115,1) 100%);
+font-size:36rpx;
+font-weight:500;
+color:rgba(255,255,255,1);
+line-height: 98rpx;
+text-align: center;
+border-radius: 0
+
+}
+.bottom{
+height: auto;
+}
+.bottom image{
+  display: block;
+  width: 100%!important;
+
+}
+.model{
+  width: 200rpx;
+  height: 60rpx;
+  border-radius: 20rpx;
+    position: fixed;
+  bottom: 105rpx;
+  left: 34%;
+  margin: 0 auto;
+  color: rgb(0, 0, 0);
+  background: rgb(209, 209, 209);
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 28rpx;
+}
+.cu{
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.2);
+    position: fixed;
+top: 0;
+left: 0;
+  z-index: 9999999
+
+}
+.kuangIn>.in>.li2{
+  width: 90%;
+  margin: 0 auto
+}
+.kuangIn>.in>.li2>image{
+width: 60%;
+text-align: center;
+}
+.kuangIn>.in>.li2>text{
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.kuangIn>.in>.li2>.left{
+  float: left;
+
+
+}
+.kuangIn>.in>.li2>.left>text{
+   display: inline-block;
+  width:54rpx;
+height:26rpx;
+border:1px solid rgba(245,49,49,1);
+border-radius:6rpx;
+font-size:20rpx;
+font-weight:500;
+color:rgba(245,49,49,1);
+text-align: center;
+}
+.kuangIn>.in>.li2>.right{
+  margin-left: 84rpx;
+  width: 580rpx;
+  margin-top: 20rpx;
+  padding-top: 10rpx;
+  box-sizing: border-box;
+
+}
+.kuangIn>.in>.li2>.right>.d{
+  font-size:28rpx;
+font-weight:500;
+color:rgba(26,26,26,1);
+display: block;
+}
+.kuangIn>.in>.li2>.right>.e{
+  display: block;
+  margin-top: 20rpx;
+  font-size:24rpx;
+font-weight:500;
+color:rgba(153,153,153,1);
+}
+.kuangIn>.guige>.normal_button{
+  width: auto;
+  height: 30rpx;
+  background: rgba(247,247,247,1);
+  border-radius: 6rpx;
+  display: inline-block;
+  padding: 20rpx;
+  color: rgb(145, 143, 143);
+  margin-right: 30rpx;
+  text-align: center;
+  line-height: 10rpx;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+cursor: pointer;
+}
+.kuangIn>.guige>.checked_button{
+  width: auto;
+  height: 30rpx;
+  background: #3DB2A3;
+  border-radius: 6rpx;
+  display: inline-block;
+  padding: 20rpx;
+  color: rgb(255, 255, 255);
+  margin-right: 30rpx;
+  text-align: center;
+  line-height: 10rpx;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+cursor: pointer;
+}
+.Too{
+  position: absolute;
+  left: 20rpx;
+    width:36rpx;
+height:42rpx;
+}
+.Too>image{
+  width: 100%;
+  height: 100%
+}

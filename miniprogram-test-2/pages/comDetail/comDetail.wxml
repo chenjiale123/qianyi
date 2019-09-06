@@ -1,0 +1,55 @@
+<view class="whole">
+  <view class="top">
+    <view class="topIn">
+      <button bindtap="all" data-id="0">全部</button>
+      <button bindtap="new1" data-id="1">最新</button>
+      <button bindtap="good" data-id="2">好评</button>
+      <button bindtap="middle" data-id="3">中评</button>
+      <button bindtap="laji" data-id="4">差评</button>
+      <button bindtap="zhuijia" data-id="6">追加评价</button>
+      <button>好吃不贵</button>
+      <button bindtap="tu" data-id="5">有图</button>
+      <button>追加评价</button>
+
+<!-- <image src="../../image/xiala@2x.png"></image> -->
+    </view>
+  </view>
+  <view class="pingjia">
+    <view class="li" wx:for="{{comment1}}" wx:if="{{she!==false}}">
+      <view class="liIn">
+
+        <view class="left">
+          <image src="http://dev.static.qianyipan.com/{{item.userInfo.infoIcon}}"></image>
+          <text class="txt1">{{item.userInfo.infoNickname}}</text>
+          <text class="txt2">{{item.createTime}}</text>
+
+        </view>
+        <view class="right">
+          <image src="../../image/shouzang01@2x.png" wx:for="{{item.commodityScore}}"></image>
+        </view>
+        <text>{{item.commentsContents}}</text>
+        <view class="tp">
+          <image src="http://dev.static.qianyipan.com/{{item.commentsImagePath}}"></image>
+        </view>
+        <view class="zuiping">
+          <view class="bj"></view>
+          <text class="tou">追加评价</text>
+          <view class="da" wx:for="{{item.additionalReview}}">
+          <text class="body">{{item.commentsContents}}</text>
+          <!-- <text class="tou">展开</text>
+          <image src="../../image/xiala@2x.png"></image> -->
+          </view>
+        </view>
+        <view class="zuiping1" wx:for="{{item.relpy}}">
+        <text class="peo">千艺特产自营旗舰店：</text>
+        <text class="body1">{{item.commentsContents}}</text>
+               <!-- <text class="tou">展开</text>
+          <image src="../../image/xiala@2x.png"></image> -->
+        </view>
+      </view>
+
+    </view>
+     <view class="li" wx:if="{{she==false}}">
+     <image src="http://dev.static.qianyipan.com/image/jpg/wupinglun@2x.png"></image></view>
+  </view>
+</view>

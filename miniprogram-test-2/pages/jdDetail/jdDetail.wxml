@@ -1,0 +1,93 @@
+<view class="whole">
+  <view class="content">
+ 
+    <view class='succ'>
+      <image src='../../image/successfulicon@2x.png'></image>
+      <text>交易成功</text>
+    </view>
+    <image src='http://dev.static.qianyipan.com/image/jpg/carillustrations@2x.png'></image>
+
+    <view class='bm'>
+      <image src='../../image/corrugated@2x.png'></image>
+    </view>
+
+  </view>
+  <view class='center'>
+    <view class='centerli' bindtap="kuaidi1">
+      <image src='../../image/latestlogistics@2x.png' class='tp1'></image>
+      <view class='right'>
+        <text class='tx1'>{{kuaidi.data[0].context}}</text>
+        <text>{{kuaidi.data[0].time}}</text>
+      </view>
+      <image src='../../image/Myaddress@2x.png' class='tp2'></image>
+    </view>
+    <view class='centerli2'>
+      <image src='../../image/ilocation@2x.png'></image>
+      <view class='right2'>
+        <text class='tx1'>{{goods1.consigneeName}}</text>
+        <text class='tx1'>{{goods1.consigneePhone}}</text>
+        <text>{{goods1.consigneeAddress}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='techan'>
+        <image src='../../image/Thestoreicon@2x.png' class='tp'></image>
+        <text>特产</text>
+        <image src='../../image/fanhui@2x.png' class='ck'></image>
+
+        <view class='list' wx:for="{{goods1.orderGoodsList}}">
+          <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+          <view class='right1'>
+            <text class='title'>{{item.goodsName}}</text>
+            <text class='com'>{{item.goodsSpecnames}}</text>
+          </view>
+          <view class='right2'>
+            <text class='num1'  style="float:right;">{{item.goodsRealPrice}}</text>
+            <text class='num2'  style="float:right;margin-top:20rpx;clear:both">×{{item.goodsNum}}</text>
+          </view>
+
+
+        </view>
+        <view class='yun1'>
+          <text class='left'>运费</text>
+          <text class='right'>￥{{goods1.deliverMoney}}</text>
+        </view>
+        <view class='yun2'>
+          <text class='left'>实付款(含运费)</text>
+          <text class='right'>￥{{goods1.totalMoney}}</text>
+        </view>
+        <view class='btn'>
+          <button open-type='contact'>联系卖家</button>
+      <!-- <contact-button type="default-dark" size="20" session-from="weapp"></contact-button> -->
+
+          <!-- <button class='etc' bindtap="tuikuan">退款</button> -->
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='lm'>
+        <view class='lt'>
+          <text class='left'>订单编号:</text>
+          <text class='right'>{{goods1.expressNo}}</text>
+        </view>
+        <view class='lt'>
+          <text class='left'>创建时间:</text>
+          <text class='right'>{{goods1.createTime}}</text>
+        </view>
+        <view class='lt'>
+          <text class='left'>支付时间:</text>
+          <text class='right'>{{goods1.createTime}}</text>
+        </view>
+        <view class='lt'>
+          <text class='left'>成交时间:</text>
+          <text class='right'>{{goods1.deliveryTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

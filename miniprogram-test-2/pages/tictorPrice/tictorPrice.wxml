@@ -1,0 +1,53 @@
+<view class="whole">
+
+  <view class='contain'>
+    <text class='title'>{{name}}</text>
+    <view class='jiage'>
+      <text>￥{{price}}</text>/张
+    </view>
+    <view class='time'>
+      预订时间 {{time}}
+      <text>随时退</text>
+    </view>
+
+    <view class='num'>
+      <text>购买数量</text>
+      <view class='right'>
+        <text class='a' bindtap='getMain' data-index="{{index}}">-</text>
+        <text class='b'>{{salesNum}}</text>
+        <text class='c' bindtap='getPlus' data-index="{{index}}">+</text>
+      </view>
+    </view>
+    <view class='tour'>
+      <text>游客信息</text>
+
+      <view class='shuru'>
+      <form>
+        <view class='name'>
+          <text>*</text>姓名
+          <input placeholder='必填，输入证件上的姓名' bindinput="xm" value="{{xvalue}}"></input>
+        </view>
+        <view class='phone'>
+          <text>*</text>手机号
+          <input placeholder='必填，输入联系人手机号' bindinput="sj" value="{{svalue}}"></input>
+          <!-- <image src='../../image/dianhua@2x.png'></image> -->
+        </view>
+        <button bindtap="clear">清空</button>
+        </form>
+      </view>
+    </view>
+
+  </view>
+    <view class='fukuan'>
+      <view class='all'>
+        总价：
+        <text>￥{{price2}}</text>
+
+      </view>
+      <view class='detail'>
+        明细
+        <image src='../../image/shangfan01@2x.png'></image>
+      </view>
+      <button bindtap="sub">提交订单</button>
+    </view>
+</view>

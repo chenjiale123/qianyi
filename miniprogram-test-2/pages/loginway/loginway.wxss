@@ -1,0 +1,99 @@
+Page{
+  width: 100%;
+  height: 100%
+}
+.contain{
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  height: 100%
+
+}
+.contain image{
+width: 600rpx;
+height: 500rpx;
+
+margin: 0 auto;
+margin-top: 140rpx;
+}
+.contain .btn1{
+  width: 480rpx;
+  height: 88rpx;
+  margin: 0 auto;
+    background:#FF7F66;
+
+border-radius:44rpx;
+margin-top: 76rpx;
+line-height: 88rpx;
+font-size: 36rpx;
+color: #fff;
+}
+.contain .btn2{
+    width: 480rpx;
+  height: 88rpx;
+  margin: 0 auto;
+    background:linear-gradient(-8deg,rgba(61,179,163,1) 0%,rgba(145,230,115,1) 100%);
+  box-shadow:0rpx 8rpx 40rpx 0rpx rgba(144,240,169,0.6);
+border-radius:44rpx;
+margin-top: 48rpx;
+line-height: 88rpx;
+font-size: 36rpx;
+color: #fff;
+}
+.In{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.2)
+}
+.tanc{
+  width: 80%;
+  height: 300rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -40%;
+  margin-top: -150rpx;
+  background: #fff;
+
+}
+.tancIn{
+  width: 90%;
+  margin: 0 auto;
+    padding-top: 50rpx;
+  box-sizing: border-box;
+}
+.tancIn>text{
+  font-size: 28rpx;
+
+
+}
+.tancIn>.btn3{
+  width: 100%;
+  height: 60rpx;
+  margin-top: 40rpx;
+}
+.tancIn>.btn3>button{
+  display: inline-block;
+  width: 40%;
+  height: 60rpx;
+  border: 2rpx solid #000;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 40rpx;
+}
+.tancIn>.btn3>.etc{
+    display: inline-block;
+  width: 40%;
+  height: 60rpx;
+  border: 2rpx solid rgba(145,230,115,1);
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+  color: rgba(145,230,115,1);
+  margin-left: 80rpx;
+  border-radius: 40rpx;
+}

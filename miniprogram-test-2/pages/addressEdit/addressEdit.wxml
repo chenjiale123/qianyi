@@ -1,0 +1,86 @@
+<view class='whole'>
+<!-- <view class="contain"> -->
+  <form>
+    <view class='bj'>
+    <view class="contain">
+      <input class='pl' placeholder='收货人' value="{{people1}}" bindinput ="people" ></input>
+      <!-- <image class='lx' src='../../image/notebook@2x.png'></image> -->
+      <input class='ph' placeholder='手机号码' value="{{phone1}}" bindinput ="phone"></input>
+       <input placeholder="选择" value="{{province}}-{{city}}-{{county}}" focus="{{focus}}" bindfocus="open"  class="ad" bindinput="path"/>
+      <picker>
+        <image class='jp' src='../../image/jump@2x.png'></image>
+      </picker>
+
+      <textarea placeholder='详细地址：如道路、门牌号、小区、楼栋号、单元室等' value="{{detail1}}"  bindinput ="detail" ></textarea>
+      </view>
+    </view>
+        <view class='bj'>
+    <view class="contain">
+      <input class='bq' placeholder='地址标签' bindinput="qian" bindfocus="open1" value="{{bq}}" ></input>
+    <view class='moren'>
+      <text>设为默认地址</text>
+      <switch bindchange="kai" value="{{kai1}}" checked="{{kai1}}"></switch>
+    </view>
+       </view>
+       <button class="btn" bindtap="save">保存</button>
+         <button bindtap="del">删除收货地址</button>
+    </view>
+  </form>
+
+<!-- </view> -->
+  <view class="zhezao" wx:if="{{condition}}">
+<view  class="citypicker">
+  <picker-view indicator-style="height: 50px;" style="width: 100%; height: 250px;position:absolute;bottom:0" value="{{value}}" bindchange="bindChange" class="citybody">
+    <view class="cityheader">
+      <view bindtap="open" class="city-cancel">取消</view>
+      <view bindtap="open" class="city-true">确定</view>
+    </view>
+    <picker-view-column>
+      <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;text-align:center; margin:0 auto;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;text-align:center; margin:0 auto;">{{item}}</view>
+    </picker-view-column>
+    <picker-view-column>
+      <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;text-align:center; margin:0 auto;">{{item}}</view>
+    </picker-view-column>
+  </picker-view>
+</view>
+</view>
+ <view class="open" wx:if="{{condition1}}">
+    <view class="openIn">
+      <view class="In">
+        <text>地址标签</text>
+        <radio-group bindchange="radioChange">
+          <label class="tp">
+
+            <text>自</text>
+            <text class="txt">默认显示姓名，可自定义</text>
+            <radio checked="{{item.checked}}" bindtap='radio' data-id="4" value="4" />
+          </label>
+          <label class="tp">
+
+            <image src="../../image/homeicon@2x.png"></image>
+            <text class="txt">家</text>
+            <radio checked="{{item.checked}}" bindtap='radio' data-id="0" value="家" />
+          </label>
+          <label class="tp">
+
+            <image src="../../image/companyicon@2x.png"></image>
+            <text class="txt">公司</text>
+            <radio checked="{{item.checked}}" bindtap='radio' data-id="1" value="公司" />
+          </label>
+          <label class="tp">
+
+            <image src="../../image/schoolicon@2x.png"></image>
+            <text class="txt">学校</text>
+            <radio checked="{{item.checked}}" bindtap='radio' data-id="2" value="学校" />
+          </label>
+        </radio-group>
+        <button class="btn1" bindtap="srue">确定</button>
+         <button class="btn2" bindtap="quxiao">取消</button>
+      </view>
+    </view>
+
+  </view>
+</view>

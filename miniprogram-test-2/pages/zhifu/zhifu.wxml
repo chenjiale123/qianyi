@@ -1,0 +1,80 @@
+<view class="whole">
+  <view class='content'>
+    <view class='succ'>
+      <text class='title'>待支付</text>
+      <text class='span'>剩余支付时间</text>
+      <view class="flex_l_r_c">
+        <!-- <view>{{item.memberNickname}}</view> -->
+        <text>{{countdown}}</text>
+      </view>
+      <text class='span' style="margin-left:10rpx">过期订单自动取消</text>
+    </view>
+
+
+    <view class='bm'>
+      <image src='../../image/corrugated@2x.png'></image>
+    </view>
+  </view>
+  <view class='center'>
+    <view class='centerli' wx:for="{{goods1}}">
+      <view class="left">
+        <image src="http://dev.static.qianyipan.com/{{item.goodsImg}}"></image>
+      </view>
+      <view class="right1">
+        <text class="txt1">{{item.goodsName}}</text>
+        <text class="txt2">{{item.goodsSpecnames}}</text>
+        <view class="jia">
+          <view class="left">￥{{item.goodsRealPrice}}</view>
+          <view class="right">x{{item.goodsNum}}</view>
+        </view>
+      </view>
+      <view class="right2">
+        <image src="../../image/blackjump@2x.png"></image>
+      </view>
+
+    </view>
+    <!-- <view class='centerli'>
+      <view class="left">
+        <image src="../../image/1.jpg"></image>
+      </view>
+      <view class="right1">
+        <text class="txt1">友臣肉松棒1KG肉松饼礼盒特产早</text>
+        <text class="txt2">商品规格1盒30个【320g】商品规格</text>
+        <view class="jia">
+          <view class="left">￥45.00</view>
+          <view class="right">x2</view>
+        </view>
+      </view>
+      <view class="right2">
+        <image src="../../image/blackjump@2x.png"></image>
+      </view>
+
+    </view> -->
+    <view class='centerli2'>
+
+      总金额：
+      <text>￥{{price1}}</text>
+    </view>
+    <view class='centerli3'>
+      <text bindtap="quxiao">取消订单</text>
+      <text open-type='contact'>联系客服</text>
+      <button>付款</button>
+    </view>
+  </view>
+
+  <view class='bj'>
+    <view class='contain'>
+      <text class="all">订单信息</text>
+      <view class='lt'>
+        <text class='left'>订单编号:</text>
+        <!-- <button class='right1'>复制 </button> -->
+        <text class='right'>{{code1}}</text>
+
+      </view>
+      <view class='lt'>
+        <text class='left'>下单时间:</text>
+        <text class='right'>{{time1}}</text>
+      </view>
+    </view>
+  </view>
+</view>

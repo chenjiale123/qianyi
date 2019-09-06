@@ -1,0 +1,114 @@
+<view class="whole">
+  <view class='content'>
+    <view class='succ'>
+      <text class='title'>交易成功</text>
+
+    </view>
+ 
+
+    <view class='bm'>
+      <image src='../../image/corrugated@2x.png'></image>
+    </view>
+  </view>
+  <view class='center'>
+    <view class='centerli'>
+      <view class='left'>
+        <text class='top'>{{jindian.scenicName}}</text>
+        <text class='top1'>{{jindian.createDate}}</text>
+      </view>
+      <image src='../../image/blackjump@2x.png'></image>
+    </view>
+    <view class='centerli2'>
+      <view class='left2'>
+        总金额
+        <text>￥{{jindian.price}}</text>
+      </view>
+      <view class='right2'>
+        <text>￥{{jindian.scenicSpotWithBLOBs.ticketPrice}}</text>×{{jindian.ticketNum}}张
+      </view>
+
+    </view>
+    <view class='centerli3'>
+      <text bindtap="quxiao" data-in="{{jindian.id}}" class="a">取消订单</text>
+      <text class="b">联系客服</text>
+      <button bindtap="tuikuan" data-in="{{jindian.id}}">退款</button>
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='list1'>
+        <text>入园须知</text>
+        <image src='../../image/tab.png'></image>
+
+        <view class='text'>
+          <text class='xiu'>入园方式：无需换票，快速入园</text>
+          <text class='ha'>凭商家确认短信、手机号在前台直接验证入园</text>
+          <text class='xiu'>商家短信：</text>
+          <text class='ha'>商家确认短信会在下单成功后3分钟内发送</text>
+          <text class='xiu'>景区开放时间：</text>
+          <text class='ha'>周一至周五   11:00~次日01:00开放；</text>
+          <text class='ha'>周一至周五   11:00~次日01:00开放；</text>
+
+        </view>
+
+      </view>
+
+
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='list2'>
+        <text>退款说明</text>
+        <image src='../../image/tab.png'></image>
+
+        <view class='text'>
+          <text class='xiu'>退款规则：随时退</text>
+          <text class='ha'>90天内支持随时退款，经核实如未取票，可免费取消；</text>
+          <text class='xiu'>极速处理：</text>
+          <text class='ha'>提交申请后一个工作日内完成退款申请的审核</text>
+          <text class='xiu'>额外说明：</text>
+          <text class='ha'>未使用可随时申请退款</text>
+          <text class='ha'>订单不支持部分退</text>
+          <text class='ha'>如需改期，请申请取消后重新预定</text>
+
+        </view>
+
+      </view>
+
+
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='list3'>
+        <text>游客信息</text>
+        <image src='../../image/tab.png'></image>
+
+        <view class='xinxi'>
+          <text>游客：{{jindian.buyers}}</text>
+          <text>手机号：{{jindian.buyersPhone}}</text>
+        </view>
+  
+      </view>
+
+
+    </view>
+
+  </view>
+    <view class='bj'>
+    <view class='contain'>
+      <view class='lt'>
+        <text class='left'>订单编号:</text>
+            <!-- <button class='right1'>复制  </button> -->
+        <text class='right'>{{jindian.orderno}}</text>
+    
+      </view>
+      <view class='lt'>
+        <text class='left'>下单时间:</text>
+        <text class='right'>{{jindian.createDate}}</text>
+      </view>
+    
+    </view>
+  </view>
+</view>

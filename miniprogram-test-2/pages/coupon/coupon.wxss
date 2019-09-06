@@ -1,0 +1,96 @@
+.whole{
+  background:rgba(242,242,242,1);
+  width: 100%;
+}
+.contain{
+  width: 94%;
+  margin: 0 auto;
+}
+.list{
+  width: 100%;
+  height: 188rpx;
+position: relative;
+border-bottom: 1px solid rgba(242,242,242,1);
+}
+.quan{
+  position: absolute;
+  width: 148rpx;
+  height: 148rpx;
+  background: #ff7f66;
+  top: 20rpx;
+  left: 0;
+  border-radius: 16rpx;
+  color: #fff;
+  font-size: 40rpx;
+text-align: center;
+line-height: 148rpx;
+
+}
+.quan1{
+  position: absolute;
+  width: 148rpx;
+  height: 148rpx;
+  background: #ccc;
+  top: 20rpx;
+  left: 0;
+  border-radius: 16rpx;
+  color: #fff;
+  font-size: 40rpx;
+text-align: center;
+line-height: 148rpx;
+
+}
+
+.type1{
+position: absolute;
+top:44rpx;
+left: 178rpx;
+font-size: 28rpx;
+color: #1a1a1a;
+
+}
+.type2{
+  position: absolute;
+  top: 90rpx;
+  left: 178rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+.type3{
+  position: absolute;
+  top: 122rpx;
+  left: 178rpx;
+  font-size: 22rpx;
+  color: #999;
+}
+.btn1{
+  width: 166rpx;
+  height: 66rpx;
+  background: #91e573;
+  border-radius: 32rpx;
+  color: #fff;
+  line-height: 66rpx;
+  text-align: center;
+  position: absolute;
+  right:0;
+  top: 62rpx;
+}
+.btn2{
+  width: 166rpx;
+  height: 66rpx;
+  background: #f2f2f2;
+  border-radius: 32rpx;
+  color: #999;
+  line-height: 66rpx;
+  text-align: center;
+  position: absolute;
+  right:0;
+  top: 62rpx;
+}
+.last{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  color: #999;
+  font-size: 22rpx;
+}

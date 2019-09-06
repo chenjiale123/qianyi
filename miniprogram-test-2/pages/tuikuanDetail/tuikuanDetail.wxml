@@ -1,0 +1,102 @@
+<view class="whole">
+  <view class="content">
+
+    <view class='succ'>
+
+      <text>卖家退款中</text>
+    </view>
+
+
+    <view class='bm'>
+      <image src='../../image/corrugated@2x.png'></image>
+    </view>
+
+  </view>
+  <view class='center'>
+    <view class='centerli' bindtap="kuaidi1">
+      退款金额：
+      <text>￥{{goods.backMoney}}</text>
+    </view>
+    <view class='centerli2'>
+      <view class="li">
+        <view class="left">
+          退回至支付宝
+        </view>
+        <view class="right">
+          未收到退款？
+        </view>
+      </view>
+      <view class="jindu" wx:if="{{goods.refundStatus==1}}">
+        <view>
+          <text class="txt5">卖家退款</text>
+          <image src="../../image/greenhook@2x.png"></image>
+          <text class="txt5">2019.3.3</text>
+        </view>
+        <view>
+          <text >银行受理</text>
+       
+        </view>
+        <view>
+          <text>退款成功</text>
+      
+        </view>
+      </view>
+      <view class="jindu1" wx:if="{{goods.refundStatus==2}}">
+        <view>
+          <text>卖家退款</text>
+          <image src="../../image/greenhook@2x.png"></image>
+          <text>2019.3.3</text>
+        </view>
+        <view>
+          <text>银行受理</text>
+          <image src="../../image/greenhook@2x.png"></image>
+          <text>2019.3.3</text>
+        </view>
+        <view>
+          <text class="txt5">退款成功</text>
+          <image src="../../image/greenhook@2x.png"></image>
+          <text class="txt5">2019.3.3</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='techan'>
+        <text>退款信息</text>
+
+        <view class='list' wx:for="{{goods.shopOrderList.orderGoodsList}}">
+          <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+          <view class='right1'>
+            <text class='title'>{{item.goodsName}}</text>
+            <text class='com'>{{item.goodsSpecnames}}</text>
+          </view>
+
+
+
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <view class='bj'>
+    <view class='contain'>
+      <view class='lm'>
+        <view class='lt'>
+          <text class='left'>退款原因:</text>
+          <text class='right'>{{reason}}</text>
+        </view>
+        <view class='lt'>
+          <text class='left'>申请时间:</text>
+          <text class='right'>{{goods.createTime}}</text>
+        </view>
+        <view class='lt'>
+          <text class='left'>退款编号:</text>
+          <text class='right'>{{goods.refundOrderNo}}</text>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+</view>

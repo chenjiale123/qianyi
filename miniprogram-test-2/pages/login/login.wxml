@@ -1,0 +1,19 @@
+<view class='whole'>
+  <view class='contain'>
+    <image src='../../image/qylogo@2x (1).png'></image>
+
+    <view class='center'>
+      <form bindsubmit="submit">
+        <input class='shuru1' placeholder='用户名/手机号' type='number' name="tel" bindinput="userphone"></input>
+        <input class='shuru2' placeholder='请输入密码' type='password' name="pad" bindinput="password">
+        <image src="../../image/bukekan@2x.png"></image>
+        </input>
+        <button class='btn' form-type='submit'> 登录</button>
+        <view class='tishi'>
+          <text bindtap="login1">手机号登录</text>
+          <!-- <text> 忘记密码</text> -->
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

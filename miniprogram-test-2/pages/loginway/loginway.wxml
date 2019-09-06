@@ -1,0 +1,18 @@
+<!--pages/loginway/loginway.wxml-->
+<view class='contain'>
+  <image src='http://dev.static.qianyipan.com/image/jpg/illustrations@2x.png'></image>
+
+  <button class='btn1' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信授权登录</button>
+  <button class='btn2' bindtap='login1'>千艺账号登录</button>
+  <view class="In" wx:if="{{show}}">
+    <view class="tanc">
+      <view class="tancIn">
+        <text>为了账号安全请绑定手机号，拒绝将登录失败</text>
+        <view class="btn3">
+          <button bindtap="jujue">拒绝</button>
+          <button class="etc" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">允许</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
