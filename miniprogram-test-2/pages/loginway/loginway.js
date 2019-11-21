@@ -44,7 +44,7 @@ Page({
               url: 'https://api.weixin.qq.com/sns/jscode2session',
               data: {
                 appid: 'wx99ea433caea5a1c7',
-                secret: '8a2bb4b0e0c0b3752e971d2298471366',
+                secret: '71376261788531283f32ec11e2368f1e',
                 js_code: res.code,
                 grant_type: 'authorization_code'
               },
@@ -53,12 +53,13 @@ Page({
 
            
                 console.log("111") 
-                console.log(that)
+                console.log(res)
                 that.setData({
                       openid: res.data.openid,
                   key1: res.data.session_key
                 })
-                
+                wx.setStorageSync("openid", res.data.openid);
+
                 wx.request({
                   url: 'https://dev.app.qianyipan.com/QianYi/appletLogin?loginType=weixinApplet&identifier=' + res.data.openid,
 
@@ -103,7 +104,7 @@ Page({
   },
   jujue:function(){
     wx.request({
-      url: 'https://dev.app.qianyipan.com/QianYi/appletLogin',
+      url: api.baseUrl+'/QianYi/appletLogin',
       method: 'POST',
       data:{
         nickName: this.data.name,
@@ -130,7 +131,7 @@ Page({
     console.log(res)
 
     wx.request({
-      url: 'https://dev.app.qianyipan.com/QianYi/appletLogin',
+      url: api.baseUrl +'/QianYi/appletLogin',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',

@@ -19,7 +19,7 @@
       <view class="liIn">
 
         <view class="left">
-          <image src="http://dev.static.qianyipan.com/{{item.userInfo.infoIcon}}"></image>
+          <image src="{{api}}{{item.userInfo.infoIcon}}"></image>
           <text class="txt1">{{item.userInfo.infoNickname}}</text>
           <text class="txt2">{{item.createTime}}</text>
 
@@ -28,8 +28,9 @@
           <image src="../../image/shouzang01@2x.png" wx:for="{{item.commodityScore}}"></image>
         </view>
         <text>{{item.commentsContents}}</text>
-        <view class="tp">
-          <image src="http://dev.static.qianyipan.com/{{item.commentsImagePath}}"></image>
+        <view class="tp"  >
+          <image  wx:for="{{item.ImagePath}}" src="{{api}}{{item}}"></image>
+          <!-- <text >{{item}}</text> -->
         </view>
         <view class="zuiping">
           <view class="bj"></view>

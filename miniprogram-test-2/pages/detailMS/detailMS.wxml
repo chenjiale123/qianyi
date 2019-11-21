@@ -32,7 +32,7 @@
       <view class="kuangIn">
         <view class="goods">
           <view class="left">
-            <image src="http://dev.static.qianyipan.com/{{goods.imageThumb}}"></image>
+            <image src="{{api}}{{goods.imageThumb}}"></image>
           </view>
           <view class="right">
             <text class="w1">￥{{pri}}</text>
@@ -68,7 +68,7 @@
       <view class="kuangIn">
         <view class="goods">
           <view class="left">
-            <image src="http://dev.static.qianyipan.com/{{goods.imageThumb}}"></image>
+            <image src="{{api}}{{goods.imageThumb}}"></image>
           </view>
           <view class="right">
             <text class="w1">￥{{pri}}</text>
@@ -101,7 +101,7 @@
   <view class='lunbo'>
     <swiper autoplay="true">
       <swiper-item wx:for="{{img}}" wx:key="index">
-        <image src='http://dev.static.qianyipan.com/{{item}}'></image>
+        <image src='{{api}}{{item}}'></image>
         <view class='num'>
           {{index+1}}/5
         </view>
@@ -113,28 +113,20 @@
 
     <view class='introIn'>
       <view class='top'>
-        <!-- <view class='a'>
-          ￥{{goods.discountPrice}}
-        </view>
-        <text class='b'>￥{{goods.price}}</text>
-        <text class='c'>包邮</text> -->
+
 
         <view class="left">
           <text class="etc1">￥{{goods.discountPrice}}</text>
           <text class="etc2">包邮</text>
 
-          <image src="../../image/xsms1@2x .png"></image>
+          <image src="../../image/xsms1@2x.png"></image>
           <text class="etc3">￥{{goods.price}}</text>
         </view>
         <view class="right">
           <text>距结束还剩</text>
 
-          <!-- <view class='showtime' wx:for="{{countDownList}}" wx:key="countDownList">
-            <text class='time'>{{item.hou}}</text>:
-            <text class='time'>{{item.min}}</text>:
-            <text class='time'>{{item.sec}}</text>
-          </view> -->
-   <view class="flex_l_r_c">
+
+          <view class="flex_l_r_c">
 
             <text>{{countdown}}</text>
           </view>
@@ -148,9 +140,9 @@
           <text>{{goods.goodsName}}</text>
         </view>
         <view class='right'>
-         <view class="Too" animation="{{ani}}">
-         <image src="../../image/xinyuan@2x.png" ></image>
-         </view>
+          <view class="Too" animation="{{ani}}">
+            <image src="../../image/xinyuan@2x.png"></image>
+          </view>
           <image src='../../image/xinyuan@2x.png' wx:if="{{sh}}" bindtap="click"></image>
           <image src='../../image/xinyuan01@2x.png' wx:if="{{!sh}}" bindtap="click1"></image>
 
@@ -204,7 +196,7 @@
         <view class='pinlunIn'>
           <view class='xin'>
             <view class='left'>
-              <image src='http://dev.static.qianyipan.com/{{item.userInfo.infoIcon}}'></image>
+              <image src='{{api}}{{item.userInfo.infoIcon}}'></image>
               <text>{{item.userInfo.infoNickname}}</text>
             </view>
             <view class='right'>
@@ -227,7 +219,7 @@
       <text>大家都在看</text>
       <view class='list'>
         <view class='li' wx:for="{{goods1}}" wx:key="index" bindtap="look" data-id="{{item.id}}">
-          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <image src='{{api}}{{item.imageThumb}}'></image>
           <text class='tl'>{{item.goodsName}}</text>
           <text class='pr'>￥{{item.discountPrice}}</text>
         </view>

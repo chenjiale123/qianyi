@@ -6,7 +6,7 @@
   <input placeholder='搜索你心仪的商品' bindfocus="sousuo"></input>
   <swiper class="lunbo" autoplay="true">
     <swiper-item wx:for="{{data1}}" wx:key="data1">
-      <image src='http://dev.static.qianyipan.com/{{item.picture}}'></image>
+      <image src='{{api}}{{item.picture}}'></image>
     </swiper-item>
     <view class="idea">
     <view class="ripple" style="{{rippleStyle}}"></view>
@@ -34,7 +34,7 @@
       <view class='moreli'>
         <view class='li' wx:for="{{data}}" wx:key="data" bindtap="detailMS" data-id="{{item.id}}" data-in="{{item.shopGoods}}">
           <view class='tp'>
-            <image src='http://dev.static.qianyipan.com/{{item.shopGoods.imageThumb}}' class='img3'></image>
+            <image src='{{api}}{{item.shopGoods.imageThumb}}' class='img3'></image>
             <image src='../../image/TOP1@2x.png' class='img4'  wx:if="{{index==0}}"></image>
                       <image src='../../image/TOP2@2x.png' class='img4'  wx:if="{{index==1}}"></image>
                                 <image src='../../image/TOP3@2x.png' class='img4'  wx:if="{{index==2}}"></image>
@@ -64,11 +64,11 @@
     </view>
     <image src='../../image/gengduo@2x.png' class='img3'></image>
     <text class='more1' bindtap="listTC"> 更多</text>
-    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{(data3.length/2+data2.length/2)*340+200}}rpx'>
+    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style='height:{{(data3.length/2+data2.length/2)*340+400}}rpx'>
       <swiper-item>
-        <view>
+        <view class="item">
           <view class='techan' bindtap='detail' wx:for="{{data2}}" data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
-            <image class='zhutu' src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+            <image class='zhutu' src='{{api}}{{item.imageThumb}}'></image>
             <view class='title'>
 
               <view class="txt">
@@ -92,9 +92,9 @@
 
 
       <swiper-item>
-        <view>
+        <view class="item">
           <view class='techan' bindtap='detail' wx:for="{{data3}}" wx:key="data3" data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
-            <image class='zhutu' src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+            <image class='zhutu' src='{{api}}{{item.imageThumb}}'></image>
             <view class='title'>
 
               <view class="txt">

@@ -21,12 +21,7 @@
         <view class='product'>
           <image class='jt1' src='../../image/jiantou@2x.png'></image>
           <text>抢购中，先下单先得哦</text>
-          <!-- <view class='time' wx:for="{{countDownList}}" wx:key="countDownList">
-            距结束
-            <text class='timeli'>{{item.hou}}</text>:
-            <text class='timeli'>{{item.min}}</text>:
-            <text class='timeli'>{{item.sec}}</text>
-          </view> -->
+   
           <view class="flex_l_r_c">
 
             <text>{{countdown}}</text>
@@ -34,7 +29,7 @@
         </view>
         <view class='list'>
           <view class='listli' wx:for="{{goods}}" wx:key="goods">
-            <image src='http://dev.static.qianyipan.com/{{item.shopGoods.imageThumb}}'></image>
+            <image src='{{api}}{{item.shopGoods.imageThumb}}'></image>
             <view class='right'>
               <text class='title'>{{item.shopGoods.goodsName}}</text>
               <text class='small'>还剩{{item.shopGoods.discountPrice}}件  每人限购1件</text>
@@ -69,12 +64,7 @@
         <view class='product'>
           <image class='jt2' src='../../image/jiantou@2x.png'></image>
           <text>抢购中，先下单先得哦</text>
-          <!-- <view class='time' wx:for="{{countDownList}}" wx:key="countDownList">
-            距结束
-            <text class='timeli'>{{item.hou}}</text>:
-            <text class='timeli'>{{item.min}}</text>:
-            <text class='timeli'>{{item.sec}}</text>
-          </view> -->
+ 
         <view class="flex_l_r_c">
 
             <text>{{countdown1}}</text>
@@ -86,7 +76,7 @@
             <image src='http://dev.static.qianyipan.com/image/jpg/wuneirong@2x.png'></image>
           </view>
           <view class='listli' wx:for="{{goods1}}" wx:key="goods1" wx:if="{{goods1.length!==0}}">
-            <image src='http://dev.static.qianyipan.com/{{item.shopGoods.imageThumb}}'></image>
+            <image src='{{api}}{{item.shopGoods.imageThumb}}'></image>
             <view class='right'>
               <text class='title'>{{item.shopGoods.goodsName}}</text>
               <text class='small'>还剩{{item.shopGoods.discountPrice}}件  每人限购1件</text>

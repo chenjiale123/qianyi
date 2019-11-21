@@ -27,6 +27,10 @@ wx.navigateTo({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    that.setData({
+      api: api.url
+    })
     api._post('/QianYi_Shop/selectArticle?page=1').then(res => {
       console.log(res)
       this.setData({

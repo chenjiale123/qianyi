@@ -39,6 +39,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
 
     api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=2&page=1').then(res => {

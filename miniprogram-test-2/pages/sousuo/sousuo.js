@@ -36,12 +36,27 @@ Page({
     })
   },
   detail: function(e) {
-    wx.navigateTo({
-      url: '/pages/detailTC/detailTC?id=' + e.currentTarget.dataset.id,
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+
+
+    var userId = wx.getStorageSync('user').loginId || 0
+
+    if (userId == 0) {
+      wx.navigateTo({
+        url: '/pages/loginway/loginway',
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/detailTC/detailTC?id=' + e.currentTarget.dataset.id,
+        success: function (res) { },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
+
+  
   },
   openHistorySearch: function() {
     this.setData({
@@ -61,7 +76,7 @@ Page({
       com: false
     })
     var userId = wx.getStorageSync('user').loginId || 0
-
+    console.log(e.detail.value)
     api._post('/QianYi/selectHomeSearchBykeyword?keyword=' + e.detail.value + '&type=1&page=1&userId='+userId).then(res => {
       console.log(res)
       this.setData({
@@ -103,7 +118,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-   
+    var that = this
+    that.setData({
+      api: api.url
+    })
     api._post('/QianYi/selectHomeTopSearch?type=1&page=1').then(res => {
       console.log(res)
       this.setData({

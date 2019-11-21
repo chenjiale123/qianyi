@@ -170,12 +170,7 @@ quxiao:function(){
     api._get('/QianYi_Shop/addShopAddress?userId='+userId+'&consigneeName=' + this.data.people1 + '&consigneePhone=' + this.data.phone1 + '&areaIdPath=' + this.data.province+','+ this.data.city+','+ this.data.county + '&address=' + this.data.detail1 + '&isDefault=' + this.data.kai1 + '&effectiveState=1&type='+this.data.bqId).then(res => {
       console.log(res)
 
-    //  wx.navigateTo({
-    //    url: '/pages/address/address',
-    //    success: function(res) {},
-    //    fail: function(res) {},
-    //    complete: function(res) {},
-    //  })
+ 
     wx.showToast({
       title: res.msg,
       icon:'none'
@@ -192,7 +187,10 @@ quxiao:function(){
    
 
     console.log("onLoad");
-    var that = this;
+    var that = this
+    that.setData({
+      api: api.url
+    })
 
     tcity.init(that);
 

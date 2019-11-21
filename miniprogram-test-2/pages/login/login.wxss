@@ -32,7 +32,7 @@
   color: #b3b3b3;
   line-height: 98rpx;
   font-size: 32rpx;
-   opacity: 0.4;
+   /* opacity: 0.4; */
 }
 .contain .center input image{
   width: 40rpx;

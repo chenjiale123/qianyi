@@ -149,7 +149,7 @@ Page({
     console.log(e, this.data.index1)
 
     api._post('/QianYi/forYourChoice?city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude).then(res => {
-      console.log(res)
+      console.log(this.data.index1)
  
       if(res.isSuc==true){
         var shit = []
@@ -187,6 +187,9 @@ Page({
 
   onLoad: function(options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
     api._get('/QianYi/selectHotLabels?page=1').then(res => {
 
       that.setData({

@@ -33,7 +33,7 @@
       </view>
     </view>
 
-    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{(goods.length)*1000}}rpx">
       <swiper-item>
         <view class='bj' wx:for="{{goods}}" wx:if="{{leng!==0}}">
           <view class="contain">
@@ -47,7 +47,7 @@
               <view class='list '>
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}" wx:if="{{item.orderStatus!=='待支付'}}">
                   <view class="In" wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                    <image src='{{api}}{{item.goodsImg}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.goodsName}}</text>
                       <text class='com'>{{item.goodsSpecnames}}</text>
@@ -62,7 +62,7 @@
                 </view>
                       <view class="intop" bindtap="zhifu" data-id="{{item.id}}" wx:if="{{item.orderStatus=='待支付'}}" data-in="{{index}}">
                   <view class="In" wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                    <image src='{{api}}{{item.goodsImg}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.goodsName}}</text>
                       <text class='com'>{{item.goodsSpecnames}}</text>
@@ -77,7 +77,7 @@
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待支付'}}">
                   <button data-in="{{item.id}}" bindtap="quxiao"> 取消订单</button>
-                  <button class='etc'>支付</button>
+                  <button class='etc' data-id="{{item.id}}" bindtap="buy" data-in="{{item}}">支付</button>
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='用户取消'}}">
                   <button bindtap="shanchu" data-in="{{item.id}}">删除订单</button>
@@ -85,7 +85,7 @@
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待发货'}}">
                   <button bindtap="tuikuan" data-in="{{index}}" data-id1="{{item.id}}">退款</button>
-                  <button>提醒发货</button>
+                  <button bindtap="tixing" data-in="{{item.orderNo}}">提醒发货</button>
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待收货'}}">
                   <button bindtap="tuikuan" data-in="{{index}}" data-id1="{{item.id}}">退款</button>
@@ -121,21 +121,21 @@
 
 
       <swiper-item>
-        <view class='bj' wx:for="{{goods1}}" wx:if="{{leng1!==0}}">
+           <view class='bj' wx:for="{{goods1}}" wx:if="{{leng1!==0}}">
           <view class="contain">
             <view class='techan'>
               <image src='../../image/Thestoreicon@2x.png' class='tp'></image>
               <text>特产</text>
               <image src='../../image/fanhui@2x.png' class='ck'></image>
               <view class='right'>
-                <text>待支付 </text>
+                <text>待付款 </text>
 
               </view>
               <view class='list '>
-                <view class="intop" bindtap="zhifu" data-id="{{item.id}}" data-in="{{index}}">
+                <view class="intop" bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In" wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                    <image src='{{api}}{{item.goodsImg}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.goodsName}}</text>
                       <text class='com'>{{item.goodsSpecnames}}</text>
@@ -154,9 +154,8 @@
                 </view>
                 <view class='btn'>
 
-                  <button data-in="{{item.id}}" bindtap="quxiao">取消订单</button>
-
-                  <button class='etc'>支付</button>
+                     <button data-in="{{item.id}}" bindtap="quxiao"> 取消订单</button>
+                  <button class='etc' data-id="{{item.id}}" bindtap="buy" data-in="{{item}}">支付</button>
                 </view>
               </view>
             </view>
@@ -165,6 +164,7 @@
         <view class='bj' wx:if="{{leng1==0}}">
           <image src="http://dev.static.qianyipan.com/image/jpg/wudingdan@2x.png"></image>
         </view>
+
       </swiper-item>
       <swiper-item>
         <view class='bj' wx:for="{{goods3}}" wx:if="{{leng3!==0}}">
@@ -181,7 +181,7 @@
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In" wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                    <image src='{{api}}{{item.goodsImg}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.goodsName}}</text>
                       <text class='com'>{{item.goodsSpecnames}}</text>
@@ -227,7 +227,7 @@
                 <view class="intop " bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In " wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                    <image src='{{api}}{{item.goodsImg}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.goodsName}}</text>
                       <text class='com'>{{item.goodsSpecnames}}</text>
@@ -272,7 +272,7 @@
               <view class='list ' >
                 <view class="intop " bindtap="jdDetail " data-id="{{item.id}} ">
                   <view class="In " wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                    <image src='{{api}}{{item.goodsImg}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.goodsName}}</text>
                       <text class='com'>{{item.goodsSpecnames}}</text>
@@ -320,7 +320,7 @@
                 <view class="intop " bindtap="jdDetail " data-id="{{item.id}} ">
 
                   <view class="In " wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}} '></image>
+                    <image src='{{api}}{{item.goodsImg}} '></image>
                     <view class='right1 '>
                       <text class='title '>{{item.goodsName}}</text>
                       <text class='com '>{{item.goodsSpecnames}}</text>
@@ -366,7 +366,7 @@
                 <view class="intop " bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In " wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}} '></image>
+                    <image src='{{api}}{{item.goodsImg}} '></image>
                     <view class='right1 '>
                       <text class='title '>{{item.goodsName}}</text>
                       <text class='com '>{{item.goodsSpecnames}}</text>
@@ -413,7 +413,7 @@
                 <view class="intop " bindtap="jdDetail " data-id="{{item.id}} ">
 
                   <view class="In " wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}} '></image>
+                    <image src='{{api}}{{item.goodsImg}} '></image>
                     <view class='right1 '>
                       <text class='title '>{{item.goodsName}}</text>
                       <text class='com '>{{item.goodsSpecnames}}</text>
@@ -459,7 +459,7 @@
                 <view class="intop " bindtap="jdDetail " data-id="{{item.id}} ">
 
                   <view class="In " wx:for="{{item.orderGoodsList}}">
-                    <image src='http://dev.static.qianyipan.com/{{item.goodsImg}} '></image>
+                    <image src='{{api}}{{item.goodsImg}} '></image>
                     <view class='right1 '>
                       <text class='title '>{{item.goodsName}}</text>
                       <text class='com '>{{item.goodsSpecnames}}</text>

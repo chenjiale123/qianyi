@@ -112,7 +112,7 @@
       <view class="center">
         <view class="left">
         <view class="leftIn">
-       <image src="http://dev.static.qianyipan.com/{{item.shopGoodsWithBLOBs.imageThumb}}" wx:for="{{detail}}"> </image>
+       <image src="{{api}}{{item.shopGoodsWithBLOBs.imageThumb}}" wx:for="{{detail}}"> </image>
  
  </view>
         </view>

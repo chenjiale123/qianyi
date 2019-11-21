@@ -6,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+id:''
   },
 detailTC:function(e){
 wx.navigateTo({
-  url: '/pages/detailTC/detailTC?id=' + e.currentTarget.dataset.id,
+  url: '/pages/comDetail/comDetail?id=' + this.data.id,
   success: function(res) {},
   fail: function(res) {},
   complete: function(res) {},
@@ -21,6 +21,13 @@ wx.navigateTo({
    */
   onLoad: function (options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
+    var id=options.id
+    this.setData({
+      id:id
+    })
     api._get('/QianYi_Shop/selectRecommendGoods?page=1').then(res => {
 
       that.setData({

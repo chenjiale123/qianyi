@@ -34,7 +34,7 @@ Page({
       m = m < 10 ? "0" + m : m
       h = h < 10 ? "0" + h : h
       that.setData({
-        countdown: d + "：" + h + "：" + m + "：" + s + ":" + ms,
+        countdown:  m + "：" + s ,
       })
       //递归每秒调用countTime方法，显示动态时间效果
       setTimeout(that.countTime, 100);
@@ -74,25 +74,28 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    that.setData({
+      api: api.url
+    })
     that.countTime()
 
-    var goods = JSON.parse(options.goods) 
-    var price=options.price
-    var code=options.code
-    var time=options.time
-    var id=options.id2
-    this.setData({
-      goods1:goods,
-      price1:price,
-      code1:code,
-      time1:time,
-      id:id
-      // listData: list
-
-
-    })
+    var id = JSON.parse(options.id) 
    
+   
+    api._get('/QianYi_Shop/selectOrderInfo?id=' + id).then(res => {
+      console.log(res)
+     this.setData({
+       goods1: res.data.orderGoodsList,
+       price1: res.data.goodsMoney,
+       code1: res.data.orderNo,
+       time1: res.data.createTime
 
+     })
+
+
+    }).catch(e => {
+      console.log(e)
+    })
 
   },
 

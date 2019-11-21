@@ -66,6 +66,9 @@ wx.navigateTo({
    */
   onLoad: function (options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
     api._get('/QianYi_Shop/selectAddressByUserId?page=1&userId='+userId).then(res => {
       if (res.isSuc==false){

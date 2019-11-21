@@ -355,7 +355,11 @@ text-decoration: line-through
 
 
 
-
+.list2{
+  /* overflow: hidden; */
+  padding-bottom: 98rpx;
+  
+}
 
 /* tab */
 .swiper-tab{
@@ -387,4 +391,13 @@ box-shadow:0rpx 6rpx 20rpx 0rpx rgba(144,240,169,0.5);
 swiper{
   text-align: center;
   /* height: 3300rpx; */
+
+
+}
+swiper-item{
+  padding-bottom: 98rpx;
+}
+.item{
+  overflow: hidden;
+  /* padding-bottom: 98rpx; */
 }

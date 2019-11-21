@@ -49,7 +49,7 @@
   margin-right:10rpx;
   margin-top:10rpx;
   margin-bottom: 10rpx;
-  background:#E5E5E5;
+  background:rgb(240, 240, 240);
   text-align: center;
 }
  .body-image-contenticon{

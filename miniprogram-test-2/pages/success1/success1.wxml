@@ -5,7 +5,7 @@
     <image src='../../image/successfulicon@2x.png'></image>
     <text>支付成功</text>
   </view>
-  <text>实付￥28.00</text>
+  <text>实付￥{{price}}</text>
   <view class="btn">
     <button class="left" bindtap="tcdetail">查看订单</button>
     <button class="right">继续逛逛</button>
@@ -23,7 +23,7 @@
         <text>猜你喜欢</text>
         <image src='../../image/tab@2x.png'></image>
         <view class='li' wx:for="{{data3}}" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
-          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <image src='{{api}}{{item.imageThumb}}'></image>
           <text>{{item.goodsName}}</text>
         </view>
     

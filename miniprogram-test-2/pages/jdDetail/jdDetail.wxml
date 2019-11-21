@@ -38,7 +38,7 @@
         <image src='../../image/fanhui@2x.png' class='ck'></image>
 
         <view class='list' wx:for="{{goods1.orderGoodsList}}">
-          <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+          <image src='{{api}}{{item.goodsImg}}'></image>
           <view class='right1'>
             <text class='title'>{{item.goodsName}}</text>
             <text class='com'>{{item.goodsSpecnames}}</text>

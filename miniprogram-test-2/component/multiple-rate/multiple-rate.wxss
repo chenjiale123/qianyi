@@ -15,7 +15,7 @@
   border-right: 12px solid transparent;
   border-bottom: 10px solid rgb(247, 66, 42);
   transform: rotate(180deg);
-  margin: 0 5px;
+  /* margin: 0 5px; */
 }
 
 .multiple-rate .star::after, .multiple-rate .star::before,
@@ -60,7 +60,7 @@
   background-color: red;
   border-radius: 2px;
   transform: rotate(45deg);
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .heart:before,.heart:after,.heart-o:before,.heart-o:after {

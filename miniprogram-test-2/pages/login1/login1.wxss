@@ -26,7 +26,7 @@
   height:50%;
   border-bottom: 2rpx solid#b3b3b3;
   /* background:url('../../image/bukekan@2x.png') no-repeat 90% 20%; */
-  opacity: 0.4;
+  /* opacity: 0.4; */
 }
 .contain .center input .yzm{
   position: absolute;
@@ -39,7 +39,7 @@
   color: #b3b3b3;
   line-height: 98rpx;
   font-size: 32rpx;
-   opacity: 0.4;
+   /* opacity: 0.4; */
 }
 .btn{
   width:100%;

@@ -45,7 +45,7 @@
 
     </view>
     <view class='techan' bindtap='detail' wx:for="{{data2}}" data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
-      <image class='zhutu' src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+      <image class='zhutu' src='{{api}}{{item.imageThumb}}'></image>
       <view class='title'>
 
         <view class="txt">

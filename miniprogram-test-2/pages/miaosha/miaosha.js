@@ -120,6 +120,10 @@ Page({
 
   },
 onLoad:function(){
+  var that = this
+  that.setData({
+    api: api.url
+  })
   var userId = wx.getStorageSync('user').loginId || 0
 
   api._post('/QianYi_Shop/selectShopSeckillNperGoods?page=1&userId='+userId).then(res => {

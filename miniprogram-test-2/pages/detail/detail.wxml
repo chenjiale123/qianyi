@@ -66,7 +66,7 @@
   <view class='lunbo'>
     <swiper>
       <swiper-item wx:for="{{leng}}">
-        <image src='http://dev.static.qianyipan.com/{{item}}'></image>
+        <image src='{{api}}{{item}}'></image>
         <view class='num'>
           {{index+1}}/{{leng.length}}
         </view>
@@ -130,7 +130,7 @@
        <text class="title">门票</text>
        <view class="form" wx:for="{{scenic}}">
        <view class="left">
-       <view class="top">{{item.ticketName}} <text wx:if="{{item.ticketLabel==0}}">随买随卖</text>
+       <view class="top">{{item.ticketName}} <text wx:if="{{item.ticketLabel==0}}">随买随用</text>
        <text wx:else>随时退</text>
        </view>
               <view class="down">

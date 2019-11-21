@@ -239,6 +239,9 @@ wx.navigateTo({
    */
   onLoad: function(options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
     api._get('/QianYi_Shop/selectRecommendGoods?page=1').then(res => {
 
       that.setData({
@@ -268,10 +271,18 @@ wx.navigateTo({
       that.setData({
         name: wx.getStorageSync('user').infoNickname,
         user: true,
-        touxiang: "http://dev.static.qianyipan.com/" + wx.getStorageSync('user').infoIcon,
+        touxiang: api.url + wx.getStorageSync('user').infoIcon,
         huiyuan: wx.getStorageSync('user').membersLevel
       })
+    }else{
+      that.setData({
+        name: "暂未登录",
+        user: true,
+        touxiang: "",
+        huiyuan: ""
+      })
     }
+    that.onLoad()
 
     console.log(that.data.huiyuan)
   },

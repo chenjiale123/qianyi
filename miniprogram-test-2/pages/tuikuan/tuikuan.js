@@ -187,7 +187,7 @@ this.setData({
         commentsImagePath: that.data.images.join(',')
       }
       wx.request({
-        url: 'https://dev.app.qianyipan.com/QianYi_Shop/insertBatchShopComments?orderId=' + this.data.ding1 + '&type=1',
+        url: api.baseUrl+'/QianYi_Shop/insertBatchShopComments?orderId=' + this.data.ding1 + '&type=1',
 
         method: "POST",
         data: [list],
@@ -258,6 +258,10 @@ this.setData({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this 
+    that.setData({
+      api: api.url
+    })
     var id = options.id
     var goods = options.goods
 

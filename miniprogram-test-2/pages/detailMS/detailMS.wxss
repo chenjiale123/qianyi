@@ -92,7 +92,7 @@ top: 30rpx;
 }
 .kuangIn>.guige>button{
   width: auto;
-  height: 30rpx;
+  height: 36rpx;
   background: rgb(224, 224, 224);
   border-radius: 10rpx;
   display: inline-block;

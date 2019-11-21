@@ -146,9 +146,10 @@ Page({
     let id = e.currentTarget.dataset.id
     console.log(id)
     for (let i = 0; i < this.data.leng1.length; i++) {
-    
+      console.log(this.data.leng1[i].id)
       if (this.data.leng1[i].id == id) {
         //当前点击的位置为true即选中
+     
         this.data.leng1[i].checked = true;
         console.log(this.data.ku)
         if (this.data.ku == 0) {
@@ -443,7 +444,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    that.setData({
+      api: api.url
+    })
 
     this.ctx = wx.createCanvasContext('myCanvas')
 

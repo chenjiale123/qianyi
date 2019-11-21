@@ -27,7 +27,7 @@
         </view>
       </view>
     </view>
-    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab" style="height:{{(jindian.length)*800}}rpx">
       <swiper-item>
         <view class='bj1' wx:for="{{jindian}}">
           <view class="contain">
@@ -41,7 +41,7 @@
               <view class='list'>
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}" wx:if="{{item.orderStatus!=='待支付'}}">
                   <view class="In">
-                    <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                    <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                       <text class='com'>使用时间：当地时间{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -56,7 +56,7 @@
                 </view>
                 <view class="intop" bindtap="zhifu" data-id="{{item.id}}" wx:if="{{item.orderStatus=='待支付'}}" data-in="{{index}}">
                   <view class="In">
-                    <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                    <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                       <text class='com'>使用时间：当地时间{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -116,7 +116,7 @@
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In">
-                    <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                    <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                       <text class='com'>{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -158,7 +158,7 @@
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In">
-                    <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                    <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                       <text class='com'>{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -200,7 +200,7 @@
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In">
-                    <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                    <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                       <text class='com'>{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -243,7 +243,7 @@
                 <view class="intop" bindtap="jdDetail" data-id="{{item.id}}">
 
                   <view class="In">
-                    <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                    <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                     <view class='right1'>
                       <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                       <text class='com'>{{item.scenicSpotWithBLOBs.createDate}}</text>

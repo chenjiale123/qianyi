@@ -18,7 +18,7 @@
   <view class='center'>
     <view class='centerli' wx:for="{{goods1}}">
       <view class="left">
-        <image src="http://dev.static.qianyipan.com/{{item.goodsImg}}"></image>
+        <image src="{{api}}{{item.goodsImg}}"></image>
       </view>
       <view class="right1">
         <text class="txt1">{{item.goodsName}}</text>

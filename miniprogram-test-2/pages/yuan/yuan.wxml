@@ -9,7 +9,7 @@
 
   <view class="list">
   <view class="listIn" wx:for="{{goods}}" wx:if="{{goods.length!==0}}">
-    <image src="http://dev.static.qianyipan.com/{{item.imageThumb}}"></image>
+    <image src="{{api}}{{item.imageThumb}}"></image>
     <text>{{item.goodsName}}</text>
     <view class="bom">
     <text>￥{{item.discountPrice}}</text>

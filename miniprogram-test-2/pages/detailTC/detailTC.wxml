@@ -32,7 +32,7 @@
       <view class="kuangIn">
         <view class="goods">
           <view class="left">
-            <image src="http://dev.static.qianyipan.com/{{item.imageThumb}}"></image>
+            <image src="{{api}}{{item.imageThumb}}"></image>
           </view>
           <view class="right">
             <text class="w1">￥{{pri}}</text>
@@ -68,7 +68,7 @@
       <view class="kuangIn">
         <view class="goods">
           <view class="left">
-            <image src="http://dev.static.qianyipan.com/{{item.imageThumb}}"></image>
+            <image src="{{api}}{{item.imageThumb}}"></image>
           </view>
           <view class="right">
             <text class="w1">￥{{pri}}</text>
@@ -102,7 +102,7 @@
     <swiper autoplay="true">
       <swiper-item wx:for="{{img}}" wx:key="index">
            <canvas bindtouchend="touchend" bindlongtap="touchmove" canvas-id="myCanvas" bindtouchmove="touchmove"/>
-        <image src='http://dev.static.qianyipan.com/{{item}}'></image>
+        <image src='{{api}}{{item}}'></image>
         <view class='num'>
           {{index+1}}/5
         </view>
@@ -138,25 +138,11 @@
         <text class='b'>{{item.address}}</text>
         <text class='c'>已售{{item.sales}}</text>
       </view>
-      <!-- <view class='quan'>
-        <view class='left'>
-          <text>领券</text>
-          <view class="shou">
-            <view class='juan1' wx:for="{{item.discountStoresList}}" wx:key="index">
-              <image src='../../image/quan@2x.png'></image>
-              <text>{{item.remarks}}</text>
-            </view>
-          </view>
-        </view>
-        <view class='right'>
-          <image src='../../image/xaingqing@2x.png'></image>
-        </view>
-      </view> -->
+ 
       <view class='xiao' bindtap="cuxiao">
         <view class='left'>
           <text>促销</text>
           <text class='ka'>满减</text>
-          <!-- <text class='la' wx:if="{{item.discountStoresList}}==null">暂无促销活动</text> -->
           <text class='la' wx:for="{{item.discountStoresList}}">{{item.remarks}}</text>
         </view>
         <view class='right'>
@@ -193,7 +179,7 @@
         <view class='pinlunIn'>
           <view class='xin'>
             <view class='left'>
-              <image src='http://dev.static.qianyipan.com/{{item.userInfo.infoIcon}}'></image>
+              <image src='{{api}}{{item.userInfo.infoIcon}}'></image>
               <text>{{item.userInfo.infoNickname}}</text>
             </view>
             <view class='right'>
@@ -202,7 +188,6 @@
           </view>
           <text>{{item.commentsContents}}</text>
           <view class='tp'>
-            <!-- <image src='http://dev.static.qianyipan.com/{{item}}'></image> -->
 
           </view>
         </view>
@@ -216,7 +201,7 @@
       <text>大家都在看</text>
       <view class='list'>
         <view class='li' wx:for="{{goods1}}" wx:key="index" bindtap="look" data-id="{{item.id}}">
-          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <image src='{{api}}{{item.imageThumb}}'></image>
           <text class='tl'>{{item.goodsName}}</text>
           <text class='pr'>￥{{item.discountPrice}}</text>
         </view>

@@ -69,7 +69,7 @@
         <text>猜你喜欢</text>
         <image src='../../image/tab@2x.png'></image>
         <view class='li' wx:for="{{data3}}" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
-          <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+          <image src='{{api}}{{item.imageThumb}}'></image>
           <text>{{item.goodsName}}</text>
         </view>
     

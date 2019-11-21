@@ -162,6 +162,10 @@ Page({
   },
   onLoad: function() {
     var that = this
+    that.setData({
+      api:api.url
+    })
+    console.log(that.data.api)
     api._post('/QianYi_Shop/selectArticle?page=1').then(res => {
       console.log(res)
       this.setData({
@@ -190,7 +194,7 @@ Page({
       console.log(e)
     })
 
-    api._get('/QianYi_Shop/selectShufflingFigure?page=1&pageSize=1&type=0').then(res => {
+    api._get('/QianYi_Shop/selectShufflingFigure?page=1&pageSize=3&type=0').then(res => {
 
       that.setData({
         data1: res.data.pictureList

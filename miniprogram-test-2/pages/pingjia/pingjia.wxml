@@ -13,7 +13,7 @@
         <view class='list '>
           <view class="intop " bindtap="jdDetail " data-id="{{item.id}} ">
             <view class="In " wx:for="{{item.orderGoodsList}}">
-              <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+              <image src='{{api}}{{item.goodsImg}}'></image>
               <view class='right1'>
                 <text class='title'>{{item.goodsName}}</text>
                 <text class='com'>{{item.goodsSpecnames}}</text>

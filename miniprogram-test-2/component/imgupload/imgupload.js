@@ -1,30 +1,31 @@
 Component({
-  options : {
-    multipleSolts :true //定义组件支持多solts
+  options: {
+    multipleSolts: true //定义组件支持多solts
   },
   /*
    * 组件的属性列表 
    */
-  properties : {
+  properties: {
     //图片数组
-    imageUrl : {
-      type : Array,
-      value : []
+    imageUrl: {
+      type: Array,
+      value: []
     },
     //图片限制个数
-    imageLimit : {
+    imageLimit: {
       type: Number,
-      value : 8
+      value: 2
     },
-    imageMaxPerTime : {
-      type : Number,
-      value : 8
+    imageMaxPerTime: {
+      type: Number,
+      value: 8
     },
     //提示语
-     hint : {
-      type : String,
-      value : "添加图片"
-    } ,
+    hint: {
+      type: String,
+      value: "添加图片",
+     
+    },
     //提示icon
     /* 
      * 默认支持的icon类有10种
@@ -41,73 +42,87 @@ Component({
      * iconfont icon-tianjia3
      * iconfont icon-icontjzp
     */
-    hint_icon : {
-      type : String,
-      value : "iconfont icon-xiangji"
+    hint_icon: {
+      type: String,
+      value: "iconfont icon-xiangji"
     },
-    icon_size : {
-      type : String,
+    icon_size: {
+      type: String,
       value: "100rpx"
     },
-    icon_color : {
-      type : String,
-      value : "#2C2C2C"
+    icon_color: {
+      type: String,
+      value: "#2C2C2C"
     },
     //提示块的背景颜色
-    hint_background : {
-      type : String ,
-      value: "#E5E5E5"
+    hint_background: {
+      type: String,
+      value: "#eee"
     },
     //每块的高 高宽比默认1:1
-    hint_height : {
-      type : String,
-      value : "160rpx"
+    hint_height: {
+      type: String,
+      value: "160rpx"
     },
     //每块的宽 高宽比默认1:1
-    hint_width : {
-      type : String,
-      value : "160rpx"
+    hint_width: {
+      type: String,
+      value: "160rpx"
     },
     //整体背景颜色
-    background : {
-      type : String,
+    background: {
+      type: String,
       value: "#FFFFFF"
     },
     //图片剪裁mode
-    mode : {
-      type : String,
+    mode: {
+      type: String,
       value: "aspectFill"
     }
 
   },
   //内部数据
-  data : {
+  data: {
+    img: [],
     image: [
     ],
-    isBeyond : ""
+    isBeyond: "",
+    pathsTmp: []
   },
-  attached : function(){
+  attached: function () {
     this.setData({
-      image : this.data.imageUrl
+      image: this.data.imageUrl
     })
   },
   //组件方法列表
-  methods : {
+  methods: {
     // 上传图片
     chooseImage: function () {
-      
+
       var that = this;
-      if(this.data.image.length >= this.data.imageLimit){
+      if (this.data.image.length >= this.data.imageLimit) {
         that.setData({
-          isBeyond : "none"
+          isBeyond: "none"
         })
-      }else{
-        var curPertime = that.data.imageLimit-that.data.image.length
+      } else {
+        var curPertime = that.data.imageLimit - that.data.image.length
         wx.chooseImage({
           count: curPertime,
           sizeType: ['original', 'compressed'],
           sourceType: ['album', 'camera'],
           success: function (res) {
+            for (var i = 0; i < res.tempFilePaths.length; i++) {
+              var suiji = Math.floor(Math.random() * 100000)
+              var year = new Date().getFullYear();
+              var month = new Date().getMonth() + 1;
+              var day = new Date().getDate();
+              var path = year + '/' + month + '/' + day + '/' + suiji + '.jpg';
+
+              that.data.pathsTmp = that.data.pathsTmp.concat(path)
+
+            }
+            //打印文件名称
+
             var tempFilePaths = res.tempFilePaths;//用户选择的图片的本地路径列表
             var length = tempFilePaths.length//用户选了几张
             //将路径循环push入image数组中
@@ -119,6 +134,13 @@ Component({
               length--
               i++
             }
+
+
+            // console.log(that.data.pathsTmp)
+            that.triggerEvent('chooseImage', {
+              name: that.data.pathsTmp,
+              img1: that.data.image
+            })
             //隐藏hint
             if (that.data.image.length >= that.data.imageLimit) {
               that.setData({
@@ -137,6 +159,7 @@ Component({
             that.setData({
               image: that.data.image
             })
+
           },
           fail: function () {
 
@@ -149,6 +172,7 @@ Component({
     removeImage: function (event) {
       //删除相应的数组元素
       this.data.image.splice(event.currentTarget.id, 1)
+      this.data.pathsTmp.splice(event.currentTarget.id, 1)
       //
       if (this.data.image.length < this.data.imageLimit) {
         this.setData({
@@ -157,7 +181,8 @@ Component({
       }
       //重新渲染视图
       this.setData({
-        image: this.data.image
+        image: this.data.image,
+        pathsTmp: this.data.pathsTmp
       })
     },
   },

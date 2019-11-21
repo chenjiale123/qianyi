@@ -112,7 +112,7 @@
       </view>
       <view class="center">
         <view class="left">
-          <image src="http://dev.static.qianyipan.com/{{detail.shopGoods.imageThumb}}"></image>
+          <image src="{{api}}{{detail.shopGoods.imageThumb}}"></image>
         </view>
         <view class="right">
           <text class="txt1">
@@ -163,7 +163,7 @@
     <view class="all">合计
       <text>￥{{all_}}</text>
     </view>
-    <button bindtap="dingdan">提交订单</button>
+    <button  open-type="getUserInfo"   bindgetuserinfo="bindGetUserInfo">提交订单</button>
 
   </view>
 

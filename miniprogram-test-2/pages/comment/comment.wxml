@@ -1,9 +1,9 @@
 <view class='whole'>
-  <!-- <view class="contain"> -->
+
   <view class='bj'>
-    <view class="contain" >
-      <view class='goods' wx:for="{{goods1}}">
-        <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+    <view class="contain" wx:for="{{goods1}}">
+      <view class='goods'>
+        <image src='{{api}}{{item.goodsImg}}'></image>
         <view class='right'>
           <text class='title'>{{item.goodsName}}</text>
           <text class='small'>{{item.goodsSpecnames}}</text>
@@ -12,44 +12,17 @@
       <view class='comment'>
         <view class='xin'>
           <text>商品评分：</text>
-          <block wx:for="{{one_1}}" wx:key="index">
-            <image src='../../image/shouzang01@2x.png' catchtap='in_xin' id='{{index+1}}' data-in='use_sc1'></image>
-          </block>
-          <block wx:for="{{two_1}}" wx:key="index">
-            <image src='../../image/pingfen00@2x.png' catchtap='in_xin' id='{{index+1}}' data-in='use_sc'></image>
-          </block>
-
-
-        </view>
-        <textarea bindinput="shuru" ></textarea>
-        <text class='tj'>{{current}} / {{max}} </text>
-        <view class='upload'>
-          <!-- 上传图片 -->
-          <view class="gallery">
-            <view class="item" wx:for="{{images}}" wx:key="index">
-              <image src="{{item}}" data-src="{{item}}" bindtap="previewImage" mode="aspectFit" />
-              <!-- 删除按钮 -->
-              <view class="delete" bindtap="delete" data-index="{{index}}">
-                <image src='../../image/guan.png' mode="widthFix"></image>
-              </view>
-            </view>
-            <view class="item2" bindtap="chooseImage">
-              <view class='addIcon'>
-                <image src='../../image/3.png'></image>
-              </view>
-            </view>
-          </view>
-          <view class='codeSubmit'>
-            <view class='btn'>确认上传</view>
+          <view class='row'>
+            <multiple-rate bindchange="handleChange" data-id="{{index}}">
+            </multiple-rate>
           </view>
 
         </view>
+        <textarea data-id="{{index}}" value="{{inputValue}}" bindblur="bindKeyInput" ></textarea>
+
+        <imgupload id="imgupload" bindchooseImage='chooseImage' data-id="{{index}}"></imgupload>
 
       </view>
-    </view>
-  </view>
-  <view class='bj'>
-    <view class="contain">
       <view class='wuliu'>
         <view class='bop'>
           <image src='../../image/scoreicon@2x.png'></image>
@@ -57,27 +30,28 @@
         </view>
         <view class='pj'>
           <text>物流发货：</text>
-          <block wx:for="{{one_2}}" wx:key="index">
-            <image catchtap="maijia_in" id="{{index+1}}" data-in="use_sc2" src='../../image/shouzang01@2x.png'></image>
-          </block>
-          <block wx:for="{{two_2}}" wx:key="index">
-            <image catchtap="maijia_in" id="{{index+1}}" data-in="use_sc" src='../../image/pingfen00@2x.png'></image>
-          </block>
+          <view class='row'>
+            <multiple-rate bindchange="handleChange1" data-id="{{index}}">
+            </multiple-rate>
+          </view>
 
         </view>
         <view class='pj'>
           <text>物流发货：</text>
-          <block wx:for="{{one_3}}" wx:key="index">
-            <image catchtap="wuliu_in" id="{{index+1}}" data-in="use_sc3" src='../../image/shouzang01@2x.png'></image>
-          </block>
-          <block wx:for="{{two_3}}" wx:key="index">
-            <image catchtap="wuliu_in" id="{{index+1}}" data-in="use_sc" src='../../image/pingfen00@2x.png'></image>
-          </block>
+          <view class='row'>
+            <multiple-rate bindchange="handleChange2" data-id="{{index}}">
+            </multiple-rate>
+          </view>
 
         </view>
       </view>
     </view>
-    <button bindtap="uploadImgSubmit" >提交</button>
+  </view>
+  <view class='bj'>
+    <view class="contain">
+
+    </view>
+    <button bindtap="submit">提交</button>
   </view>
   <!-- </view> -->
 

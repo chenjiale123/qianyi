@@ -30,6 +30,9 @@ wx.navigateTo({
    */
   onLoad: function(options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
 
     this.setData({
       id1: options.id

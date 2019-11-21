@@ -15,7 +15,12 @@
 .contain{
   width: 90%;
   margin: 0 auto;
-  position: relative
+  position: relative;
+  padding: 0 20rpx;
+      margin-bottom: 30rpx;
+  
+    box-shadow:0px 6px 12px 0px rgba(88, 88, 88, 0.15);
+
 }
 .goods{
   width: 100%;

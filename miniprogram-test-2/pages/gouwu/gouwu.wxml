@@ -21,7 +21,7 @@
             <view class=' row btm-box' id="{{item.shopGoodsWithBLOBs.id}}" bindtouchstart="touchstart" bindtouchmove="touchmove" bindtouchend="drawEnd" data-index='{{index}}'>
               <view class='c-cont-left'>
                 <view class='c-cont-icon'>
-                  <image src='http://dev.static.qianyipan.com/{{item.shopGoodsWithBLOBs.imageThumb}}' mode='aspectFit'></image>
+                  <image src='{{api}}{{item.shopGoodsWithBLOBs.imageThumb}}' mode='aspectFit'></image>
                 </view>
               </view>
               <view class='c-cont-right column'>
@@ -99,7 +99,7 @@
     <text>猜你喜欢</text>
     <image src='../../image/tab@2x.png'></image>
     <view class='li' wx:for="{{goodsList}}" wx:key="goodsList" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
-      <image src='http://dev.static.qianyipan.com/{{item.imageThumb}}'></image>
+      <image src='{{api}}{{item.imageThumb}}'></image>
       <text>{{item.goodsName}}</text>
       <text class="price">￥{{item.discountPrice}}</text>
     </view>

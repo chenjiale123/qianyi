@@ -48,6 +48,6 @@
         明细
         <image src='../../image/shangfan01@2x.png'></image>
       </view>
-      <button bindtap="sub">提交订单</button>
+      <button bindtap="sub" data-id="{{scid}}" data-in="{{price}}">提交订单</button>
     </view>
 </view>

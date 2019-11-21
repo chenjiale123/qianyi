@@ -1,4 +1,5 @@
-// pages/lasty/lasty.js
+const api = require('../../utils/api.js')
+
 Page({
 
   /**
@@ -20,6 +21,9 @@ array1:[]
    */
   onLoad: function(options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
   
 
     var array = wx.getStorageSync("array")||[]

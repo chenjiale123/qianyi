@@ -1,6 +1,6 @@
 <view class='whole'>
   <view class='contain'>
-    <image src='../../image/qylogo@2x (1).png'></image>
+    <image src='../../image/qylogo.png'></image>
 
     <view class='center'>
       <form bindsubmit="submit">

@@ -404,6 +404,9 @@ Page({
   
 
     var that = this
+    that.setData({
+      api: api.url
+    })
     this.setData({
       Id: options.id
     })

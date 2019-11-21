@@ -1,5 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "imgupload": "../../component/imgupload/imgupload",
+    "multiple-rate": "../../component/multiple-rate/multiple-rate"
+  },
     "navigationBarTitleText": "追加评价"
     
 }

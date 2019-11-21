@@ -216,7 +216,10 @@ wx.navigateTo({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that=this
+    var that = this
+    that.setData({
+      api: api.url
+    })
     // 页面初始化 options为页面跳转所带来的参数
     this.createDateListData();
     var _this = this;

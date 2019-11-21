@@ -57,7 +57,7 @@
       <text>换一批</text>
     </view>
     <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if='{{jindian!=null&&find}}'>
-      <image src='http://dev.static.qianyipan.com/{{item.pictureCover}}'></image>
+      <image src='{{api}}{{item.pictureCover}}'></image>
       <view class='right'>
         <view class="xiu">
           <text class='title'>{{item.scenicName}}</text>
@@ -81,7 +81,7 @@
       </view>
     </view>
     <view class='list' wx:for="{{goodsList1}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{!find}}">
-      <image src='http://dev.static.qianyipan.com/{{item.pictureCover}}'></image>
+      <image src='{{api}}{{item.pictureCover}}'></image>
       <view class='right'>
         <view class="xiu">
           <text class='title'>{{item.scenicName}}</text>
@@ -100,7 +100,8 @@
           <text class='small'>￥</text>
           <text class='big'>{{item.ticketPrice}}</text>
         </view>
-        <text class='ka'>随买随用</text>
+        <text class='ka' wx-if="{{item.sloganType==1}}">随买随用</text>
+             <text class='ka' wx-if="{{item.sloganType==0}}">随时退</text>
       </view>
     </view>
      <view class="list1" wx:if="{{jindian==null}}">

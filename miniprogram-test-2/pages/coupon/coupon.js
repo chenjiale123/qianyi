@@ -16,6 +16,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
 
     api._post('/QianYi_Shop/selectShopUserCoupon?userId='+userId).then(res => {

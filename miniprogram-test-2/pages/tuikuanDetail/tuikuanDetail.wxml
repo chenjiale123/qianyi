@@ -30,7 +30,7 @@
         <view>
           <text class="txt5">卖家退款</text>
           <image src="../../image/greenhook@2x.png"></image>
-          <text class="txt5">2019.3.3</text>
+          <text class="txt5">{{goods.createTime}}</text>
         </view>
         <view>
           <text >银行受理</text>
@@ -66,7 +66,7 @@
         <text>退款信息</text>
 
         <view class='list' wx:for="{{goods.shopOrderList.orderGoodsList}}">
-          <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+          <image src='{{api}}{{item.goodsImg}}'></image>
           <view class='right1'>
             <text class='title'>{{item.goodsName}}</text>
             <text class='com'>{{item.goodsSpecnames}}</text>

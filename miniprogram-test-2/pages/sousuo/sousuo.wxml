@@ -25,7 +25,7 @@
   </view>
   <view class="hide1" wx:if="{{!com}}">
     <view class="list" wx:for="{{goodsList}}" wx:if="{{goodsList!==null}}" bindtap="detail" data-id="{{item.id}}">
-      <image src="http://dev.static.qianyipan.com/{{item.imageThumb}}"></image>
+      <image src="{{api}}{{item.imageThumb}}"></image>
       <view class="txt">
         <image src="../../image/xpbq@2x.png"></image>
         {{item.goodsName}}

@@ -22,19 +22,8 @@
     </view>
   </view>
   <view class="hide1" wx:if="{{!com}}">
-    <!-- <view class="list" wx:for="{{goodsList}}">
-      <image src="http://dev.static.qianyipan.com/{{item.pictureCover}}"></image>
-      <view class="txt">
-        <image src="../../image/xpbq@2x.png"></image>
-        {{item.scenicName}}
-      </view>
-      <view class="price">
-        ￥{{item.ticketPrice}}
-        <text>满减</text>
-      </view>
-    </view> -->
     <view class='list' wx:for="{{goodsList}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{goodsList!==null}}">
-      <image src='http://dev.static.qianyipan.com/{{item.pictureCover}}'></image>
+      <image src='{{api}}{{item.pictureCover}}'></image>
       <view class='right'>
         <text class='title'>{{item.scenicName}}</text>
         <view class='fw'>自然风光</view>

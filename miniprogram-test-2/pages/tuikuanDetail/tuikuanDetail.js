@@ -15,6 +15,9 @@ id:"",
    */
   onLoad: function (options) {
     var that=this
+    that.setData({
+      api: api.url
+    })
     var id1=options.id
     this.setData({
       id:id1

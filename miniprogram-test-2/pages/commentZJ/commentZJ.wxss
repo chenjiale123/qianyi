@@ -2,16 +2,28 @@
   background:rgba(242,242,242,1);
   width: 100%;
 }
+.row{
+  display: inline-block;
+  margin-left: 30rpx;
+}
 .bj{
   background: #fff;
   margin-top: 20rpx;
   width: 100%;
+      padding-bottom: 49rpx;
+
   
 }
 .contain{
   width: 90%;
   margin: 0 auto;
-  position: relative
+  position: relative;
+  padding: 0 20rpx;
+      margin-bottom: 30rpx;
+  
+    box-shadow:0px 6px 12px 0px rgba(88, 88, 88, 0.15);
+  
+  
 }
 .goods{
   width: 100%;
@@ -130,6 +142,8 @@ button{
 background:rgba(255,255,255,1);
 line-height: 120rpx;
 color:#F53131;
+position: fixed;
+bottom: 0
 }
 .gallery{
   width: 100%;

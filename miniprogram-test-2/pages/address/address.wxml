@@ -2,11 +2,6 @@
 <view class='whole'>
   <view class='contain'>
     <view class='list'>
-
-      <!-- <view class='tp'>
-        <image src='../../image/gouwu01@2x.png'></image>
-
-      </view> -->
       <radio-group bindchange="radioChange">
         <label class="tp" wx:for="{{list}}" wx:if="{{status!==false}}">
           <radio checked="{{item.checked}}" bindtap='radio' data-id="{{index}}" value="{{index}}" wx:if="{{!show}}" />

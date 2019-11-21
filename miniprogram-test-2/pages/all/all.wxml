@@ -12,7 +12,7 @@
           <view class='list'>
             <view class="intop" bindtap="jdDetail1" data-id="{{item.id}}" wx:if="{{item.orderStatus!=='待支付'}}">
               <view class="In">
-                <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                 <view class='right1'>
                   <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                   <text class='com'>使用时间：当地时间{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -27,7 +27,7 @@
             </view>
             <view class="intop" bindtap="zhifu" data-id="{{item.id}}" wx:if="{{item.orderStatus=='待支付'}}" data-in="{{index}}">
               <view class="In">
-                <image src='http://dev.static.qianyipan.com/{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
+                <image src='{{api}}{{item.scenicSpotWithBLOBs.pictureCover}}'></image>
                 <view class='right1'>
                   <text class='title'>{{item.scenicSpotWithBLOBs.scenicName}}</text>
                   <text class='com'>使用时间：当地时间{{item.scenicSpotWithBLOBs.createDate}}</text>
@@ -79,7 +79,7 @@
           <view class='list '>
             <view class="intop" bindtap="jdDetail" data-id="{{item.id}}" wx:if="{{item.orderStatus!=='待支付'}}">
               <view class="In" wx:for="{{item.orderGoodsList}}">
-                <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                <image src='{{api}}{{item.goodsImg}}'></image>
                 <view class='right1'>
                   <text class='title'>{{item.goodsName}}</text>
                   <text class='com'>{{item.goodsSpecnames}}</text>
@@ -94,7 +94,7 @@
             </view>
             <view class="intop" bindtap="zhifu" data-id="{{item.id}}" wx:if="{{item.orderStatus=='待支付'}}" data-in="{{index}}">
               <view class="In" wx:for="{{item.orderGoodsList}}">
-                <image src='http://dev.static.qianyipan.com/{{item.goodsImg}}'></image>
+                <image src='{{api}}{{item.goodsImg}}'></image>
                 <view class='right1'>
                   <text class='title'>{{item.goodsName}}</text>
                   <text class='com'>{{item.goodsSpecnames}}</text>

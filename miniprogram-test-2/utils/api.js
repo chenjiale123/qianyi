@@ -1,4 +1,5 @@
 const baseUrl = 'https://dev.app.qianyipan.com';
+const url = 'http://dev.static.qianyipan.com/'
 
 const http = ({ url = '', param = {}, ...other } = {}) => {
   wx.showLoading({
@@ -11,6 +12,7 @@ const http = ({ url = '', param = {}, ...other } = {}) => {
       data: param,
       header: {
         'content-type': 'application/json' // 默认值 ,另一种是 "content-type": "application/x-www-form-urlencoded"
+        // "content-type": "application/x-www-form-urlencoded"
       },
       ...other,
       complete: (res) => {
@@ -65,6 +67,7 @@ const _delete = (url, param = {}) => {
   })
 }
 module.exports = {
+  url,
   baseUrl,
   _get,
   _post,

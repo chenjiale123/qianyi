@@ -1,4 +1,6 @@
 const api = require('../../utils/api.js')
+
+var util = require('../../utils/md5.js')
 Page({
 
   /**
@@ -121,47 +123,63 @@ Page({
       xianshi: true
     })
   },
-  dingdan: function(e) {
+  dingdan: function(goods) {
     var that = this
 
-    console.log(e)
+    // console.log(e)
     console.log(this.data.ad.id)
     var userId = wx.getStorageSync('user').loginId || 0
+    var openid = wx.getStorageSync('openid')
 
+    
     api._get('/QianYi_Shop/placeShopOrderGoods?userId='+userId+'&goodsSpecId='+this.data.guiId+'&addressId=' + this.data.ad.id + '&goodsId=' + this.data.Id + '&shopId=' + this.data.shopId + '&goodsNumber=' + this.data.number + '&couponsId=' + this.data.id1 + '&shopCarId=0&paymentAmount=' + this.data.all_ + '&orderRemarks=' + this.data.yan1).then(res => {
       console.log(res)
-      api._post('/QianYi_Shop/pay/wechat/createOrder?orderId=' + res.data.shopOrderId + '&type=0').then(res => {
+      var spid = res.data.shopOrderId
+      api._post('/QianYi_Shop/pay/wechat/createOrder?orderId=' + res.data.shopOrderId + '&type=0' +'&tradeType=JSAPI&openid='+openid)
+        .then(res => {
         console.log(res)
         that.setData({
-          appid: res.appid,
+          appid: res.appId,
           timestamp: res.timestamp,
           noncestr: res.noncestr,
           package: res.package,
           sign: res.sign
-
+          
 
 
 
         })
-        console.log(res.timestamp.toString())
-
+        console.log(res)
+          var sting = "appId=" + res.appId + "&nonceStr=" + res.noncestr + "&package=prepay_id=" + res.prepayid + "&signType=MD5&timeStamp=" + res.timestamp.toString() + "&key=qwertyuiopasdfghjklzxcvbnm123456" 
         wx.requestPayment({
-          // "appId": res.appid,
+          'appId': res.appId,
           'timeStamp': res.timestamp.toString(),
           'nonceStr': res.noncestr,
-          'package': res.package,
+          'package': 'prepay_id=' + res.prepayid,
           'signType': 'MD5',
-          'paySign': res.sign,
+          'paySign': util.hexMD5(sting).toUpperCase(),
           'success': function(res) {
-            // console.log("2222")
+
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(res)
+            console.log(goods)
+
+            wx.navigateTo({
+              url: '/pages/success1/success1?price='+goods.specPrice,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
           },
           'fail': function(res) {
-            console.log(res)
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(sting)
+            console.log(goods)
             wx.navigateTo({
-              url: '/pages/success1/success1',
-              success: function(res) {},
-              fail: function(res) {},
-              complete: function(res) {},
+              url: '/pages/zhifu/zhifu?id=' + spid,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
             })
 
           },
@@ -179,6 +197,68 @@ Page({
 
 
   },
+//微信授权
+
+  bindGetUserInfo(res) {
+    var that = this
+    let info = res;
+    console.log(JSON.parse(res.detail.rawData));
+    this.setData({
+      name: JSON.parse(res.detail.rawData).nickName,
+      touxiang: JSON.parse(res.detail.rawData).avatarUrl
+    })
+    if (info.detail.userInfo) {
+
+      console.log("点击了同意授权");
+      // console.log(res.detail.encryptedData)
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+
+            console.log(res, info)
+
+           
+
+            wx.request({
+
+              //获取openid接口  
+              url: 'https://api.weixin.qq.com/sns/jscode2session',
+              data: {
+                appid: 'wx99ea433caea5a1c7',
+                secret: '71376261788531283f32ec11e2368f1e',
+                js_code: res.code,
+                grant_type: 'authorization_code'
+              },
+              method: 'GET',
+              success: function (res) {
+
+
+                console.log("111")
+                console.log(that)
+                that.setData({
+                  openid: res.data.openid,
+                  key1: res.data.session_key
+                })
+            
+                wx.setStorageSync("openid", res.data.openid);
+                that.dingdan(that.data.detail)
+              }
+            })
+
+
+
+
+          } else {
+            console.log("授权失败");
+          }
+        },
+      })
+
+    } else {
+      console.log("点击了拒绝授权");
+    }
+  },
+
 
   goodsdagou: function(e) {
     // console.log(e)
@@ -291,10 +371,13 @@ Page({
   },
   onLoad: function(options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
 
     api._get('/QianYi_Shop/selectAddressByUserId?page=1&userId='+userId).then(res => {
-      
+      console.log(res)
       that.setData({
         list: res.data.shopAddressList
 

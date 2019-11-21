@@ -1,6 +1,6 @@
-<!--pages/wuliu/wuliu.wxml-->
+
 <view class='whole'>
-  <!-- <view class='contain'> -->
+
   <view class='bj' wx:for="{{wuliu}}" wx:if="{{she!==false}}">
     <view class="contain">
       <view class='wuliu' >
@@ -10,7 +10,7 @@
           <text class='jinru' data-id="{{item.id}}" bindtap='detail'> 查看详情 </text>
           <image src='../../image/fanhui@2x.png' class='img1'></image>
 
-          <image src='http://dev.static.qianyipan.com/{{item.orderGoodsList[0].goodsImg}}' class='image2'></image>
+          <image src='{{api}}{{item.orderGoodsList[0].goodsImg}}' class='image2'></image>
           <text class='com'>{{item.logisticsMessage.data[0].context}}。</text>
         </view>
 
@@ -19,10 +19,9 @@
 
   </view>
     <view class='bj'  wx:if="{{she==false}}">
-     <!-- <text>您还没有下单哦/或者您的订单还没分配快递</text> -->
+ 
      <image src="http://dev.static.qianyipan.com/image/jpg/wudingdan@2x.png "></image>
     </view>   
 
 
 </view>
-<!-- </view> -->

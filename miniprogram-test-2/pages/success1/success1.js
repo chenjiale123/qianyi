@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+price:''
   },
   detail: function (e) {
     wx.navigateTo({
@@ -29,6 +29,12 @@ wx.navigateTo({
    */
   onLoad: function (options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
+   this.setData({
+     price:options.price
+   })
     api._get('/QianYi_Shop/selectRecommendGoods?page=1').then(res => {
 
       that.setData({

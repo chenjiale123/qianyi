@@ -2,7 +2,7 @@
 
 <view class="contail">
     <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{jindian!==null}}">
-      <image src='http://dev.static.qianyipan.com/{{shit[index]}}'></image>
+      <image src='{{api}}{{shit[index]}}'></image>
       <view class='right'>
         <text class='title'>{{item.scenicName}}</text>
         <view class='fw'>自然风光</view>

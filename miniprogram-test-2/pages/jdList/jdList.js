@@ -114,6 +114,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
 
     api._post('/QianYi/selectScenicOrder?creatorId='+userId+'&orderStauts=0&page=1').then(res => {

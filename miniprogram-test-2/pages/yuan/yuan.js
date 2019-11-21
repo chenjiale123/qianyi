@@ -177,6 +177,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
     api._get('/QianYi_Shop/selectMyWishList?userId='+userId+'&page=1').then(res => {
       if (res.isSuc == true) {

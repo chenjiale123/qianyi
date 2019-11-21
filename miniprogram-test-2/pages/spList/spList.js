@@ -1,5 +1,6 @@
 const api = require('../../utils/api.js')
 
+var util = require('../../utils/md5.js')
 
 Page({
 
@@ -26,6 +27,75 @@ Page({
     leng8: '',
     leng:''
   },
+  buy:function(e){
+    var that=this
+    console.log(e.currentTarget.dataset.id)
+    var openid = wx.getStorageSync('openid')
+var can={
+  orderId: e.currentTarget.dataset.id,
+  type:0,
+  tradeType: "JSAPI",
+  openid: openid
+}
+
+
+
+    wx.request({
+      url: api.baseUrl+'/QianYi_Shop/pay/wechat/createOrder',
+      method: 'POST',
+      data: can,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: (res) => {
+
+        console.log(res.data.appId)
+        var sting = "appId=" + res.data.appId + "&nonceStr=" + res.data.noncestr + "&package=prepay_id=" + res.data.prepayid + "&signType=MD5&timeStamp=" + String(res.data.timestamp) + "&key=qwertyuiopasdfghjklzxcvbnm123456"
+        wx.requestPayment({
+          'appId': res.data.appId,
+          'timeStamp': String(res.data.timestamp),
+          'nonceStr': res.data.noncestr,
+          'package': 'prepay_id=' + res.data.prepayid,
+          'signType': 'MD5',
+          'paySign': util.hexMD5(sting).toUpperCase(),
+          'success': function (res) {
+
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(res)
+            wx.navigateTo({
+              url: '/pages/success1/success1',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          },
+          'fail': function (res) {
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(sting)
+            console.log(e.currentTarget.dataset.in)
+            wx.navigateTo({
+              url: '/pages/zhifu/zhifu?id=' + e.currentTarget.dataset.id + '&goods=' + JSON.stringify(e.currentTarget.dataset.in.orderGoodsList) + '&price=' + e.currentTarget.dataset.in.realTotalMoney + '&time=' + e.currentTarget.dataset.in.createTime + '&code=' + e.currentTarget.dataset.in.orderNo,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+
+          },
+          'complete': function (res) { }
+        })
+
+
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
+     
+
+
+
+    
+  },
   zhifu:function(e){
     console.log(e.currentTarget.dataset.in)
 wx.navigateTo({
@@ -34,6 +104,26 @@ wx.navigateTo({
   fail: function(res) {},
   complete: function(res) {},
 })
+  },
+  tixing:function(e){
+    api._post('/QianYi_Shop/RemindTheDelivery?orderNo=' + e.currentTarget.dataset.in ).then(res => {
+      console.log(res)
+      if (res.isSuc == true) {
+        wx.showToast({
+          title: '提醒发货成功',
+          icon: 'success'
+        })
+      } else {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none'
+        })
+      }
+      this.onLoad()
+
+    }).catch(e => {
+      console.log(e)
+    })
   },
   detail: function(e) {
     this.setData({
@@ -165,6 +255,10 @@ wx.navigateTo({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that=this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
 
     api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=4&page=1').then(res => {
@@ -204,6 +298,7 @@ wx.navigateTo({
 
         })
         // this.onLoad()
+        console.log(this.data.leng)
       }else{
         this.setData({
           leng:0

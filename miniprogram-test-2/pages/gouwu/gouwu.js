@@ -6,7 +6,7 @@ Page({
    */
   data: {
     cardTeams: "",
-    checked_all: false,     //全选
+    checked_all: true,     //全选
     newArr: [],            //复选框选中
     countMoney: 0  ,
     goodsList:"" ,
@@ -100,10 +100,13 @@ Page({
     var selected = cardTeams[index].selected
     // console.log(selected)
     cardTeams[index].selected = !selected
+    var a = []
     if (!selected) {
       arr.push(index)
+
     } else {
       arr.pop()
+
     }
     console.log(cardTeams.length)
     console.log(arr.length)
@@ -160,15 +163,15 @@ console.log(this.data.carId)
       checked_all: checked_all,
       newArr: arr
     })
-    var a = []
+    var b = []
 
     for (var index in arr) {
-      a.push(cardTeams[index].id)
+      b.push(cardTeams[index].id)
 
     }
-    console.log(a)
+    console.log(b)
     that.setData({
-      carId: a.join(',')
+      carId: b.join(',')
     })
     console.log(this.data.carId)
 
@@ -228,11 +231,15 @@ console.log(this.data.carId)
   dingdan1:function(e){
     var that = this
     var index = e.currentTarget.dataset.index;
+    console.log(index)
     var cardTeams = that.data.cardTeams
     api._get('/QianYi_Shop/delGoodsCarts?ids='+this.data.carId).then(res => {
       cardTeams.splice(index, 1);
       
       console.log(res)
+      wx.switchTab({
+        url: '../gouwu/gouwu',
+      })
       this.onLoad()
 
     }).catch(e => {
@@ -254,7 +261,10 @@ console.log(this.data.carId)
   },
   onLoad: function () {
 
-    var that=this
+    var that = this
+    that.setData({
+      api: api.url
+    })
     var userId = wx.getStorageSync('user').loginId || 0
 
     if (userId == 0) {
@@ -273,7 +283,8 @@ console.log(this.data.carId)
     that.setData({
       she: res.isSuc,
       cardTeams: res.data.cartsList,
-      shopId: res.data.cartsList[0].shopGoodsWithBLOBs.storeId
+      shopId: res.data.cartsList[0].shopGoodsWithBLOBs.storeId,
+      checked_all:false
     })
   }else{
     that.setData({
@@ -303,6 +314,7 @@ console.log(this.data.carId)
    */
   onShow: function () {
 this.onLoad()
+
     var that = this
 
    
@@ -318,9 +330,12 @@ this.onLoad()
       }
     }
     that.setData({
-      cardTeams: cardTeams,
-      newArr: arr
+      cardTeams: [],
+      newArr: []
     })
+    console.log(that.data.cardTeams)
+    console.log(that.data.newArr)
+    console.log(that.data.checked_all)
     that.getTotalPrice()     //合计
   },
   //滑动删除

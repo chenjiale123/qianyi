@@ -34,7 +34,7 @@ Page({
       m = m < 10 ? "0" + m : m
       h = h < 10 ? "0" + h : h
       that.setData({
-        countdown: d + "：" + h + "：" + m + "：" + s + ":" + ms,
+        countdown:  m + "：" + s ,
       })
       //递归每秒调用countTime方法，显示动态时间效果
       setTimeout(that.countTime, 100);
@@ -51,6 +51,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    that.setData({
+      api: api.url
+    })
     that.countTime()
     var id = options.id
     this.setData({
