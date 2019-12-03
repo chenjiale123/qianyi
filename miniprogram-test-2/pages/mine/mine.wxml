@@ -7,7 +7,7 @@
 
       </view>
 
-      <text class='title' wx:if="{{user}}">{{name}}</text>
+      <text class='title' wx:if="{{user}}" bindtap="show">{{name}}</text>
       <text class='title' bindtap="show" wx:else>点此登录</text>
       <image  wx:if="{{user}}" src="../../image/switch@2x.png" class="switch"></image>
       <text class='qie' wx:if="{{user}}" bindtap="zhuxiao">切换账号</text>
@@ -48,7 +48,7 @@
         <view class='list'>
           <view bindtap='techan'>
             <image src='../../image/productorder@2x.png'></image>
-            <text>特产订单</text>
+            <text>商品订单</text>
           </view>
           <view bindtap='jingdian'>
             <image src='../../image/attractionsorder@2x.png'></image>
@@ -65,7 +65,7 @@
 
         </view>
       </view>
-      <view class='love'>
+      <!-- <view class='love'>
         <text>猜你喜欢</text>
         <image src='../../image/tab@2x.png'></image>
         <view class='li' wx:for="{{data3}}" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
@@ -73,7 +73,7 @@
           <text>{{item.goodsName}}</text>
         </view>
     
-      </view>
+      </view> -->
     </view>
 
   </view>

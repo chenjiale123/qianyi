@@ -1,4 +1,4 @@
-const baseUrl = 'https://dev.app.qianyipan.com';
+const baseUrl = 'https://app.qianyipan.com';
 const url = 'http://dev.static.qianyipan.com/'
 
 const http = ({ url = '', param = {}, ...other } = {}) => {
@@ -7,12 +7,12 @@ const http = ({ url = '', param = {}, ...other } = {}) => {
   });
   let timeStart = Date.now();
   return new Promise((resolve, reject) => {
+    console.log(url, other)
     wx.request({
       url: getUrl(url),
       data: param,
       header: {
-        'content-type': 'application/json' // 默认值 ,另一种是 "content-type": "application/x-www-form-urlencoded"
-        // "content-type": "application/x-www-form-urlencoded"
+        'content-type': other.method == 'get' ? 'application/json' : 'application/x-www-form-urlencoded'
       },
       ...other,
       complete: (res) => {
@@ -39,7 +39,8 @@ const getUrl = (url) => {
 const _get = (url, param = {}) => {
   return http({
     url,
-    param
+    param,
+    method: 'get'
   })
 }
 

@@ -344,13 +344,14 @@ Page({
     var pri = this.data.detail.specPrice
     var total = 0
 
-    var price = number * pri
+    var price = Number((number * pri).toFixed(2))
     console.log(price)
-    // this.setData({
-    //   all: price,
+    this.setData({
+      all: Number(price.toFixed(2)),
 
-    //   all_: price - this.data.countMoney + this.data.yunfei
-    // })
+
+      all_: Number((price - this.data.countMoney + this.data.yunfei).toFixed(2))
+    })
   },
   /**
    * 生命周期函数--监听页面加载

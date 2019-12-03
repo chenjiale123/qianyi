@@ -28,7 +28,7 @@
 
         <view class="date" wx:if="{{show}}">
           <!--  -->
-          <view style="position:fixed;bottom:550rpx;background:#F5F5F5;font-size: 30rpx; padding-top: 10rpx;padding-bottom: 15rpx;">
+          <view style="position:fixed;top:40%;background:#F5F5F5;font-size: 30rpx; padding-top: 10rpx;padding-bottom: 15rpx;">
             <view class="layout-flex row" >
               <text class="date-week" style="width:{{systemInfo.windowWidth/7-15}}px;height:20px" wx:for="{{weekStr}}" wx:key="{                       {index}}">
                  <text wx:if="{{item !=='日' && item !=='六'}}">{{item}}</text>
@@ -83,7 +83,8 @@
         <view class='lt'>
           开放时间
           <text> {{jin.beginTime}}-{{jin.endTime}} </text>
-          <text class='xiu'>开放中</text>
+          <text class='xiu' wx-if="{{item.stauts==1}}">开放中</text>
+            <text class='xiu' wx-else="{{item.stauts==0}}">不开放</text>
         </view>
 
       </view>
@@ -131,7 +132,7 @@
        <view class="form" wx:for="{{scenic}}">
        <view class="left">
        <view class="top">{{item.ticketName}} <text wx:if="{{item.ticketLabel==0}}">随买随用</text>
-       <text wx:else>随时退</text>
+       <text wx:elif="{{item.ticketLabel==1}}">随时退</text>
        </view>
               <view class="down">
               ￥{{item.ticketPrice}} <text>已售{{item.ticketSale}}</text>

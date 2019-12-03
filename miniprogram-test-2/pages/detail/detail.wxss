@@ -335,13 +335,13 @@ margin-right: 20rpx;
 .bottom{
   height: auto;
 }
-.active{
+.swiper-tab>.active{
 height: 34rpx;
   display: inline-block;
 font-size: 36rpx;
 color:#1a1a1a;
 border-bottom: 10rpx solid rgba(61,179,163,1);
-box-shadow:0rpx 6rpx 20rpx 0rpx rgba(144,240,169,0.5);
+/* box-shadow:0rpx 6rpx 20rpx 0rpx rgba(144,240,169,0.5); */
 
 
 
@@ -759,9 +759,11 @@ z-index: 999999
   background-color: #d8ecf9;
 }
 .date-day.active{
-    background: rgba(61,179,163,1);
-    border-radius: 16rpx;
-    color:#FFF;
+    /* background: rgba(61,179,163,1); */
+    /* border-radius: 16rpx; */
+   color:rgba(0,221,145,1);
+    background:rgba(0,221,145,0.1);
+border-radius:50%;
     
 }
 .date-day.unavailable{

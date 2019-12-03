@@ -16,7 +16,35 @@ Page({
     index:0,
       index1:0,
       find:true,
-      page:1
+  
+    page: 1,
+    pages: 0,
+    currentTab: 0,
+    data2: [],
+    price: false,
+    mrc: '综合',
+    id: 1,
+    sousuo: false,
+    di1: '',
+    gao1: '',
+
+
+  },
+  videoPlay: function (e) {
+    var _index = e.currentTarget.dataset.id
+    this.setData({
+      _index: _index
+    })
+    console.log(this.data._index)
+    //停止正在播放的视频
+    var videoContextPrev = wx.createVideoContext(_index + "")
+    videoContextPrev.stop();
+
+    setTimeout(function () {
+      //将点击视频进行播放
+      var videoContext = wx.createVideoContext(_index + "")
+      videoContext.play();
+    }, 500)
   },
   change:function(){
     var that=this
@@ -58,18 +86,25 @@ Page({
         // img: res.data.scenicList.pictureUrl.split(',')[0]
       })
      
-
     }).catch(e => {
       console.log(e)
     })
   },
-  fg:function(){
+  ms:function(){
  wx.navigateTo({
-   url: '/pages/listJD/listJD?id=1&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
+   url: '/pages/listJD/listJD?id=3&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
    success: function(res) {},
    fail: function(res) {},
    complete: function(res) {},
  })
+  },
+  zr: function () {
+    wx.navigateTo({
+      url: '/pages/listJD/listJD?id=1&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
   wq: function () {
     wx.navigateTo({
@@ -79,25 +114,25 @@ Page({
       complete: function (res) { },
     })
   },
-  ms: function () {
+  qz: function () {
     wx.navigateTo({
-      url: '/pages/listJD/listJD?id=3&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
+      url: '/pages/listJD/listJD?id=6&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
   },
-  ylc: function () {
+  wh: function () {
     wx.navigateTo({
-      url: '/pages/listJD/listJD?id=4&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
+      url: '/pages/listJD/listJD?id=7&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
     })
   },
-  zjy: function () {
+  tj: function () {
     wx.navigateTo({
-      url: '/pages/listJD/listJD?id=5&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
+      url: '/pages/listJD/listJD?id=8&city=' + this.data.array[this.data.index1] + '&page=1&startLonLat=' + this.data.longitude + ',' + this.data.latitude,
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -186,9 +221,28 @@ Page({
 
 
   onLoad: function(options) {
+    // wx.hideTabBar({
+ 
+    // })
     var that = this
     that.setData({
       api: api.url
+    })
+
+    api._post('/QianYi_Shop/selectShufflingFigure',{
+      page:1,
+      pageSize:2,
+      type:2
+
+    }).then(res => {
+
+      that.setData({
+        data1: res.data.pictureList
+      })
+      console.log(res.data)
+
+    }).catch(e => {
+      console.log(e)
     })
     api._get('/QianYi/selectHotLabels?page=1').then(res => {
 

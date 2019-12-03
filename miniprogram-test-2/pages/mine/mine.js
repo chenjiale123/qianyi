@@ -277,7 +277,7 @@ wx.navigateTo({
     }else{
       that.setData({
         name: "暂未登录",
-        user: true,
+        user: false,
         touxiang: "",
         huiyuan: ""
       })

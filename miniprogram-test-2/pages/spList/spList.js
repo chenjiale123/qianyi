@@ -10,12 +10,12 @@ Page({
   data: {
     currentTab: 0,
     id4: '',
-    goods1:'',
-    leng1:'',
+    goods1: '',
+    leng1: '',
     goods2: '',
     leng2: '',
     goods3: '',
-    leng4:'',
+    leng4: '',
     leng3: '',
     goods5: '',
     leng5: '',
@@ -25,23 +25,31 @@ Page({
     leng7: '',
     goods8: '',
     leng8: '',
-    leng:''
+    leng: ''
   },
-  buy:function(e){
-    var that=this
+  again:function(e){
+      wx.navigateTo({
+        url: '/pages/detailTC/detailTC/id='+e.currentTarget.dataset.in,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+  },
+  buy: function(e) {
+    var that = this
     console.log(e.currentTarget.dataset.id)
     var openid = wx.getStorageSync('openid')
-var can={
-  orderId: e.currentTarget.dataset.id,
-  type:0,
-  tradeType: "JSAPI",
-  openid: openid
-}
+    var can = {
+      orderId: e.currentTarget.dataset.id,
+      type: 0,
+      tradeType: "JSAPI",
+      openid: openid
+    }
 
 
 
     wx.request({
-      url: api.baseUrl+'/QianYi_Shop/pay/wechat/createOrder',
+      url: api.baseUrl + '/QianYi_Shop/pay/wechat/createOrder',
       method: 'POST',
       data: can,
       header: {
@@ -58,30 +66,30 @@ var can={
           'package': 'prepay_id=' + res.data.prepayid,
           'signType': 'MD5',
           'paySign': util.hexMD5(sting).toUpperCase(),
-          'success': function (res) {
+          'success': function(res) {
 
             console.log(util.hexMD5(sting).toUpperCase())
             console.log(res)
             wx.navigateTo({
               url: '/pages/success1/success1',
-              success: function (res) { },
-              fail: function (res) { },
-              complete: function (res) { },
+              success: function(res) {},
+              fail: function(res) {},
+              complete: function(res) {},
             })
           },
-          'fail': function (res) {
+          'fail': function(res) {
             console.log(util.hexMD5(sting).toUpperCase())
             console.log(sting)
             console.log(e.currentTarget.dataset.in)
             wx.navigateTo({
               url: '/pages/zhifu/zhifu?id=' + e.currentTarget.dataset.id + '&goods=' + JSON.stringify(e.currentTarget.dataset.in.orderGoodsList) + '&price=' + e.currentTarget.dataset.in.realTotalMoney + '&time=' + e.currentTarget.dataset.in.createTime + '&code=' + e.currentTarget.dataset.in.orderNo,
-              success: function (res) { },
-              fail: function (res) { },
-              complete: function (res) { },
+              success: function(res) {},
+              fail: function(res) {},
+              complete: function(res) {},
             })
 
           },
-          'complete': function (res) { }
+          'complete': function(res) {}
         })
 
 
@@ -90,23 +98,23 @@ var can={
         console.log(err)
       }
     })
-     
 
 
 
-    
+
+
   },
-  zhifu:function(e){
+  zhifu: function(e) {
     console.log(e.currentTarget.dataset.in)
-wx.navigateTo({
-  url: '/pages/zhifu/zhifu?id=' + e.currentTarget.dataset.in + '&goods=' + JSON.stringify(this.data.goods[e.currentTarget.dataset.in].orderGoodsList) + '&price=' + this.data.goods[e.currentTarget.dataset.in].realTotalMoney + '&time=' + this.data.goods[e.currentTarget.dataset.in].createTime + '&code=' + this.data.goods[e.currentTarget.dataset.in].orderNo + '&id1=' + e.currentTarget.dataset.id1 + '&id2=' + e.currentTarget.dataset.id,
-  success: function(res) {},
-  fail: function(res) {},
-  complete: function(res) {},
-})
+    wx.navigateTo({
+      url: '/pages/zhifu/zhifu?id=' + e.currentTarget.dataset.in + '&goods=' + JSON.stringify(this.data.goods[e.currentTarget.dataset.in].orderGoodsList) + '&price=' + this.data.goods[e.currentTarget.dataset.in].realTotalMoney + '&time=' + this.data.goods[e.currentTarget.dataset.in].createTime + '&code=' + this.data.goods[e.currentTarget.dataset.in].orderNo + '&id1=' + e.currentTarget.dataset.id1 + '&id2=' + e.currentTarget.dataset.id,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
-  tixing:function(e){
-    api._post('/QianYi_Shop/RemindTheDelivery?orderNo=' + e.currentTarget.dataset.in ).then(res => {
+  tixing: function(e) {
+    api._post('/QianYi_Shop/RemindTheDelivery?orderNo=' + e.currentTarget.dataset.in).then(res => {
       console.log(res)
       if (res.isSuc == true) {
         wx.showToast({
@@ -137,15 +145,15 @@ wx.navigateTo({
     })
     console.log(e.currentTarget.dataset.id)
   },
-  detail1: function (e) {
+  detail1: function(e) {
     this.setData({
       id4: e.currentTarget.dataset.in
     })
     wx.navigateTo({
       url: '/pages/commentZJ/commentZJ?id=' + e.currentTarget.dataset.id + '&ding=' + e.currentTarget.dataset.in,
-      success: function (res) { },
-      fail: function (res) { },
-      complete: function (res) { },
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
     console.log(e.currentTarget.dataset.id)
   },
@@ -168,14 +176,14 @@ wx.navigateTo({
   },
   jindu: function(e) {
     wx.navigateTo({
-      url: '/pages/tuikuanDetail/tuikuanDetail?id='+ e.currentTarget.dataset.in,
+      url: '/pages/tuikuanDetail/tuikuanDetail?id=' + e.currentTarget.dataset.in,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
     })
   },
-  shanchu:function(e){
-    api._post('/QianYi_Shop/updateShopOrderStatus?id=' + e.currentTarget.dataset.in +'&status=-3').then(res => {
+  shanchu: function(e) {
+    api._post('/QianYi_Shop/updateShopOrderStatus?id=' + e.currentTarget.dataset.in + '&status=-3').then(res => {
       console.log(res)
       if (res.isSuc == true) {
         wx.showToast({
@@ -194,7 +202,7 @@ wx.navigateTo({
       console.log(e)
     })
   },
-  quxiao: function (e) {
+  quxiao: function(e) {
     api._post('/QianYi_Shop/updateShopOrderStatus?id=' + e.currentTarget.dataset.in + '&status=-1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
@@ -214,7 +222,7 @@ wx.navigateTo({
       console.log(e)
     })
   },
-  sure:function(e){
+  sure: function(e) {
     api._post('/QianYi_Shop/updateShopOrderStatus?id=' + e.currentTarget.dataset.in + '&status=2').then(res => {
       console.log(res)
       if (res.isSuc == true) {
@@ -234,18 +242,18 @@ wx.navigateTo({
       console.log(e)
     })
   },
-  kuaidi:function(e){
-   wx.navigateTo({
-     url: '/pages/kuaidi/kuaidi?id=' + e.currentTarget.dataset.in,
-     success: function(res) {},
-     fail: function(res) {},
-     complete: function(res) {},
-   })
+  kuaidi: function(e) {
+    wx.navigateTo({
+      url: '/pages/kuaidi/kuaidi?id=' + e.currentTarget.dataset.in,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   tuikuan: function(e) {
     console.log(JSON.stringify(this.data.goods[e.currentTarget.dataset.in].orderGoodsList))
     wx.navigateTo({
-      url: '/pages/tuikuan/tuikuan?id=' + e.currentTarget.dataset.in + '&goods=' + JSON.stringify(this.data.goods[e.currentTarget.dataset.in].orderGoodsList)+ '&price=' + this.data.goods[e.currentTarget.dataset.in].realTotalMoney + '&yun=' + this.data.goods[e.currentTarget.dataset.in].deliverMoney + '&status=' + this.data.goods[e.currentTarget.dataset.in].orderStatus  + '&id1=' + e.currentTarget.dataset.id1,
+      url: '/pages/tuikuan/tuikuan?id=' + e.currentTarget.dataset.in + '&goods=' + JSON.stringify(this.data.goods[e.currentTarget.dataset.in].orderGoodsList) + '&price=' + this.data.goods[e.currentTarget.dataset.in].realTotalMoney + '&yun=' + this.data.goods[e.currentTarget.dataset.in].deliverMoney + '&status=' + this.data.goods[e.currentTarget.dataset.in].orderStatus + '&id1=' + e.currentTarget.dataset.id1,
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -255,15 +263,15 @@ wx.navigateTo({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that=this
+    var that = this
     that.setData({
       api: api.url
     })
     var userId = wx.getStorageSync('user').loginId || 0
 
-    api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=4&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=4&page=1').then(res => {
       console.log(res)
-      if(res.isSuc==true){
+      if (res.isSuc == true) {
         for (var i = 0; i < res.data.orderList.length; i++) {
           var item = res.data.orderList[i];
           if (item.orderStatus == -2) {
@@ -299,27 +307,27 @@ wx.navigateTo({
         })
         // this.onLoad()
         console.log(this.data.leng)
-      }else{
+      } else {
         this.setData({
-          leng:0
+          leng: 0
         })
       }
- 
-   
+
+
 
 
     }).catch(e => {
       console.log(e)
     })
 
-    api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=-2&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=-2&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods1: res.data.orderList,
-        leng1: res.data.orderList.length
+        this.setData({
+          goods1: res.data.orderList,
+          leng1: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng1: 0
@@ -331,14 +339,14 @@ wx.navigateTo({
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=-1&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=-1&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods2: res.data.orderList,
-        leng2: res.data.orderList.length
+        this.setData({
+          goods2: res.data.orderList,
+          leng2: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng2: 0
@@ -350,14 +358,14 @@ wx.navigateTo({
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId +'&orderStatus=0&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=0&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods3: res.data.orderList,
-        leng3: res.data.orderList.length
+        this.setData({
+          goods3: res.data.orderList,
+          leng3: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng3: 0
@@ -369,14 +377,14 @@ wx.navigateTo({
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId +'&orderStatus=1&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=1&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods4: res.data.orderList,
-        leng4: res.data.orderList.length
+        this.setData({
+          goods4: res.data.orderList,
+          leng4: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng4: 0
@@ -388,33 +396,33 @@ wx.navigateTo({
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId +'&orderStatus=2&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=2&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods5: res.data.orderList,
-        leng5: res.data.orderList.length
+        this.setData({
+          goods5: res.data.orderList,
+          leng5: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng5: 0
         })
       }
-   
+
 
 
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=3&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=3&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods6: res.data.orderList,
-        leng6: res.data.orderList.length
+        this.setData({
+          goods6: res.data.orderList,
+          leng6: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng6: 0
@@ -426,15 +434,15 @@ wx.navigateTo({
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=5&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=5&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods7: res.data.orderList,
-        leng7: res.data.orderList.length
+        this.setData({
+          goods7: res.data.orderList,
+          leng7: res.data.orderList.length
 
-      })
-      console.log(this.data.leng7)
+        })
+        console.log(this.data.leng7)
       } else {
         this.setData({
           leng7: 0
@@ -446,14 +454,14 @@ wx.navigateTo({
     }).catch(e => {
       console.log(e)
     })
-    api._post('/QianYi_Shop/selectShopOrder?userId='+userId+'&orderStatus=6&page=1').then(res => {
+    api._post('/QianYi_Shop/selectShopOrder?userId=' + userId + '&orderStatus=6&page=1').then(res => {
       console.log(res)
       if (res.isSuc == true) {
-      this.setData({
-        goods8: res.data.orderList,
-        leng8: res.data.orderList.length
+        this.setData({
+          goods8: res.data.orderList,
+          leng8: res.data.orderList.length
 
-      })
+        })
       } else {
         this.setData({
           leng7: 0
@@ -465,7 +473,7 @@ wx.navigateTo({
       console.log(e)
     })
 
-  
+
   },
 
   swiperTab: function(e) {
@@ -485,7 +493,7 @@ wx.navigateTo({
         currentTab: e.target.dataset.current
       })
     }
- 
+
   },
 
   /**
@@ -499,7 +507,7 @@ wx.navigateTo({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-this.onLoad()
+    this.onLoad()
   },
 
   /**

@@ -7,7 +7,7 @@ Page({
    */
   data: {
     show: false,
-    openid:''
+    openid: ''
   },
 
   login1: function() {
@@ -27,44 +27,46 @@ Page({
       touxiang: JSON.parse(res.detail.rawData).avatarUrl
     })
     if (info.detail.userInfo) {
-  
+
       console.log("点击了同意授权");
       // console.log(res.detail.encryptedData)
       wx.login({
         success: function(res) {
           if (res.code) {
-    
-            console.log(res, info)
-      
-        
-             
+
+            console.log(res.code, info)
+
+
+
             wx.request({
 
-              //获取openid接口  
-              url: 'https://api.weixin.qq.com/sns/jscode2session',
+
+              url: api.baseUrl + '/QianYi/getWechatAppletOpenid',
               data: {
-                appid: 'wx99ea433caea5a1c7',
-                secret: '71376261788531283f32ec11e2368f1e',
-                js_code: res.code,
-                grant_type: 'authorization_code'
+
+                jsCode: res.code
+
               },
               method: 'GET',
               success: function(res) {
 
-           
-                console.log("111") 
-                console.log(res)
+
+                console.log("111")
+                console.log(res.data)
+                console.log(JSON.parse(res.data))
+                var res = JSON.parse(res.data)
+
                 that.setData({
-                      openid: res.data.openid,
-                  key1: res.data.session_key
+                  openid: res.openid,
+                  key1: res.session_key
                 })
-                wx.setStorageSync("openid", res.data.openid);
+                wx.setStorageSync("openid", res.openid);
 
                 wx.request({
-                  url: 'https://dev.app.qianyipan.com/QianYi/appletLogin?loginType=weixinApplet&identifier=' + res.data.openid,
+                  url: api.baseUrl + '/QianYi/appletLogin?loginType=weixinApplet&identifier=' + res.openid,
 
                   // 判断是否需要绑定手机号
-                  success: function (res) {
+                  success: function(res) {
                     console.log(res)
 
 
@@ -73,10 +75,10 @@ Page({
                         show: true,
 
                       })
-                    } else if (res.data.code == 800){
-                          wx.showToast({
-                            title: '此账号被冻结',
-                          })
+                    } else if (res.data.code == 800) {
+                      wx.showToast({
+                        title: '此账号被冻结',
+                      })
                     } else {
                       wx.setStorageSync("user", res.data.data.userInfo);
                       wx.navigateBack({
@@ -88,10 +90,10 @@ Page({
                 })
               }
             })
-     
-  
-         
-         
+
+
+
+
           } else {
             console.log("授权失败");
           }
@@ -102,17 +104,17 @@ Page({
       console.log("点击了拒绝授权");
     }
   },
-  jujue:function(){
+  jujue: function() {
     wx.request({
-      url: api.baseUrl+'/QianYi/appletLogin',
+      url: api.baseUrl + '/QianYi/appletLogin',
       method: 'POST',
-      data:{
+      data: {
         nickName: this.data.name,
         infoIcon: this.data.touxiang,
         loginType: weixinApplet,
         identifier: this.data.openid
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res)
         wx.setStorageSync("user", res.data.data.userInfo);
         wx.navigateBack({
@@ -131,13 +133,13 @@ Page({
     console.log(res)
 
     wx.request({
-      url: api.baseUrl +'/QianYi/appletLogin',
+      url: api.baseUrl + '/QianYi/appletLogin',
       method: 'POST',
       header: {
         'content-type': 'application/x-www-form-urlencoded',
       },
 
-      data:{
+      data: {
         encrypted: res.detail.encryptedData,
         sessionKey: this.data.key1,
         iv: res.detail.iv,

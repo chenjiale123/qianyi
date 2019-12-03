@@ -29,14 +29,14 @@
         <text>￥{{jindian.price}}</text>
       </view>
       <view class='right2'>
-        <text>￥{{jindian.scenicSpotWithBLOBs.ticketPrice}}</text>×{{jindian.ticketNum}}张
+        <text></text>×{{jindian.ticketNum}}张
       </view>
 
     </view>
     <view class='centerli3'>
      <text bindtap="quxiao" data-in="{{jindian.id}}" class="a">取消订单</text>
       <text class="b">联系客服</text>
-      <button bindtap="tuikuan" data-in="{{jindian.id}}">付款</button>
+      <button bindtap="pay" data-in="{{jindian.id}}">付款</button>
     </view>
   </view>
   <view class='bj'>

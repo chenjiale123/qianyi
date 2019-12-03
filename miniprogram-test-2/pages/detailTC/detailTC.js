@@ -18,7 +18,7 @@ Page({
     Id: "",
     shopId: '',
     dsc: '',
-    show: false,
+    show: true,
     show1: false,
     salesNum: 1,
     pri: '',
@@ -276,9 +276,9 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
     })
-    this.setData({
-      show: !this.data.show
-    })
+    // this.setData({
+    //   show: !this.data.show
+    // })
     wx.hideLoading();
     console.log('111111')
   },

@@ -1,0 +1,83 @@
+<view class="whole">
+  <view class="zhezao" wx:if="{{price}}">
+    <view class="list">
+      <view class="listIn">
+        <view bindtap="show" data-id="1" data-in="综合">综合排序</view>
+        <view bindtap="show" data-id="2" data-in="热门">热门优先</view>
+        <view bindtap="show" data-id="3" data-in="高低">价格从高到低</view>
+        <view bindtap="show" data-id="4" data-in="低高">价格从低到高</view>
+
+      </view>
+    </view>
+
+  </view>
+  <view class="qujian" wx:if="{{sousuo}}">
+    <view class="list1">
+      <view class="listIn1">
+        <input placeholder="最低价" bindinput="di"></input>
+
+        <input placeholder="最高价" bindinput="gao"></input>
+        <button bindtap="sure" data-id="8">确认</button>
+
+
+      </view>
+    </view>
+  </view>
+  <view class="contain">
+    <view class="tab">
+      <view class="tab1 {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab1">
+        {{mrc}}
+      </view>
+      <view class="tab2 {{currentTab==1?'active':''}}" data-id="5" data-current="1" bindtap="clickTab">
+        销量
+      </view>
+      <view class="tab3 {{currentTab==2?'active':''}}" data-id="6" data-current="2" bindtap="clickTab">
+        好评</view>
+      <view class="tab4 {{currentTab==3?'active':''}}" data-id="7" data-current="3" bindtap="clickTab">
+        人气
+      </view>
+      <view class="tab5 {{currentTab==4?'active':''}}" data-current="4" bindtap="clickTab2">
+        价格
+        <image src="../../image/xialla@2x.png"></image>
+      </view>
+
+
+    </view>
+    <view class='techan' wx:for="{{data2}}">
+      <text class="title">{{item.goodsName}}</text>
+      <view class="ship">
+        <view class="tp" bindtap='detail' data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
+          <image src="{{api}}{{item.imageThumb}}"></image>
+        </view>
+
+        <view class="sp" style="display: {{ _index == index ? 'none' : 'block' }};" bindtap="videoPlay" data-id="{{index}}">
+
+          <view class="video-cover-box">
+            <image class="video-image" src="{{api}}{{item.videoCover}}" mode="aspectFit">
+            </image>
+
+          </view>
+          <image src="../../image/dddplay@2x.png"></image>
+        </view>
+        <!-- 视频播放层 -->
+        <video src="{{api}}{{item.videoUrl}}" data-id="{{index}}" class='video' wx:if="{{_index == index}}" objectFit='contain' autoplay='true' controls></video>
+
+
+      </view>
+      <view class="js">
+        <view class="jg">
+          <text class="mj">满减</text>
+          <text class="sj">￥{{item.discountPrice}}</text>
+          <text class="yb">￥{{item.price}}</text>
+        </view>
+        <view class="df">
+          该特产来自
+          <text>{{item.address}}</text> |已售{{item.isSale}}
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+</view>

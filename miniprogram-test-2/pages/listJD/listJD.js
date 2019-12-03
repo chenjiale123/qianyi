@@ -6,7 +6,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    page: 1,
+    pages: 0,
+    currentTab: 0,
+    data2: [],
+    price: false,
+    mrc: '综合',
+    id: 1,
+    sousuo: false,
+    di1: '',
+    gao1: '',
+  },
+  videoPlay: function (e) {
+    var _index = e.currentTarget.dataset.id
+    this.setData({
+      _index: _index
+    })
+    console.log(this.data._index)
+    //停止正在播放的视频
+    var videoContextPrev = wx.createVideoContext(_index + "")
+    videoContextPrev.stop();
+
+    setTimeout(function () {
+      //将点击视频进行播放
+      var videoContext = wx.createVideoContext(_index + "")
+      videoContext.play();
+    }, 500)
   },
   detail: function (e) {
     var userId = wx.getStorageSync('user').loginId || 0
@@ -40,13 +65,14 @@ var id=options.id
     var startLonLat = options.startLonLat
     var that = this
     console.log(startLonLat)
-    api._get('/QianYi/forYourChoice?city=' + city + '&page=1&startLonLat=' + startLonLat+'&label='+id).then(res => {
+    api._get('/QianYi/selectScenicSpotTicket?page=1&longitude=' + startLonLat.split(',')[0] + '&latitude=' + startLonLat.split(',')[1] +'&label='+id).then(res => {
 
       var shit = []
       this.setData({
         jindian: res.data.scenicList,
         // img: res.data.scenicList.pictureUrl.split(',')[0]
       })
+      console.log(this.data.jindian)
       for (let key in this.data.jindian) {
         this.setData({
           img: this.data.jindian[key]["pictureUrl"].split(',')[0]

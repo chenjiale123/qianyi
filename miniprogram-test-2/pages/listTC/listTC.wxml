@@ -56,12 +56,7 @@
 
         <image src='../../image/mjbq@2x.png'></image>
       </view>
-      <!-- <view class='final'>
-        <text class='wrong'>￥{{item.price}}</text>
-        <view class='fukuan'>
-          <text>{{item.sales}}</text>人付款
-        </view>
-      </view> -->
+
     </view>
 
   </view>

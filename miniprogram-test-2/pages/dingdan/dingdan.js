@@ -144,10 +144,6 @@ Page({
           noncestr: res.noncestr,
           package: res.package,
           sign: res.sign
-          
-
-
-
         })
         console.log(res)
           var sting = "appId=" + res.appId + "&nonceStr=" + res.noncestr + "&package=prepay_id=" + res.prepayid + "&signType=MD5&timeStamp=" + res.timestamp.toString() + "&key=qwertyuiopasdfghjklzxcvbnm123456" 
@@ -342,12 +338,13 @@ Page({
     var pri = this.data.detail.specPrice
     var total = 0
 
-    var price = number * pri
+    var price = Number((number * pri).toFixed(2))
 
     this.setData({
-      all: price,
+      all: Number(price.toFixed(2)),
+      
 
-      all_: price - this.data.countMoney + this.data.yunfei
+      all_: Number((price - this.data.countMoney + this.data.yunfei).toFixed(2))
     })
   },
   /**

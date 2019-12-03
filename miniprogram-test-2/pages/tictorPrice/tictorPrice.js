@@ -91,9 +91,10 @@ Page({
       })
     } else {
       api._post('/QianYi/createOrder?ticketNumId=' + this.data.id + '&creatorId=' + userId + '&price=' + this.data.price2 + '&ticketNum=' + this.data.salesNum + '&buyers=' + this.data.xm1 + '&buyersPhone=' + this.data.sj1 + '&orderStatus=1' + "&effectiveDate=" + this.data.time + '&scenicSpotId=' + this.data.sceId).then(res => {
-    
-         var scid= res.data.scenicOrderId
-       
+         if(res.isSuc==true){
+
+        var scid = res.data.scenicOrderId
+
         api._post('/QianYi_Shop/pay/wechat/createOrder?orderId=' + res.data.scenicOrderId + '&type=1' + '&tradeType=JSAPI&openid=' + openid)
           .then(res => {
             console.log(res)
@@ -140,11 +141,21 @@ Page({
           }).catch(e => {
             console.log(e)
           })
+    
+         }else{
+           wx.showToast({
+             title: res.msg,
+             icon:'none'
+           })
+         }
+       
+
 
 
       }).catch(e => {
         console.log(e)
       })
+
     }
 
 

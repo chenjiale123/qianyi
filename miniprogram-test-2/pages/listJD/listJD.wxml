@@ -1,7 +1,7 @@
 <view class="whole">
 
 <view class="contail">
-    <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{jindian!==null}}">
+    <!-- <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{jindian!==null}}">
       <image src='{{api}}{{shit[index]}}'></image>
       <view class='right'>
         <text class='title'>{{item.scenicName}}</text>
@@ -21,8 +21,58 @@
         </view>
         <text class='ka'>随买随用</text>
       </view>
+    </view> -->
+
+  <view class='techan' wx:for="{{jindian}}" >
+      <text class="title">{{item.scenicName}}</text>
+      <view class="ship">
+        <view class="tp" bindtap='detail' data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
+          <image src="{{api}}{{item.pictureCover}}"></image>
+        </view>
+
+        <view class="sp" style="display: {{ _index == index ? 'none' : 'block' }};" bindtap="videoPlay" data-id="{{index}}">
+
+          <view class="video-cover-box">
+            <image class="video-image" src="{{api}}{{item.videoCover}}" mode="aspectFit">
+            </image>
+
+          </view>
+          <image src="../../image/dddplay@2x.png"></image>
+        </view>
+        <!-- 视频播放层 -->
+        <video src="{{api}}{{item.videoUrl}}" data-id="{{index}}" class='video' wx:if="{{_index == index}}" objectFit='contain' autoplay='true' controls></video>
+
+
+      </view>
+      <view class="js">
+        <view class="jg">
+      
+          <text class="sj">￥{{item.ticketPrice}}</text> 起
+              <text class='ka' wx-if="{{item.sloganType==1}}">随买随用</text>
+             <text class='ka1' wx-if="{{item.sloganType==0}}">随时退</text>
+       
+        </view>
+        <view class="df">
+     
+               {{item.locationName}} |  <text>评分{{item.score}} </text>
+        </view>
+
+      </view>
+
     </view>
-      <view class="list1" wx:if="{{jindian==null}}">
+
+
+
+
+
+
+
+
+
+
+
+
+      <view class="techan" wx:if="{{jindian==''}}">
        <image src="../../image/screening@2x.png"></image>
       </view>  
 </view>

@@ -42,7 +42,7 @@
             </view>
             <view class='btn' wx:if="{{item.orderStatus=='待支付'}}">
               <button data-in="{{item.id}}" bindtap="quxiao1"> 取消订单</button>
-              <button class='etc'>支付</button>
+              <button class='etc' >支付</button>
             </view>
             <view class='btn' wx:if="{{item.orderStatus=='用户取消'}}">
               <button bindtap="shanchu1" data-in="{{item.id}}">删除订单</button>
@@ -109,15 +109,15 @@
             </view>
             <view class='btn' wx:if="{{item.orderStatus=='待支付'}}">
               <button data-in="{{item.id}}" bindtap="quxiao"> 取消订单</button>
-              <button class='etc'>支付</button>
+              <button class='etc' data-id="{{item.id}}" bindtap="buy" data-in="{{item}}">支付</button>
             </view>
             <view class='btn' wx:if="{{item.orderStatus=='用户取消'}}">
               <button bindtap="shanchu" data-in="{{item.id}}">删除订单</button>
-              <button class='etc'>再次购买</button>
+              <button class='etc'  bindtap="again">再次购买</button>
             </view>
             <view class='btn' wx:if="{{item.orderStatus=='待发货'}}">
               <button bindtap="tuikuan" data-in="{{index}}" data-id1="{{item.id}}">退款</button>
-              <button>提醒发货</button>
+              <button data-in="{{item.orderNo}}" bindtap="tixing">提醒发货</button>
             </view>
             <view class='btn' wx:if="{{item.orderStatus=='待收货'}}">
               <button bindtap="tuikuan" data-in="{{index}}" data-id1="{{item.id}}">退款</button>

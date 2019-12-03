@@ -1,11 +1,19 @@
+Page{
+    width: 100%;
+    height: 100%;
+  background:rgba(242,242,242,1);
+
+}
 .whole{
   background:rgba(242,242,242,1);
   width: 100%;
+  height: 100%;
 }
 .bj{
   background: #fff;
   /* margin-top: 20rpx; */
   width: 100%;
+
   
 }
 .bj1{
@@ -47,7 +55,6 @@ margin-right: 57rpx;
 font-size: 36rpx;
 color:#1a1a1a;
 border-bottom: 5rpx solid rgba(61,179,163,1);
-box-shadow:0rpx 6rpx 20rpx 0rpx rgba(144,240,169,0.5);
 
 
 

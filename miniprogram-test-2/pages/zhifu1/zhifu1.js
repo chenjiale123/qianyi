@@ -1,4 +1,6 @@
 const api = require('../../utils/api.js')
+var util = require('../../utils/md5.js')
+
 // pages/zhifu/zhifu.js
 Page({
 
@@ -45,6 +47,79 @@ Page({
       })
     }
 
+  },
+  pay:function(){
+    var that = this
+    var openid = wx.getStorageSync('openid')
+    api._post('/QianYi_Shop/pay/wechat/createOrder?orderId=' + this.data.id + '&type=1' + '&tradeType=JSAPI&openid=' + openid)
+      .then(res => {
+        console.log(res)
+        that.setData({
+          appid: res.appId,
+          timestamp: res.timestamp,
+          noncestr: res.noncestr,
+          package: res.package,
+          sign: res.sign
+        })
+        console.log(res)
+        var sting = "appId=" + res.appId + "&nonceStr=" + res.noncestr + "&package=prepay_id=" + res.prepayid + "&signType=MD5&timeStamp=" + res.timestamp.toString() + "&key=qwertyuiopasdfghjklzxcvbnm123456"
+        wx.requestPayment({
+          'appId': res.appId,
+          'timeStamp': res.timestamp.toString(),
+          'nonceStr': res.noncestr,
+          'package': 'prepay_id=' + res.prepayid,
+          'signType': 'MD5',
+          'paySign': util.hexMD5(sting).toUpperCase(),
+          'success': function (res) {
+
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(res)
+            wx.navigateTo({
+              url: '/pages/success1/success1?price=' + e.currentTarget.dataset.in,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          },
+          'fail': function (res) {
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(sting)
+            wx.navigateTo({
+              url: '/pages/zhifu1/zhifu1?id=' + scid,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+
+          },
+          'complete': function (res) { }
+        })
+      }).catch(e => {
+        console.log(e)
+      })
+
+
+
+  },
+  quxiao: function () {
+    api._post('/QianYi/updateScenicOrder?orderId=' + this.data.id + '&orderStauts=2').then(res => {
+      console.log(res)
+      if (res.isSuc == true) {
+        wx.showToast({
+          title: '取消订单成功',
+          icon: 'success'
+        })
+      } else {
+        wx.showToast({
+          title: res.msg,
+          icon: 'none'
+        })
+      }
+      this.onLoad()
+
+    }).catch(e => {
+      console.log(e)
+    })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -47,7 +47,7 @@
                       <text class='com'>使用时间：当地时间{{item.scenicSpotWithBLOBs.createDate}}</text>
                     </view>
                     <view class='right2'>
-                      <text class='num1'>{{item.scenicSpotWithBLOBs.ticketPrice}}</text>
+                      <text class='num1'>￥{{item.scenicSpotWithBLOBs.ticketPrice}}</text>
                       <text class='num2'>x{{item.ticketNum}}</text>
                     </view>
                   </view>
@@ -62,7 +62,7 @@
                       <text class='com'>使用时间：当地时间{{item.scenicSpotWithBLOBs.createDate}}</text>
                     </view>
                     <view class='right2'>
-                      <text class='num1'>{{item.scenicSpotWithBLOBs.ticketPrice}}</text>
+                      <text class='num1'>￥{{item.scenicSpotWithBLOBs.ticketPrice}}</text>
                       <text class='num2'>x{{item.ticketNum}}</text>
                     </view>
                   </view>
@@ -71,11 +71,11 @@
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待支付'}}">
                   <button data-in="{{item.id}}" bindtap="quxiao"> 取消订单</button>
-                  <button class='etc'>支付</button>
+                  <button class='etc' data-id="{{item.id}}" bindtap="buy" data-in="{{item}}">支付</button>
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='用户取消'}}">
                   <button bindtap="shanchu" data-in="{{item.id}}">删除订单</button>
-                  <button class='etc'>再次购买</button>
+                  <button class='etc' bindtap="again" data-in="{{item.id}}">再次购买</button>
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待评价'}}">
                   <button bindtap="tuikuan" data-in="{{index}}" data-id1="{{item.id}}">退款</button>

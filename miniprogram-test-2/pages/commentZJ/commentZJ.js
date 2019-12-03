@@ -174,7 +174,7 @@ Page({
 
 
     wx.request({
-      url: 'https://dev.app.qianyipan.com/QianYi_Shop/insertBatchShopComments?orderId=' + this.data.ding1 + '&type=2',
+      url: api.baseUrl+'/QianYi_Shop/insertBatchShopComments?orderId=' + this.data.ding1 + '&type=2',
 
 
       method: "POST",

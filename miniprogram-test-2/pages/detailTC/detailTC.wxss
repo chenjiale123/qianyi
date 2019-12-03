@@ -293,6 +293,12 @@ top: -6rpx;
 .introIn>.title>.left{
   float: left;
   width: 80%;
+  height: 100rpx;
+  display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden;
+
 }
 .introIn>.title>.left>image{
   width:54rpx;

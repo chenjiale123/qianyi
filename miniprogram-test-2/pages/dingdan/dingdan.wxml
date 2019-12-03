@@ -70,7 +70,7 @@
             <view class="youhuiIn" wx:if="{{unable.length==0}}">
             <image src="http://dev.static.qianyipan.com/image/jpg/wukajuan@2x.png"></image>
             </view>
-           <!-- <button bindtap="srue">确定</button> -->
+           <button bindtap="srue">确定</button>
           </view>
              
         </swiper-item>

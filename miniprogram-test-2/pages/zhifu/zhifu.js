@@ -1,4 +1,6 @@
 const api = require('../../utils/api.js')
+var util = require('../../utils/md5.js')
+
 Page({
 
   /**
@@ -13,6 +15,62 @@ Page({
     countdown: '',
     endDate2: new Date().getTime()+1800000,
     id:''
+  },
+
+
+  pay:function(){
+var that=this
+    var openid = wx.getStorageSync('openid')
+    api._post('/QianYi_Shop/pay/wechat/createOrder?orderId=' + this.data.id + '&type=0' + '&tradeType=JSAPI&openid=' + openid)
+      .then(res => {
+        console.log(res)
+        that.setData({
+          appid: res.appId,
+          timestamp: res.timestamp,
+          noncestr: res.noncestr,
+          package: res.package,
+          sign: res.sign
+        })
+        console.log(res)
+        var sting = "appId=" + res.appId + "&nonceStr=" + res.noncestr + "&package=prepay_id=" + res.prepayid + "&signType=MD5&timeStamp=" + res.timestamp.toString() + "&key=qwertyuiopasdfghjklzxcvbnm123456"
+        wx.requestPayment({
+          'appId': res.appId,
+          'timeStamp': res.timestamp.toString(),
+          'nonceStr': res.noncestr,
+          'package': 'prepay_id=' + res.prepayid,
+          'signType': 'MD5',
+          'paySign': util.hexMD5(sting).toUpperCase(),
+          'success': function (res) {
+
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(res)
+            console.log(goods)
+
+            wx.navigateTo({
+              url: '/pages/success1/success1?price=' + that.data.price1,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          },
+          'fail': function (res) {
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(sting)
+            console.log(goods)
+            wx.navigateTo({
+              url: '/pages/zhifu/zhifu?id=' + spid,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+
+          },
+          'complete': function (res) { }
+        })
+      }).catch(e => {
+        console.log(e)
+      })
+
   },
   countTime() {
     var that = this;
@@ -81,7 +139,9 @@ Page({
 
     var id = JSON.parse(options.id) 
    
-   
+   this.setData({
+     id:id
+   })
     api._get('/QianYi_Shop/selectOrderInfo?id=' + id).then(res => {
       console.log(res)
      this.setData({

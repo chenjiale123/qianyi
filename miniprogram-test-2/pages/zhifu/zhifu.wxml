@@ -58,7 +58,7 @@
     <view class='centerli3'>
       <text bindtap="quxiao">取消订单</text>
       <text open-type='contact'>联系客服</text>
-      <button>付款</button>
+      <button bindtap="pay">付款</button>
     </view>
   </view>
 

@@ -95,7 +95,7 @@
     <button bindtap="dingdan1" class="dingdan1">删除</button>
 
   </view>
-  <view class='love'>
+  <!-- <view class='love'>
     <text>猜你喜欢</text>
     <image src='../../image/tab@2x.png'></image>
     <view class='li' wx:for="{{goodsList}}" wx:key="goodsList" bindtap="detail" data-id="{{item.id}}" data-in="{{item}}">
@@ -104,7 +104,7 @@
       <text class="price">￥{{item.discountPrice}}</text>
     </view>
 
-  </view>
+  </view> -->
 </view>
 
 <view class="whole" wx:if='{{dl}}'>

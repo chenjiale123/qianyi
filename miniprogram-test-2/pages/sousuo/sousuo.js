@@ -72,21 +72,40 @@ Page({
     console.log('111')
   },
   show: function(e) {
+    var that=this
     this.setData({
       com: false
     })
     var userId = wx.getStorageSync('user').loginId || 0
     console.log(e.detail.value)
-    api._post('/QianYi/selectHomeSearchBykeyword?keyword=' + e.detail.value + '&type=1&page=1&userId='+userId).then(res => {
-      console.log(res)
-      this.setData({
-        goodsList: res.data.goodsList,
 
-      })
+    api._get('/QianYi/selectAppVersion?device=3').then(res => {
+
+      if (res.data[0].version == 2) {
+
+
+      } else {
+
+        api._post('/QianYi/selectHomeSearchBykeyword?keyword=' + e.detail.value + '&type=1&page=1&userId=' + userId).then(res => {
+          console.log(res)
+          that.setData({
+            goodsList: res.data.goodsList,
+
+          })
+
+        }).catch(e => {
+          console.log(e)
+        })
+
+      }
 
     }).catch(e => {
       console.log(e)
     })
+
+
+
+
     var that = this
     var inputVal = e.detail.value
     var searchRecord = this.data.searchRecord
@@ -122,17 +141,34 @@ Page({
     that.setData({
       api: api.url
     })
-    api._post('/QianYi/selectHomeTopSearch?type=1&page=1').then(res => {
-      console.log(res)
-      this.setData({
-        hot: res.data.hotSearchList,
 
-      })
+    api._get('/QianYi/selectAppVersion?device=3').then(res => {
+
+      if (res.data[0].version == 2) {
+
+
+      } else {
+        api._post('/QianYi/selectHomeTopSearch?type=1&page=1').then(res => {
+          console.log(res)
+          this.setData({
+            hot: res.data.hotSearchList,
+
+          })
+
+        }).catch(e => {
+          console.log(e)
+        })
+        this.openHistorySearch()
+
+      }
 
     }).catch(e => {
       console.log(e)
     })
-    this.openHistorySearch()
+
+
+
+  
   },
 
   /**

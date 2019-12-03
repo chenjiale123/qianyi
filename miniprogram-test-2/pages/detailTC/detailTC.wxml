@@ -196,7 +196,7 @@
       <button class="btn4" bindtap="tz">查看全部评价</button>
     </view>
   </view>
-  <view class='see'>
+  <!-- <view class='see'>
     <view class='seeIn'>
       <text>大家都在看</text>
       <view class='list'>
@@ -212,7 +212,7 @@
         上拉查看图文详情
       </button>
     </view>
-  </view>
+  </view> -->
   <view class="bottom" wx:if="{{show}}">
     <import src="../../wxParse/wxParse.wxml" />
     <template is="wxParse" data="{{wxParseData:article.nodes}}" />

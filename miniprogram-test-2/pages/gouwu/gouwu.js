@@ -19,6 +19,7 @@ Page({
     array:[] ,
     she:false //结算价格
   },
+
   detail: function (e) {
     var index = parseInt(e.currentTarget.dataset.index);
 
@@ -52,6 +53,7 @@ Page({
       jiage: true,
       show: true
     })
+    this.getTotalPrice()
   },
 
   // 购物车+

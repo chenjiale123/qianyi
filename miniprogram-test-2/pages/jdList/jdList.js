@@ -1,4 +1,5 @@
 const api = require('../../utils/api.js')
+var util = require('../../utils/md5.js')
 
 Page({
 
@@ -12,6 +13,84 @@ Page({
     jindian3: '',
     jindian4: '',
      leng:''
+
+  },
+  again: function (e) {
+    wx.navigateTo({
+      url: '/pages/detail/detail/id=' + e.currentTarget.dataset.in,
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+
+  buy: function (e) {
+    var that = this
+    console.log(e.currentTarget.dataset.id)
+    var openid = wx.getStorageSync('openid')
+    var can = {
+      orderId: e.currentTarget.dataset.id,
+      type: 1,
+      tradeType: "JSAPI",
+      openid: openid
+    }
+
+
+
+    wx.request({
+      url: api.baseUrl + '/QianYi_Shop/pay/wechat/createOrder',
+      method: 'POST',
+      data: can,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: (res) => {
+
+        console.log(res.data.appId)
+        var sting = "appId=" + res.data.appId + "&nonceStr=" + res.data.noncestr + "&package=prepay_id=" + res.data.prepayid + "&signType=MD5&timeStamp=" + String(res.data.timestamp) + "&key=qwertyuiopasdfghjklzxcvbnm123456"
+        wx.requestPayment({
+          'appId': res.data.appId,
+          'timeStamp': String(res.data.timestamp),
+          'nonceStr': res.data.noncestr,
+          'package': 'prepay_id=' + res.data.prepayid,
+          'signType': 'MD5',
+          'paySign': util.hexMD5(sting).toUpperCase(),
+          'success': function (res) {
+
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(res)
+            wx.navigateTo({
+              url: '/pages/success1/success1',
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+          },
+          'fail': function (res) {
+            console.log(util.hexMD5(sting).toUpperCase())
+            console.log(sting)
+            console.log(e.currentTarget.dataset.in)
+            wx.navigateTo({
+              url: '/pages/zhifu1/zhifu1?id=' + e.currentTarget.dataset.id ,
+              success: function (res) { },
+              fail: function (res) { },
+              complete: function (res) { },
+            })
+
+          },
+          'complete': function (res) { }
+        })
+
+
+      },
+      fail: (err) => {
+        console.log(err)
+      }
+    })
+
+
+
+
 
   },
   zhifu: function (e) {

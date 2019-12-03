@@ -11,41 +11,45 @@
 
     </picker>
 
-
     <image class='xiala' src='../../image/xiala@2x.png'></image>
 
     <image src='../../image/sousuo01@2x.png' class='sousuo'></image>
     <input placeholder='景点/门票' bindfocus="sousuo1"></input>
 
   </view>
-  <view class="dd">
-    <view class="biaoqian">
-      热门标签:
-      <text wx:for="{{list}}" bindtap="cleck" data-in="{{item.scenicName}}">{{item.scenicName}}</text>
-      <!-- <text>三叠泉</text>
-    <text>西海温泉</text> -->
+  <swiper class="lunbo" autoplay="true">
+    <swiper-item wx:for="{{data1}}" wx:key="data1">
+      <image src='{{api}}{{item.picture}}'></image>
+    </swiper-item>
+    <view class="idea">
+      <view class="ripple" style="{{rippleStyle}}"></view>
+      <view class="container" bindtap="containerTap"></view>
     </view>
-  </view>
+  </swiper>
   <view class='icon'>
-    <view bindtap="fg">
-      <image src='../../image/ziran@2x.png'></image>
+    <view bindtap="ms">
+      <image src='../../image/msgj@2x.png'></image>
+      <text>名胜古迹</text>
+    </view>
+    <view bindtap="zr">
+      <image src='../../image/zrfg@2x.png'></image>
       <text>自然风光</text>
     </view>
     <view bindtap="wq">
-      <image src='../../image/wenquan@2x.png'></image>
-      <text>温泉</text>
+      <image src='../../image/wqly@2x.png'></image>
+      <text>温泉疗养</text>
     </view>
-    <view bindtap="ms">
-      <image src='../../image/guji@2x.png'></image>
-      <text>名胜古迹</text>
+    <view bindtap="qz">
+      <image src='../../image/qztl@2x.png'></image>
+      <text>亲子同乐</text>
     </view>
-    <view bindtap="ylc">
-      <image src='../../image/youlechang@2x.png'></image>
-      <text>公园游乐场</text>
+    <view bindtap="wh">
+      <image src='../../image/whdk@2x.png'></image>
+      <text>网红打卡</text>
     </view>
-    <view bindtap="zjy">
-      <image src='../../image/zijia@2x.png'></image>
-      <text>自驾出游</text>
+       <view bindtap="tj">
+      <image src='../../image/tjhd@2x.png'></image>
+      <text>特价活动</text>
     </view>
   </view>
 
@@ -56,54 +60,55 @@
       <image src='../../image/huanyipi@2x.png'></image>
       <text>换一批</text>
     </view>
-    <view class='list' wx:for="{{jindian}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if='{{jindian!=null&&find}}'>
-      <image src='{{api}}{{item.pictureCover}}'></image>
-      <view class='right'>
-        <view class="xiu">
-          <text class='title'>{{item.scenicName}}</text>
-          <view class='fw'>自然风光</view>
+
+
+
+  <view class='techan' wx:for="{{jindian}}" >
+      <text class="title">{{item.scenicName}}</text> <text class="state" wx:if="{{item.stauts==-1}}">未开放</text>
+      <text class="state" wx:if="{{item.stauts==1}}">开放中</text>
+      <view class="ship">
+        <view class="tp" bindtap='detail' data-index="{{index}}" data-id="{{item.id}}" data-in="{{item}}">
+          <image src="{{api}}{{item.pictureCover}}"></image>
         </view>
 
-        <view class='fen'>
-          <image src='../../image/pingfen01@2x.png' wx:for="{{item.score}}" wx:key="item.score"></image>
-          <text class='pinfen'>{{item.score}}分</text>
-        </view>
+        <view class="sp" style="display: {{ _index == index ? 'none' : 'block' }};" bindtap="videoPlay" data-id="{{index}}">
 
-        <view class='intro'>
-          <text>{{item.distance/1000}}km</text>
-          <text>{{item.city}}</text>
+          <view class="video-cover-box">
+            <image class="video-image" src="{{api}}{{item.videoCover}}" mode="aspectFit">
+            </image>
+
+          </view>
+          <image src="../../image/dddplay@2x.png"></image>
         </view>
-        <view class='price' bindtap='price'>
-          <text class='small'>￥</text>
-          <text class='big'>{{item.ticketPrice}}</text>
-        </view>
-        <text class='ka'>随买随用</text>
+        <!-- 视频播放层 -->
+        <video src="{{api}}{{item.videoUrl}}" data-id="{{index}}" class='video' wx:if="{{_index == index}}" objectFit='contain' autoplay='true' controls></video>
+
+
       </view>
-    </view>
-    <view class='list' wx:for="{{goodsList1}}" wx:key="jindian" bindtap="detail" data-id="{{item.id}}" wx:if="{{!find}}">
-      <image src='{{api}}{{item.pictureCover}}'></image>
-      <view class='right'>
-        <view class="xiu">
-          <text class='title'>{{item.scenicName}}</text>
-          <view class='fw'>自然风光</view>
+      <view class="js">
+        <view class="jg">
+       
+          <text class="sj">￥{{item.ticketPrice}}</text>  起
+              <text class='ka' wx-if="{{item.sloganType==1}}">随买随用</text>
+             <text class='ka1' wx-if="{{item.sloganType==0}}">随时退</text>
+       
         </view>
-        <view class='fen'>
-          <image src='../../image/pingfen01@2x.png' wx:for="{{item.score}}" wx:key="item.score"></image>
-          <text class='pinfen'>{{item.score}}分</text>
+        <view class="df">
+      
+          {{item.locationName}} |  <text>评分{{item.score}} </text>
         </view>
 
-        <view class='intro'>
-          <text>{{item.distance/1000}}km</text>
-          <text>{{item.city}}</text>
-        </view>
-        <view class='price' bindtap='price'>
-          <text class='small'>￥</text>
-          <text class='big'>{{item.ticketPrice}}</text>
-        </view>
-        <text class='ka' wx-if="{{item.sloganType==1}}">随买随用</text>
-             <text class='ka' wx-if="{{item.sloganType==0}}">随时退</text>
       </view>
+
     </view>
+
+
+
+
+
+
+
+
      <view class="list1" wx:if="{{jindian==null}}">
        <image src="../../image/screening@2x.png"></image>
       </view>  

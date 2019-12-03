@@ -9,7 +9,7 @@
 }
 .contain image{
   width: 180rpx;
-  height: 120rpx;
+  height: 180rpx;
   display: block;
   margin: 0 auto;
   margin-top: 120rpx;

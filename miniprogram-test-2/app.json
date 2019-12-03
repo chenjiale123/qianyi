@@ -1,6 +1,10 @@
 {
   "pages": [
-    "pages/index/index",
+      "pages/index/index",
+    "pages/a/a",
+  
+    "pages/ticktor/ticktor",
+    
     "pages/login/login",
     "pages/loginway/loginway",
     "pages/wuliu/wuliu",
@@ -9,7 +13,6 @@
     "pages/miaosha/miaosha",
     "pages/news/news",
     "pages/newsdetail/newsdetail",
-    "pages/ticktor/ticktor",
     "pages/mine/mine",
     "pages/pingjia/pingjia",
     "pages/comment/comment",

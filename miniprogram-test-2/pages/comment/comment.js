@@ -169,7 +169,7 @@ submit:function(){
 
 
   wx.request({
-    url: 'https://dev.app.qianyipan.com/QianYi_Shop/insertBatchShopComments?orderId=' + this.data.ding1 + '&type=1',
+    url: api.baseUrl+'/QianYi_Shop/insertBatchShopComments?orderId=' + this.data.ding1 + '&type=1',
 
     method: "POST",
     data: that.data.com,

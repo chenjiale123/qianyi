@@ -6,7 +6,6 @@
           <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab" data-id="4">全部
           </view>
           <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab" data-id="-2">待付款
-
           </view>
           <view class="swiper-tab-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab" data-id="0">待发货
 
@@ -53,11 +52,11 @@
                       <text class='com'>{{item.goodsSpecnames}}</text>
                     </view>
                     <view class='right2'>
-                      <text class='num1'>{{item.goodsRealPrice}}</text>
+                      <text class='num1'>￥{{item.goodsRealPrice}}</text>
                       <text class='num2'>x{{item.goodsNum}}</text>
                     </view>
                   </view>
-                  <text class='all'>合计：{{item.realTotalMoney}} 共{{item.goodsSum}}件商品</text>
+                  <text class='all'>合计：￥{{item.realTotalMoney}} 共{{item.goodsSum}}件商品</text>
                   <text class='all'></text>
                 </view>
                       <view class="intop" bindtap="zhifu" data-id="{{item.id}}" wx:if="{{item.orderStatus=='待支付'}}" data-in="{{index}}">
@@ -68,11 +67,11 @@
                       <text class='com'>{{item.goodsSpecnames}}</text>
                     </view>
                     <view class='right2'>
-                      <text class='num1'>{{item.goodsRealPrice}}</text>
+                      <text class='num1'>￥{{item.goodsRealPrice}}</text>
                       <text class='num2'>x{{item.goodsNum}}</text>
                     </view>
                   </view>
-                  <text class='all'>合计：{{item.realTotalMoney}} 共{{item.goodsSum}}件商品</text>
+                  <text class='all'>合计：￥{{item.realTotalMoney}} 共{{item.goodsSum}}件商品</text>
                   <text class='all'></text>
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待支付'}}">
@@ -81,7 +80,7 @@
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='用户取消'}}">
                   <button bindtap="shanchu" data-in="{{item.id}}">删除订单</button>
-                  <button class='etc'>再次购买</button>
+                  <button class='etc' bindtap="again" data-in="{{item.id}}">再次购买</button>
                 </view>
                 <view class='btn' wx:if="{{item.orderStatus=='待发货'}}">
                   <button bindtap="tuikuan" data-in="{{index}}" data-id1="{{item.id}}">退款</button>
